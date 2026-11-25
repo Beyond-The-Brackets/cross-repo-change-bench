@@ -1,0 +1,201 @@
+{
+ "schema_version": 1,
+ "system": "nasa-cfs",
+ "changes": [
+  {
+   "id": "F01",
+   "producer": {
+    "repo": "osal",
+    "commit": "7e34a2c2242d6e75a75d5479ea65ca2aeac5cea2",
+    "date": "2021-01-14T16:47:17-05:00",
+    "subject": "Fix #429, update OS_time_t definition to 64-bit ticks",
+    "url": "https://github.com/nasa/osal/commit/7e34a2c2242d6e75a75d5479ea65ca2aeac5cea2",
+    "parent": "bfca5b21f5fc2032505256fc67ae974f53a2a319"
+   },
+   "kind": "field",
+   "symbols": [
+    "microsecs"
+   ],
+   "cases": [
+    {
+     "id": "F01-cFE",
+     "consumer": "cFE",
+     "fix_commit": "119e3e60e79b28ea702415264be3baec8b54a1db",
+     "fix_date": "2021-01-04T13:24:30-05:00",
+     "fix_subject": "Fix #1051, use OSAL time conversion/access methods",
+     "url": "https://github.com/nasa/cFE/commit/119e3e60e79b28ea702415264be3baec8b54a1db",
+     "files": [
+      "fsw/cfe-core/src/es/cfe_es_backgroundtask.c",
+      "fsw/cfe-core/src/time/cfe_time_utils.c",
+      "fsw/cfe-core/unit-test/ut_support.c"
+     ],
+     "evidence": "direct"
+    },
+    {
+     "id": "F01-PSP",
+     "consumer": "PSP",
+     "fix_commit": "30bc10fb0e3a8b3a6f61018e4a8999c44679923d",
+     "fix_date": "2021-01-04T15:42:41-05:00",
+     "fix_subject": "Fix #227, Use OSAL time conversion/access methods",
+     "url": "https://github.com/nasa/PSP/commit/30bc10fb0e3a8b3a6f61018e4a8999c44679923d",
+     "files": [
+      "fsw/mcp750-vxworks/src/cfe_psp_timer.c",
+      "fsw/pc-linux/src/cfe_psp_timer.c",
+      "fsw/pc-rtems/src/cfe_psp_timer.c",
+      "ut-stubs/ut_psp_stubs.c"
+     ],
+     "evidence": "direct"
+    },
+    {
+     "id": "F01-SBN",
+     "consumer": "SBN",
+     "fix_commit": "9bd0d7a3507bd957ebbc1321f02ddd6ae50abebc",
+     "fix_date": "2021-02-08T20:35:46-05:00",
+     "fix_subject": "adding Spacecraft ID to SBN peers and making tables reloadable",
+     "url": "https://github.com/nasa/SBN/commit/9bd0d7a3507bd957ebbc1321f02ddd6ae50abebc",
+     "files": [
+      "fsw/src/sbn_pack.c"
+     ],
+     "evidence": "later"
+    },
+    {
+     "id": "F01-HS",
+     "consumer": "HS",
+     "fix_commit": "f72c7b106064d1f4f9de6d72fc602e67667dcc05",
+     "fix_date": "2022-05-09T09:48:21-06:00",
+     "fix_subject": "Bulk update for 2.4.0 release, see VDD for change summary",
+     "url": "https://github.com/nasa/HS/commit/f72c7b106064d1f4f9de6d72fc602e67667dcc05",
+     "files": [
+      "fsw/src/hs_custom.c"
+     ],
+     "evidence": "later"
+    }
+   ]
+  },
+  {
+   "id": "F02",
+   "producer": {
+    "repo": "cFE",
+    "commit": "d127a160ca48723359ff610ae3c5b2bb668ad729",
+    "date": "2020-12-08T09:57:43-05:00",
+    "subject": "Fix #1009, Alignment pattern - core updates",
+    "url": "https://github.com/nasa/cFE/commit/d127a160ca48723359ff610ae3c5b2bb668ad729",
+    "parent": "95c25e541777ef3a5c1b632703e6a0306faec5d8"
+   },
+   "kind": "field",
+   "symbols": [
+    "BaseMsg"
+   ],
+   "cases": [
+    {
+     "id": "F02-sch_lab",
+     "consumer": "sch_lab",
+     "fix_commit": "1b5ed8a64a7f4a5325cc47e824d7a9bd18342975",
+     "fix_date": "2020-12-08T10:01:45-05:00",
+     "fix_subject": "Fix #56, Apply message alignment pattern",
+     "url": "https://github.com/nasa/sch_lab/commit/1b5ed8a64a7f4a5325cc47e824d7a9bd18342975",
+     "files": [
+      "fsw/src/sch_lab_app.c"
+     ],
+     "evidence": "direct"
+    },
+    {
+     "id": "F02-sample_app",
+     "consumer": "sample_app",
+     "fix_commit": "4deac06576d947168c9e077742e0446b626ea5f5",
+     "fix_date": "2020-12-03T10:16:47-05:00",
+     "fix_subject": "Fix #110, Apply message alignment pattern",
+     "url": "https://github.com/nasa/sample_app/commit/4deac06576d947168c9e077742e0446b626ea5f5",
+     "files": [
+      "fsw/src/sample_app.c",
+      "unit-test/coveragetest/coveragetest_sample_app.c"
+     ],
+     "evidence": "direct"
+    },
+    {
+     "id": "F02-ci_lab",
+     "consumer": "ci_lab",
+     "fix_commit": "e6d740a04f5be8d877c354692405f057bb9308a9",
+     "fix_date": "2020-11-30T11:04:36-05:00",
+     "fix_subject": "Fix #62, Apply message alignment pattern",
+     "url": "https://github.com/nasa/ci_lab/commit/e6d740a04f5be8d877c354692405f057bb9308a9",
+     "files": [
+      "fsw/src/ci_lab_app.c"
+     ],
+     "evidence": "direct"
+    },
+    {
+     "id": "F02-to_lab",
+     "consumer": "to_lab",
+     "fix_commit": "3f7e1df5ae6bf8a8b29a54541d6caea02dfc36f6",
+     "fix_date": "2020-11-30T11:05:34-05:00",
+     "fix_subject": "Fix #66, Implement message alignment pattern",
+     "url": "https://github.com/nasa/to_lab/commit/3f7e1df5ae6bf8a8b29a54541d6caea02dfc36f6",
+     "files": [
+      "fsw/src/to_lab_app.c"
+     ],
+     "evidence": "direct"
+    }
+   ]
+  },
+  {
+   "id": "F03",
+   "producer": {
+    "repo": "cFE",
+    "commit": "777feec3ac9da50ccdabf4541ffb3cc88b752199",
+    "date": "2024-02-13T13:57:49-05:00",
+    "subject": "Fix #2514, change CFE_MSG_Message from union to struct",
+    "url": "https://github.com/nasa/cFE/commit/777feec3ac9da50ccdabf4541ffb3cc88b752199",
+    "parent": "8cdad66e4eafd11c2ea93d0360867045b77fa981"
+   },
+   "kind": "field",
+   "symbols": [
+    "Byte"
+   ],
+   "cases": [
+    {
+     "id": "F03-EdsLib",
+     "consumer": "EdsLib",
+     "fix_commit": "147dc08653cfedf8b937a172e74726182733d982",
+     "fix_date": "2024-02-29T09:47:12-05:00",
+     "fix_subject": "Fix #85, updates to struct/typedef names",
+     "url": "https://github.com/nasa/EdsLib/commit/147dc08653cfedf8b937a172e74726182733d982",
+     "files": [
+      "cfecfs/edsmsg/fsw/inc/cfe_msg_hdr_eds.h",
+      "cfecfs/edsmsg/fsw/src/cfe_msg_dispatcher.c"
+     ],
+     "evidence": "direct"
+    }
+   ]
+  },
+  {
+   "id": "F04",
+   "producer": {
+    "repo": "cFE",
+    "commit": "856367951848fdf00a3985144765edb6b13b0e61",
+    "date": "2020-08-14T10:48:52-04:00",
+    "subject": "Fix #711, Update SB/CCSDS FSW for msg module",
+    "url": "https://github.com/nasa/cFE/commit/856367951848fdf00a3985144765edb6b13b0e61",
+    "parent": "d3a073e90cbb6f8529f468c751b144138973bb26"
+   },
+   "kind": "field",
+   "symbols": [
+    "SpacePacket"
+   ],
+   "cases": [
+    {
+     "id": "F04-SBN",
+     "consumer": "SBN",
+     "fix_commit": "777d2462f6e82610c9984929c8f6f8cab453c6b0",
+     "fix_date": "2020-08-31T17:03:15-07:00",
+     "fix_subject": "fixes for msg module",
+     "url": "https://github.com/nasa/SBN/commit/777d2462f6e82610c9984929c8f6f8cab453c6b0",
+     "files": [
+      "unit-test/coveragetest/coveragetest_sbn_cmds.c"
+     ],
+     "evidence": "direct"
+    }
+   ]
+  }
+ ]
+}

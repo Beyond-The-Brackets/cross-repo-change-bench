@@ -29,6 +29,7 @@
             "UT_Stub_CheckForceFail"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             135

@@ -1,0 +1,215 @@
+{
+  "producer": "cFE",
+  "base": "8cdad66e4eafd11c2ea93d0360867045b77fa981",
+  "head": "777feec3ac9da50ccdabf4541ffb3cc88b752199",
+  "symbols": [
+    {
+      "name": "Byte",
+      "status": "removed",
+      "kind": "member",
+      "of": [
+        "CFE_MSG_Message"
+      ],
+      "headers": [
+        "modules/msg/option_inc/default_cfe_msg_hdr_pri.h",
+        "modules/msg/option_inc/default_cfe_msg_hdr_priext.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "modules/core_api/fsw/inc/cfe_msg_api_typedefs.h",
+    "modules/msg/option_inc/default_cfe_msg_hdr_pri.h",
+    "modules/msg/option_inc/default_cfe_msg_hdr_priext.h"
+  ],
+  "consumers": [
+    {
+      "repo": "EdsLib",
+      "sha": "cf0616683bdfdd2156c1135e0b73e27fb69466c7",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "cfecfs/edsmsg/fsw/inc/cfe_msg_hdr_eds.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "cfecfs/edsmsg/fsw/src/cfe_msg_dispatcher.c",
+          "symbols": [
+            "Byte"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [
+            "Byte"
+          ],
+          "mentioned": [],
+          "lines": [
+            123
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "cfecfs/missionlib/python/src/cfe_missionlib_python_database.c",
+          "symbols": [
+            "Byte"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [
+            "Byte"
+          ],
+          "mentioned": [],
+          "lines": [
+            427
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "cfecfs/util/cmdUtil.c",
+          "symbols": [
+            "Byte"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [
+            "Byte"
+          ],
+          "mentioned": [],
+          "lines": [
+            269,
+            608,
+            631
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "cfecfs/util/tlm_decode.c",
+          "symbols": [
+            "Byte"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [
+            "Byte"
+          ],
+          "mentioned": [],
+          "lines": [
+            182,
+            198,
+            208,
+            215
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "edslib/fsw/inc/edslib_api_types.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "tool/src/seds_memreq.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "FM",
+      "sha": "f0337528eb122b4f3551e772607bcd76d0e2743f",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/inc/fm_msg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "LC",
+      "sha": "b8769cd3c69d4b7ad42364246c9fbc52af1c0c49",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "config/default_lc_tblstruct.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "osal",
+      "sha": "403ebba579e41f0f5832b3619de8788973e0cb63",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "src/os/inc/osapi-file.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Byte"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

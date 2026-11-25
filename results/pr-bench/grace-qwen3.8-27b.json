@@ -1,0 +1,247 @@
+{
+ "https://github.com/calcom/cal.com/pull/10600": {
+  "tool": "grace-qwen3.8-27b",
+  "pr_url": "https://github.com/calcom/cal.com/pull/10600",
+  "review_comments": [
+   {
+    "path": "packages/features/auth/lib/next-auth-options.ts",
+    "line": 141,
+    "body": "**High \u2014 Backup codes with uppercase letters are rejected**\n\nCAUSE: Backup codes are generated as lowercase hex via `crypto.randomBytes(5).toString(\"hex\")` (setup.ts line 61), but the comparison at line 141 (`backupCodes.indexOf(credentials.backupCode.replaceAll(\"-\", \"\"))`) does not lowercase the user-supplied value. The same defect exists in disable.ts line 62. About 90% of generated codes contain at least one letter (a\u2013f), and mobile keyboards with autocapitalize routinely produce mixed-case input. IMPACT: A legitimate user who enters their backup code with even one uppercase letter (e.g. \"Abc12Def34\" instead of \"abc12def34\") is rejected with 'Backup code is incorrect' and cannot regain access to their account. This is not a theoretical edge case\u2014it is the default behavior on iOS/Android keyboards. RECOMMENDATION: Add `.toLowerCase()` to the user-supplied code before comparison in both next-auth-options.ts and disable.ts, e.g. `credentials.backupCode.replaceAll(\"-\", \"\").toLowerCase()`.\n\nA user who types their backup code with even one capital letter is told the code is wrong and is locked out of their account until someone else resets it.\n\nUsers can type their backup code however their keyboard wants and still get in."
+   },
+   {
+    "path": "packages/features/auth/lib/next-auth-options.ts",
+    "line": 144,
+    "body": "**Medium \u2014 Two people can spend the same backup code**\n\nCAUSE: The backup-code consumption is a non-atomic read-modify-write: the user row is fetched at the top of `authorize` (line 86), the code array is decrypted and searched in memory, the matched slot is set to null, and the whole array is written back with a plain `prisma.user.update` (line 144) that has no WHERE clause on the previous value and no transaction. Under concurrent requests for the same user, two requests can read the same array, both find their code, and both write back\u2014so (a) the same code is consumed twice, or (b) a concurrent write for a different code overwrites the first write and silently restores the already-consumed code. IMPACT: The UI promise 'Each backup code can be used exactly once' is violated. An attacker who obtains one code (e.g. from a shoulder-surf or a logged response) can race the legitimate user to use it; more practically, a double-submit or a browser retry can consume a code the user still needs, or resurrect a code that was already used. RECOMMENDATION: Wrap the read-check-write in a Prisma interactive transaction with `SELECT ... FOR UPDATE` on the user row (or use a conditional update that only succeeds if the stored value still matches the expected ciphertext), so a second concurrent attempt sees the updated state and rejects.\n\nA backup code that should work exactly once can be used twice, or a code that was already used can quietly come back to life, so an attacker who stole one code can still use it even after you thought it was spent.\n\nEach backup code is truly one-time: once it is used, no one\u2014attacker or you\u2014can use it again."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (38\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 62,
+    "body": "**Low \u2014 This part of the app is easy to break by accident \u2014 passwords and sign-in**\n\nCAUSE: `req.body.backupCode` is accessed and `.replaceAll(\"-\", \"\")` is called on it without verifying it is a string. If a client sends a non-string value (e.g. `{\"backupCode\": 123}` or `{\"backupCode\": {}}`), the method call throws a TypeError, which Next.js surfaces as an unhandled 500. The same pattern exists in next-auth-options.ts but is less reachable because NextAuth parses credentials differently. IMPACT: A malformed or malicious API request to the disable endpoint crashes the handler with a 500 instead of returning a clean 400. This is not exploitable for data access but produces noisy error logs and a poor failure mode. RECOMMENDATION: Guard with `typeof req.body.backupCode !== \"string\"` before calling `.replaceAll`, returning 400 `IncorrectBackupCode` (or a generic 400) for non-string input.\n\nEvery change here costs your team more time than it should, week after week.\n\nBad requests get a clean error message instead of a server crash."
+   },
+   {
+    "path": "apps/web/components/settings/EnableTwoFactorModal.tsx",
+    "line": 93,
+    "body": "**Low \u2014 Backup code download link is not cleaned up when the dialog closes**\n\nCAUSE: `URL.createObjectURL(textBlob)` is called in `handleSetup` (line 93) to build a download link for the backup codes. The URL is only revoked if `handleSetup` is called a second time (line 92: `if (backupCodesUrl) URL.revokeObjectURL(backupCodesUrl)`). There is no `useEffect` cleanup or unmount handler that revokes the URL. When the user closes the modal (via `onCancel` or the dialog's close button) after reaching the backup-codes step, the blob URL is never released. IMPACT: Each abandoned 2FA setup leaks one blob URL in the browser. This is a minor memory leak, not a security issue, but it accumulates if a user repeatedly starts and abandons the 2FA setup flow. RECOMMENDATION: Add a `useEffect` that returns a cleanup function calling `URL.revokeObjectURL(backupCodesUrl)` when the component unmounts or when `backupCodesUrl` changes.\n\nEach time you start the two-factor setup and then close the window without finishing, a small piece of memory in your browser is never released; over many attempts this adds up.\n\nClosing the setup window without finishing no longer leaves stray memory behind in the browser."
+   }
+  ],
+  "meta": {
+   "files_changed": 16,
+   "scope": 44,
+   "seconds": 69,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 15,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3.8-27b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 4,
+    "baseline_findings": 16,
+    "prompt_tokens": 73510,
+    "completion_tokens": 11780,
+    "total_tokens": 85290,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1": {
+  "tool": "grace-qwen3.8-27b",
+  "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1",
+  "review_comments": [
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 182,
+    "body": "**High \u2014 Upload size limit is locked at 10 MB and ignores the admin's setting**\n\nThe client-side upload size check is changed from `Discourse.SiteSettings['max_' + type + '_size_kb']` to the constant `10 * 1024` (10 MB). The server still enforces `SiteSetting.max_image_size_kb`, so the two limits can diverge. If an admin lowers the limit to 5 MB, the client still accepts 10 MB files (the server then silently downsizes them, which the user did not expect). If an admin raises the limit to 50 MB, the client rejects a 15 MB image that the server would have accepted, and the error dialog says the limit is 10 240 KB instead of the real 51 200 KB. The same hardcode is repeated at line 246 for the 413 handler. Admins lose the ability to configure the upload limit without a code deploy.\n\nIf you change the allowed upload size in your admin panel, the website's upload form will not follow\u2014users either get an error that says the wrong number, or they upload a file you never intended to accept.\n\nThe upload size limit you set in the admin panel is the one users actually see and the server actually enforces, so one setting controls everything."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 151,
+    "body": "**High \u2014 An image-resizing function was accidentally redefined, breaking other code that calls it**\n\nTwo `self.downsize` methods are defined in the same class. Ruby uses the last definition, so the 4-argument form `downsize(from, to, max_width, max_height, opts={})` is silently overridden by the 3-argument form `downsize(from, to, dimensions, opts={})`. Any existing caller invoking the old signature (e.g. `OptimizedImage.downsize(a, b, 800, 600)`) will bind `dimensions=800` and `opts=600` (an Integer). Inside `optimize`, the expression `!!opts[:allow_animation]` then calls `Integer#[]`, raising `NoMethodError`. The old method body is dead code that gives a false sense of backward compatibility. The new controller code correctly uses the 3-arg form, but every other call site in the codebase that still passes width and height as separate arguments will crash at runtime.\n\nAny part of the system that asks for an image to be shrunk using the old two-number format (width and height) will crash with an error, potentially blocking thumbnail generation or import scripts.\n\nImage resizing works reliably no matter which calling style is used, so thumbnails and imports stop failing with cryptic errors."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "**High \u2014 A failed image shrink can silently corrupt the uploaded file**\n\nThe new while loop calls `OptimizedImage.downsize(tempfile.path, tempfile.path, \"80%\", \u2026)` with the same path for input and output (in-place conversion). The return value of `downsize` (which returns `false` when ImageMagick or gifsicle exits non-zero) is never checked. If the conversion fails partway through, ImageMagick has already truncated the output file, leaving a corrupted or zero-byte image. The loop condition `tempfile.size > limit` then evaluates to false (size dropped to 0), the loop exits, and `Upload.create_for` is called with the corrupted file. The user gets a 'successful' upload that is actually a broken image. Under concurrent load, a transient ImageMagick OOM or timeout makes this more likely. There is no retry, no log, and no rollback.\n\nIf the image-resizing step fails (for example, the server runs out of memory), the user's photo is left half-written on disk. The upload still 'succeeds,' but the image in the post is broken or blank, and no one in your team is alerted.\n\nIf the resize step fails, the upload is rejected with a clear error instead of saving a corrupted image that your users will see as a broken picture."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**High \u2014 Releases are done by hand, with no automated checks**\n\nno CI/CD pipeline \u2014 manual, non-reproducible deployment/validation\n\nShipping is slow and error-prone, and a bad change can reach users unnoticed.\n\nFaster, safer, repeatable releases."
+   },
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 246,
+    "body": "**Medium \u2014 The error message after a rejected upload always says 10 MB**\n\nThe 413 (entity too large) handler in `displayErrorForUpload` also hardcodes `var maxSizeKB = 10 * 1024`. This means the error message shown to the user after a server-side 413 response will always say '10240 KB' even if the server's actual limit (from `SiteSetting.max_image_size_kb`) is different. Combined with the pre-check at line 182, the user sees a consistent but wrong number. If the admin changes the limit, the message is stale until the next code deploy.\n\nIf you set the upload limit to 5 MB and a user tries to upload a 7 MB file, the error dialog tells them the limit is 10 MB, which is confusing and makes them think the system is broken.\n\nThe error message shows the actual limit you configured, so users understand exactly what size they need to shrink their file to."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 55,
+    "body": "**Medium \u2014 This part of the app is easy to break by accident \u2014 admin access**\n\nThe download size cap for API URL uploads is changed from `SiteSetting.max_image_size_kb.kilobytes` to the constant `10.megabytes`. The downsize loop immediately below still targets `SiteSetting.max_image_size_kb.kilobytes`. If an admin sets the limit to 20 MB, the download is capped at 10 MB, so a legitimate 15 MB image URL is truncated or rejected before the downsize logic ever runs. If the admin sets the limit to 5 MB, the download allows up to 10 MB, wasting bandwidth and disk for a file that will be shrunk. The two limits should be consistent: the download cap should be at least as large as the target size.\n\nIf you allow larger images in your admin panel, images pulled from a URL will still be cut off at 10 MB, so your users see a broken or missing image with no explanation.\n\nImages pulled from a URL respect the same size limit you set in the admin panel, so nothing is silently cut off."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "**Medium \u2014 Failed image shrinking leaves no trace in the logs**\n\nThe new downsize loop calls `OptimizedImage.downsize` five times but never inspects the return value. `OptimizedImage.convert_with` returns `false` when the ImageMagick/gifsicle exit status is non-zero, and in that path it writes no log line (the `rescue` block only fires on Ruby exceptions, not on a failed shell command). The controller also does not log the final file size after the loop or whether the image still exceeds the limit. If the loop exhausts its 5 attempts without reaching the target size, the oversized file is passed to `Upload.create_for`, which may reject it with a generic validation error that gives no hint that 5 ImageMagick runs were attempted. An operator debugging 'why did this upload fail' has no log trail for the downsize attempts.\n\nWhen an upload mysteriously fails or an image appears broken, your team has no log entries showing that the resize step ran, how many times it tried, or why it failed\u2014so debugging takes hours instead of minutes.\n\nEvery time the image-resize step runs or fails, a log line records what happened, so your team can find the cause of a broken upload in seconds."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (24\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 43,
+   "seconds": 61,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 21,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3.8-27b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 7,
+    "baseline_findings": 20,
+    "prompt_tokens": 179526,
+    "completion_tokens": 10665,
+    "total_tokens": 190191,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/grafana/grafana/pull/103633": {
+  "tool": "grace-qwen3.8-27b",
+  "pr_url": "https://github.com/grafana/grafana/pull/103633",
+  "review_comments": [
+   {
+    "path": "pkg/services/authz/rbac/service_test.go",
+    "line": null,
+    "body": "**Medium \u2014 The test for the quick 'already denied' shortcut doesn't actually test it**\n\nCAUSE: the subtest is meant to prove the new permDenialCache short-circuits a Check to deny, but it sets the permission cache to {\"dashboards:uid:dash1\": false} (a deny) and leaves the DB empty (setupService's default fakeStore has no userPermissions). Tracing the code with the denial-cache check removed: getCachedIdentityPermissions returns the cached map, checkPermission sees scopeMap[\"dashboards:uid:dash1\"]==false and no folder match, falls through to the DB which returns an empty scope map, and the request is denied anyway. So the assertion `assert.False(t, resp.Allowed)` passes whether or not the denial cache is consulted. The comment `// Allow access to the dashboard to prove this is not checked` also contradicts the code \u2014 the value is false, not an allow, and getScopeMap can never produce a false value. IMPACT: the denial cache is a security-relevant fast path (it returns deny without touching the database); it has no effective test coverage, so a regression that removes the check, inverts it, or keys it wrong ships silently. RECOMMENDATION: set the permission cache to true for dash1 AND give the fake store a granting permission so that ONLY the denial entry can produce the deny; then the test actually fails if the short-circuit is broken.\n\nIf that shortcut breaks \u2014 stops working or starts matching the wrong request \u2014 your tests still pass, so your users either hit slower permission checks or get wrongly denied in production before your team notices.\n\nThe test now fails the moment the shortcut stops working or matches the wrong request, so you find out before your users do."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service_test.go",
+    "line": null,
+    "body": "**Low \u2014 A leftover test setting now does nothing**\n\nCAUSE: the change removed the cache read from getUserPermissions (the cache is now read by getCachedIdentityPermissions), and the matching \"should return permissions from cache if available\" case was deleted. But the testCase struct still carries the `cacheHit` field, both remaining cases set it to false, and the `if tc.cacheHit { s.permCache.Set(...) }` / `if tc.cacheHit { require.Equal(t, 1, store.calls) // only get user id }` branches are now unreachable dead code. IMPACT: the test no longer exercises any cache-read behavior while still presenting a 'cache hit' switch and a comment describing a path that can never run, so it gives false confidence that the cache path is covered and a future change could drop the cache read without any test failing. RECOMMENDATION: delete the `cacheHit` field and the dead branches (or move the cache-hit assertion into TestService_CacheCheck, which is where that behavior now lives).\n\nThe test still carries a 'cache hit' switch and a comment about it, but the behavior it was meant to check is gone, so your team's test suite gives false confidence and a future change can remove the cache read without anyone's tests failing.\n\nThe test no longer pretends to cover a behavior that no longer exists, so it won't give your team false confidence."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "**Low \u2014 Permission metrics mislabel database lookups as cache hits**\n\nCAUSE: the change adds cache-hit paths that increment requestCount with the 'cached' label set to \"true\", but the database fall-through path they route into ends in the pre-existing line requestCount.WithLabelValues(\"false\", \"true\", ...) \u2014 also 'cached'=\"true\". So on a successful Check the 'cached' label is \"true\" whether the answer came from the permission cache or from a full database lookup, making the label uninterpretable. Separately, permissionCacheUsage is incremented as \"false\" (a miss) when the cache is actually hit but the cached scope denies (fall-through), and it is skipped entirely on the cache-hit + checkPermission-error path (the `return deny, err` before the `permissionCacheUsage(...\"false\"...)` line). IMPACT: the team reading cache-effectiveness / error dashboards cannot distinguish cache-served checks from database-served checks, and error-path traffic is under-counted, so a slow or failing permission system is harder to spot and the value of the new cache cannot be judged. RECOMMENDATION: set the 'cached' label to \"false\" on the database fall-through path, increment permissionCacheUsage on every path that consults the cache (including the error path), and use a distinct label value for 'hit but not authoritative' vs 'miss'.\n\nWhen you check monitoring to see whether permission checks are served from the cache or the database, the 'cached' flag says 'yes' even for database lookups, and some error paths record nothing, so the numbers you rely on to spot a slow or failing permission system are wrong.\n\nThe metrics reflect what actually happened, so a slow or failing permission system shows up in your monitoring instead of hiding behind bad numbers."
+   },
+   {
+    "path": "pkg/services/authz/rbac/cache.go",
+    "line": null,
+    "body": "**Low \u2014 Two different permission checks can share one 'denied' record**\n\nCAUSE: the key is built by concatenating five strings with a single `_` separator and no escaping: namespace + \".perm_\" + userUID + \"_\" + action + \"_\" + name + \"_\" + parent. Two distinct (name, parent) pairs therefore collide whenever an underscore is present \u2014 e.g. name=\"a\", parent=\"b_c\" and name=\"a_b\", parent=\"c\" both yield \"..._a_b_c\". The denial cache is a map keyed by this string, so a deny cached for one (name,parent) is served for the other. IMPACT: for up to the 30s TTL, a user who is actually allowed on one resource is denied on a different resource that happens to hash to the same key. This is the safe direction (false deny, not false allow) and requires underscores in dashboard/folder UIDs (uncommon in Grafana), so likelihood is low \u2014 but it is a real correctness bug in the new key, and it widens the same unescaped-concatenation weakness already present in userPermCacheKey. RECOMMENDATION: join the components with a separator that cannot appear in the values (e.g. a byte like \\x1f, or base64/hex-encode each component) so the mapping is injective.\n\nIf a dashboard or folder name contains an underscore, a 'denied' result saved for one resource can wrongly block a different resource for up to 30 seconds, so a user who should have access sees a false 'you can't do that.'\n\nEach denied check is stored under its own unique record, so one user's denial can't leak onto another resource."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 171,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 14,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3.8-27b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 4,
+    "baseline_findings": 15,
+    "prompt_tokens": 92830,
+    "completion_tokens": 29513,
+    "total_tokens": 122343,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/keycloak/keycloak/pull/32918": {
+  "tool": "grace-qwen3.8-27b",
+  "pr_url": "https://github.com/keycloak/keycloak/pull/32918",
+  "review_comments": [
+   {
+    "path": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/organization/cache/OrganizationCacheTest.java",
+    "line": null,
+    "body": "**Medium \u2014 The new cache test never cleans up the providers it creates**\n\nCAUSE: the new test registers cleanup with the literal string \"alias\" instead of the actual alias: `getCleanup().addCleanup(testRealm().identityProviders().get(\"alias\")::remove);` (copied verbatim from the adjacent pre-existing testCacheIDPByOrg, which has the same bug). The 21 providers the test creates (idp-alias-0..19 plus idp-alias-20) are therefore never removed from the shared test realm, and at teardown the lambda resolves a non-existent alias (null receiver -> NPE, or a 404 from the admin client), so cleanup itself fails. IMPACT: this is the ONLY test covering the new login-IDP cache. On any second execution in the same realm (CI retry, flaky re-run, suite re-run) the `create` calls throw on duplicate aliases (idp-alias-0 already exists) and the count assertions (5/6/10/11) are wrong because leaked providers from the previous run are still in the realm \u2014 the test cannot be re-run and will mask real regressions in the caching logic. WHO: the team / CI. HOW LIKELY: certain on every teardown (cleanup targets a non-existent alias) and certain on any re-run. RECOMMEND: register cleanup with the real alias, e.g. `final String alias = \"idp-alias-\" + i; ... addCleanup(() -> testRealm().identityProviders().get(alias).remove())`, and fix the same literal in testCacheIDPByOrg.\n\nEvery time the test suite runs (or re-runs after a failure), leftover login providers pile up in the test realm and the test breaks on its second run, so you lose reliable coverage of the new caching feature.\n\nThe test can be run repeatedly in CI without breaking, and the new caching behavior stays covered."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "**Medium \u2014 Changing a broker's public setting can leave the login page stale**\n\nCAUSE: registerIDPLoginInvalidationOnUpdate skips invalidation when both the original and updated models pass getLoginPredicate() and Objects.equals(original.getOrganizationId(), updated.getOrganizationId()). For a realm-level IDP (organizationId == null) the new org clause of getLoginPredicate() short-circuits to true regardless of the BROKER_PUBLIC config value, so toggling brokerPublic on/off on a NON-org-linked IDP registers no invalidation. However the cached result sets for getForLogin(ORG_ONLY, null) and getForLogin(ALL, null) (searchKey \"\") DO depend on BROKER_PUBLIC: the default getForLogin's ORG_ONLY branch adds the search option BROKER_PUBLIC=true with no ORGANIZATION_ID constraint, and JpaIdentityProviderStorageProvider.getAllStream matches that as a plain config equality \u2014 so realm-level IDPs with brokerPublic=true are in those sets. IMPACT: after an admin publishes (or unpublishes) a broker for organization logins via the API without linking it to an organization, users signing in through the organization-brokers flow without an organization (OrganizationAwareIdentityProviderBean calls getForLogin(ORG_ONLY, null) / getForLogin(ALL, null)) see a stale list of login options \u2014 a newly published broker missing, or a retracted one still shown \u2014 until an unrelated login-eligible IDP create/update/remove, an org link change, or a cache restart. WHO: realm admin triggers; end users on the org login page are affected. HOW LIKELY: exploitable as the code stands for any API-driven brokerPublic change on an unlinked provider; the common UI flow links the provider in the same operation (orgId change does invalidate), so the window is narrower but real. The new test never covers this case (it always pairs brokerPublic with an org link), which is why it slipped through. RECOMMEND: in registerIDPLoginInvalidationOnUpdate also compare Boolean.parseBoolean(original.getConfig().get(OrganizationModel.BROKER_PUBLIC)) vs the updated value and invalidate when it differs (or always invalidate on any config change), and correct the Javadoc which claims the predicate fully captures login availability.\n\nWhen an admin publishes (or unpublishes) a broker for organization logins without linking it to an organization, users signing in through the organization login page keep seeing the old list of login options until something else changes or the server restarts.\n\nThe login page always reflects the brokers an admin just configured, without waiting for an unrelated change or a restart."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 117,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 13,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3.8-27b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 2,
+    "baseline_findings": 20,
+    "prompt_tokens": 138937,
+    "completion_tokens": 25894,
+    "total_tokens": 164831,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/getsentry/sentry/pull/67876": {
+  "tool": "grace-qwen3.8-27b",
+  "pr_url": "https://github.com/getsentry/sentry/pull/67876",
+  "review_comments": [
+   {
+    "path": "tests/sentry/integrations/github/test_integration.py",
+    "line": null,
+    "body": "**Medium \u2014 The 'installation not found' test no longer checks that case**\n\ntest_installation_not_found is supposed to verify the 404 path (responses.replace(..., status=404) on /app/installations/{id}, leading to build_integration raising IntegrationError 'The GitHub installation could not be found.'). Because the change inserted OAuthLoginView as the first pipeline step, the test's second request carries a made-up state value ('ddd023d87a913d5226e2a882c4c4cc05') that does not equal pipeline.signature, so OAuthLoginView short-circuits at the state check and renders 'Invalid installation request.' before any GitHub API call is made. The 404 stub is never hit and the assertion passes for the wrong reason: the test now only covers the state-mismatch path, and the installation-not-found behavior is left untested by this file. A future regression in the 404 handling (e.g., the ApiError branch in build_integration) would ship unnoticed. Fix: pass the real pipeline signature (as assert_setup_flow does) so the flow proceeds to GitHubInstallation/build_integration and the 404 is actually exercised.\n\nThe safety check for a deleted or wrong GitHub installation is no longer verified by any test, so a future change that breaks it could reach customers without anyone noticing.\n\nThe not-found case is exercised again, so breakage is caught before release instead of by a customer."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": null,
+    "body": "**Medium \u2014 GitHub outages turn the install screen into a crash**\n\nOAuthLoginView.dispatch makes two outbound calls outside any exception handling: safe_urlopen(...) for the OAuth code-to-token exchange and get_user_info(access_token) for the /user lookup. safe_urlopen raises URLError/HTTPError on network failure, timeout, or a non-2xx response; get_user_info raises on API errors (401/403/5xx, timeouts). The rest of the view is deliberately built to return the friendly error(...) page on every failure, but these two calls propagate to a raw HTTP 500 with a stack trace. Trigger: any transient GitHub outage or token-exchange failure during the install callback \u2014 a condition that occurs in production. Additionally, the only try/except in the block (except Exception: payload = {}) silently discards read/parse failures with no logging, so a systematic failure (e.g., a wrong client secret) is invisible in server logs while every user just sees 'Invalid installation request.' Fix: wrap both calls in try/except, log the exception with context, and return error(request, self.active_organization).\n\nWhen GitHub is briefly unreachable during the login step, your customers see a raw server error instead of a 'please try again' message, and your team gets no log of what failed.\n\nCustomers see a friendly 'restart the installation' message, and your team can see these failures in the logs."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": null,
+    "body": "**Medium \u2014 Reinstalling GitHub can crash with a server error**\n\nThe new check reads integration.metadata[\"sender\"][\"login\"] with no guard. The 'sender' key is only written when the Integration is created from the GitHub 'installation.created' webhook (InstallationEventWebhook builds state with sender). When the pipeline itself creates the Integration instead \u2014 build_integration only adds sender when state.get('sender'), and pipeline state never contains it (this happens when the webhook is delayed, lost, or never delivered) \u2014 the stored metadata has no 'sender'. Any later attempt to (re)install that installation for an organization with no existing OrganizationIntegration reaches this line and raises an unhandled KeyError, producing an HTTP 500 mid-install instead of the friendly error page the rest of the view returns. Trigger: an org whose first install completed without the webhook having set sender, which then removed its org integration and retried \u2014 anyone in that org can trigger it, and the install flow is permanently broken for that installation until metadata is patched. Fix: read defensively (integration.metadata.get('sender') or {}).get('login') and treat a missing sender as a failed verification (return error(...)), and/or persist the OAuth-verified user into metadata when the pipeline creates the integration.\n\nIf the record of who installed the app on GitHub is missing, a customer who uninstalls and tries to reinstall gets a server error page instead of a working install, and the install stays broken until support fixes the data.\n\nReinstalls finish normally, or the customer gets a clear 'please restart' message instead of a crash."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": null,
+    "body": "**Low \u2014 A crafted link can swap which GitHub installation is set up**\n\nOAuthLoginView.dispatch re-reads installation_id from request.GET and re-binds it to the pipeline state on every request, including the OAuth callback. The legitimate GitHub callback only carries code and state, but an attacker can craft a callback URL with an extra installation_id parameter and have a victim open it (phishing); the victim's pipeline state is then overwritten with the attacker's installation id before the identity check runs. The downstream sender check normally blocks the mismatch (victim's GitHub identity vs the attacker's installation sender), but where the target installation's metadata lacks 'sender' (see the KeyError finding) this becomes a 500, and in the edge case where the victim is the recorded sender of the attacker's installation, the victim's organization would be linked to the attacker's GitHub installation, exposing that installation's repositories to the victim's org. Likelihood is low (requires a targeted link plus a specific metadata condition), but pipeline state should not be re-bindable from the callback. Fix: only bind installation_id when the state parameter is absent (the initial request), or verify the GET value equals the previously bound state.\n\nAn attacker could send a customer a link that changes which GitHub installation the setup completes; a later check usually stops it, but in some cases the page crashes or the wrong installation gets linked.\n\nThe setup only ever uses the installation the customer originally chose, no matter what link they clicked."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 48,
+   "seconds": 215,
+   "files_reviewed": 48,
+   "deep_read": 48,
+   "findings_before_scoping": 14,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3.8-27b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 4,
+    "baseline_findings": 20,
+    "prompt_tokens": 145814,
+    "completion_tokens": 21736,
+    "total_tokens": 167550,
+    "fell_back": false
+   }
+  }
+ }
+}

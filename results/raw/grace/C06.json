@@ -114,6 +114,7 @@
             "cfe_psp_configdata.h"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             38,
@@ -128,6 +129,7 @@
             "GLOBAL_PSP_CONFIGDATA"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             177
@@ -141,6 +143,7 @@
             "CFE_PSP_VERSION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             468,

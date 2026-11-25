@@ -35,9 +35,11 @@ def info(repo: str, sha: str) -> dict:
     }
 
 
-def main() -> int:
+def main(argv: list[str]) -> int:
+    """build_truth.py [CASES OUT PREFIX] — default: cases.txt truth.json C."""
+    cases, out_name, prefix = (argv + ["cases.txt", "truth.json", "C"][len(argv) :])[:3]
     changes = []
-    for i, line in enumerate((HERE / "cases.txt").read_text().splitlines()):
+    for i, line in enumerate((HERE / cases).read_text().splitlines()):
         if not line.strip():
             continue
         parts = [p.strip() for p in line.split("|")]
@@ -45,7 +47,7 @@ def main() -> int:
         symbols = syms.split(",")
         p = info(prepo, psha)
         ch = {
-            "id": f"C{i + 1:02d}",
+            "id": f"{prefix}{i + 1:02d}",
             "producer": {"repo": prepo, **p, "parent": git(prepo, "rev-parse", p["commit"] + "^")},
             "kind": kind,
             "symbols": symbols,
@@ -81,10 +83,10 @@ def main() -> int:
             )
         changes.append(ch)
     out = {"schema_version": 1, "system": "nasa-cfs", "changes": changes}
-    (HERE / "truth.json").write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"truth.json: {len(changes)} changes, {sum(len(c['cases']) for c in changes)} cases")
+    (HERE / out_name).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"{out_name}: {len(changes)} changes, {sum(len(c['cases']) for c in changes)} cases")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

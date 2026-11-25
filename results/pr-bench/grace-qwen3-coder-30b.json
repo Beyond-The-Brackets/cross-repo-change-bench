@@ -1,0 +1,282 @@
+{
+ "https://github.com/calcom/cal.com/pull/10600": {
+  "tool": "grace-qwen3-coder-30b",
+  "pr_url": "https://github.com/calcom/cal.com/pull/10600",
+  "review_comments": [
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 52,
+    "body": "**High \u2014 Backup codes can be brute-forced**\n\nThe code checks for backup codes when user has 2FA enabled, but fails to properly validate the backup code before deleting it from storage. An attacker could potentially brute-force backup codes by repeatedly submitting different codes, causing the system to decrypt and validate backup codes without proper rate limiting or account lockout mechanisms. This could lead to unauthorized access to accounts that rely on backup codes as a recovery mechanism.\n\nAn attacker could guess backup codes to gain access to user accounts without knowing the primary 2FA code.\n\nUsers' accounts become more secure against brute-force attacks on backup codes."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/setup.ts",
+    "line": 64,
+    "body": "**High \u2014 Backup codes stored in plaintext**\n\nThe code generates backup codes using crypto.randomBytes(5) which produces 10-character hexadecimal strings. However, the implementation does not properly encrypt the backup codes before storing them in the database. The encryption key is checked but not used consistently during the setup process, creating a potential vulnerability where backup codes might be exposed in plaintext in the database.\n\nIf the database is compromised, attackers could read backup codes directly from the database.\n\nBackup codes are securely encrypted and protected from database breaches."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 10,
+    "body": "**Medium \u2014 2FA input focus not working correctly**\n\nThe component accepts an autoFocus prop but doesn't properly handle it in the digit inputs. When autoFocus is false, the first digit input still receives focus due to the conditional logic being inverted. This causes unexpected behavior where the first digit input is focused even when it shouldn't be, affecting user experience and accessibility.\n\nUsers may experience confusion when entering 2FA codes if the first digit input unexpectedly gains focus.\n\n2FA input focus behaves as expected, improving user experience."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 72,
+    "body": "**Medium \u2014 All backup codes deleted when one is used**\n\nWhen disabling 2FA with a backup code, the system deletes all backup codes from storage rather than just the one used. This means that if a user has multiple backup codes and uses one, all remaining backup codes become unusable. This could result in users losing access to their accounts if they exhaust all backup codes without realizing they were all invalidated by a single use.\n\nUsers may lose access to their account if they use a backup code and then can't use any remaining backup codes.\n\nOnly the specific backup code used is invalidated, preserving other backup codes for future use."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 17,
+    "body": "**Medium \u2014 Backup code input validation inconsistent**\n\nThe component uses a TextField with a placeholder that includes dashes, but the validation constraints (minLength=10, maxLength=11) suggest that the input should be formatted without dashes. This mismatch creates inconsistency in how users enter backup codes and could lead to validation failures or confusion during input.\n\nUsers may struggle to enter backup codes correctly due to conflicting validation rules.\n\nBackup code input validation works consistently and clearly."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (38\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   }
+  ],
+  "meta": {
+   "files_changed": 16,
+   "scope": 44,
+   "seconds": 40,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 16,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 5,
+    "baseline_findings": 16,
+    "prompt_tokens": 67741,
+    "completion_tokens": 1054,
+    "total_tokens": 68795,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1": {
+  "tool": "grace-qwen3-coder-30b",
+  "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1",
+  "review_comments": [
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 182,
+    "body": "**High \u2014 File size limit can't be adjusted by admins**\n\nThe change hardcodes the maximum file size to 10MB instead of using the site setting. This means administrators cannot configure a different limit, breaking the intended flexibility of the system. If an attacker uploads a large file, it could exhaust server resources, leading to denial of service. The code change removes the ability to adjust this limit via configuration, making the system inflexible and potentially vulnerable to resource exhaustion attacks.\n\nAn attacker can upload large files that exhaust server resources, taking the site down.\n\nAdmins can set the file size limit to whatever they want."
+   },
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 246,
+    "body": "**High \u2014 Image size limit can't be adjusted by admins**\n\nSimilar to the first issue, this change hardcodes the maximum image size to 10MB instead of using the site setting. This removes the ability for administrators to configure different limits, which could lead to resource exhaustion if attackers upload oversized files. The hardcoded limit makes the system inflexible and potentially vulnerable to denial-of-service attacks.\n\nAn attacker can upload large images that exhaust server resources, taking the site down.\n\nAdmins can set the image size limit to whatever they want."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 55,
+    "body": "**High \u2014 Large files can be uploaded despite settings**\n\nThe change replaces the site setting-based file size limit with a hardcoded 10 megabyte limit. This means that even if the site setting is configured to a smaller limit, the system will still accept files up to 10MB. This could lead to data corruption or loss if files are unexpectedly large, and could also be exploited by attackers to upload oversized files that consume excessive storage or processing power. The system no longer respects the configured limits.\n\nAttackers can upload files larger than intended, consuming storage and processing power.\n\nThe system enforces the correct file size limits."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "**High \u2014 Potential infinite loop in image processing**\n\nThe change introduces a loop that attempts to downsize images multiple times. If the image is still too large after 5 attempts, the system will continue to process it without proper error handling. This could lead to infinite loops or excessive CPU usage, especially if the image is very large. The system lacks a mechanism to detect when downsizing is no longer effective, potentially causing performance degradation or denial of service.\n\nProcessing large images can take forever, making the site slow or unresponsive.\n\nImage processing completes in a reasonable amount of time."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 142,
+    "body": "**High \u2014 Image resizing method signature changed**\n\nThe change modifies the method signature to pass dimensions as a string instead of separate width and height parameters. This change could break existing callers that expect the old signature, leading to runtime errors or incorrect behavior. The new approach of passing dimensions as a string might not be properly validated, potentially leading to unexpected behavior or crashes if malformed strings are passed.\n\nExisting code that resizes images might stop working correctly.\n\nThe image resizing method works correctly with the new signature."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**High \u2014 Releases are done by hand, with no automated checks**\n\nno CI/CD pipeline \u2014 manual, non-reproducible deployment/validation\n\nShipping is slow and error-prone, and a bad change can reach users unnoticed.\n\nFaster, safer, repeatable releases."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 147,
+    "body": "**Medium \u2014 Missing dimension validation in image processing**\n\nThe change removes the explicit validation of dimensions parameters in the downsize method. Previously, dimensions were validated through the dimensions method, but now they are passed directly. This could lead to incorrect image processing if invalid dimension strings are passed, potentially resulting in corrupted images or crashes.\n\nIncorrect image dimensions might produce corrupted images or cause crashes.\n\nImage processing handles dimensions correctly."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (24\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 43,
+   "seconds": 47,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 20,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 6,
+    "baseline_findings": 20,
+    "prompt_tokens": 179354,
+    "completion_tokens": 1236,
+    "total_tokens": 180590,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/grafana/grafana/pull/103633": {
+  "tool": "grace-qwen3-coder-30b",
+  "pr_url": "https://github.com/grafana/grafana/pull/103633",
+  "review_comments": [
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 116,
+    "body": "**High \u2014 Authorization bypasses permission checks**\n\nThe code checks for a cached permission denial before checking cached permissions, but if a denial is cached, it returns false immediately without checking the actual permissions. This bypasses the normal permission checking flow and could lead to incorrect authorization decisions. Specifically, if a user previously had a denial cached for a specific resource/action combination, subsequent requests for that same combination will be denied even if the user should have access. This is a logic error in the authorization flow.\n\nUsers might be denied access to resources they should be able to access, leading to incorrect authorization behavior.\n\nUsers will be properly authorized based on their actual permissions rather than cached denials."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 153,
+    "body": "**High \u2014 Incorrect fallback to database for permissions**\n\nThe code attempts to fetch cached permissions for a user but doesn't handle the case where the cache lookup fails gracefully. If the cache returns an error or the key is not found, it falls through to the database lookup. However, the logic for handling the case where cached permissions are not found is flawed. It should fall back to the database lookup, but the current implementation doesn't properly distinguish between a cache miss and a cache error, potentially causing unnecessary database hits or incorrect behavior.\n\nThe system may not correctly fall back to database lookups when cached permissions are not available, leading to potential authorization failures.\n\nThe system will correctly fall back to database lookups when cached permissions are not available."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 342,
+    "body": "**Medium \u2014 Inconsistent handling of render service permissions**\n\nThe function `getCachedIdentityPermissions` has a switch statement that handles different identity types. For `types.TypeRenderService`, it returns `cache.ErrNotFound` immediately, which means render service permissions are never cached. However, the code later in `Check` method tries to use the cached permissions for render services, which will always miss the cache. This inconsistency in handling render service permissions could lead to performance degradation or incorrect behavior if render service permissions are meant to be cached.\n\nRender service permissions may not be properly cached, leading to unnecessary database lookups and potential performance issues.\n\nRender service permissions will be handled consistently and cached appropriately."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 379,
+    "body": "**Medium \u2014 Cache hit metrics may be inaccurate**\n\nThe code removes the cache hit check for user permissions from `getUserPermissions` function. Previously, if a cache hit occurred, it would increment the cache hit counter and return immediately. Now, the cache hit check is moved to `getCachedIdentityPermissions` and the original check in `getUserPermissions` is removed. This change could affect the metrics tracking and potentially lead to incorrect cache hit counts if not properly coordinated with the new caching logic.\n\nThe metrics for permission cache usage may not accurately reflect the actual cache hit rates, making it harder to optimize performance.\n\nCache hit metrics will accurately reflect the actual cache usage patterns."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 120,
+    "body": "**Medium \u2014 Stale denial cache entries**\n\nThe code adds a new cache for permission denials (`permDenialCache`) but doesn't properly handle the case where a denial is cached but the underlying permissions change. If a user initially gets denied access to a resource and that denial is cached, and then the user gains access to that resource, the cached denial will still be returned until the cache expires. This could lead to stale authorization decisions.\n\nUsers might continue to be denied access to resources they should be able to access due to stale cache entries.\n\nDenial cache entries will be properly invalidated when permissions change."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 89,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 15,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 5,
+    "baseline_findings": 15,
+    "prompt_tokens": 86241,
+    "completion_tokens": 1370,
+    "total_tokens": 87611,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/keycloak/keycloak/pull/32918": {
+  "tool": "grace-qwen3-coder-30b",
+  "pr_url": "https://github.com/keycloak/keycloak/pull/32918",
+  "review_comments": [
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 213,
+    "body": "**High \u2014 Login cache invalidation logic has flaws**\n\nThe method registerIDPLoginInvalidationOnUpdate() has complex conditional logic that determines when to invalidate login caches. It checks multiple conditions involving the original and updated IDP models, including whether they qualify as login IDPs and whether their organization links have changed. This logic is prone to subtle bugs where a change in one condition might not properly trigger cache invalidation, leading to stale data being served to users during login flows. The impact is that users might see outdated or incorrect identity provider information when logging in, potentially causing authentication failures or unauthorized access. The recommendation is to simplify the conditional logic by extracting each condition into separate helper methods and ensuring comprehensive test coverage for all branches.\n\nUsers might see outdated identity provider information when logging in, which could cause authentication failures or unauthorized access.\n\nUsers will see accurate and up-to-date identity provider information during login."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 111,
+    "body": "**High \u2014 Inconsistent cache invalidation in IDP removal**\n\nIn the remove() method, when an IDP is removed by alias, the code retrieves the IDP model from the delegate before checking if the cache is invalid. However, if the cache is invalid, it uses the retrieved model to register invalidation, but if the cache is not invalid, it retrieves the cached version and uses that for invalidation. This inconsistency can lead to incorrect cache invalidation behavior. Specifically, if the cache is not invalid, the code might not properly invalidate the cache for the IDP's internal ID and alias, leading to stale data in the cache. The impact is that stale identity provider data might remain in the cache after removal, potentially causing issues with subsequent lookups. The recommendation is to consistently retrieve the IDP model from the delegate when performing cache invalidation to ensure consistency.\n\nStale identity provider data might remain in the cache after removal, potentially causing issues with subsequent lookups.\n\nCache invalidation will be consistent and reliable after IDP removal."
+   },
+   {
+    "path": "server-spi/src/main/java/org/keycloak/models/IdentityProviderStorageProvider.java",
+    "line": 264,
+    "body": "**Medium \u2014 Identity provider login filtering vulnerable to bad config**\n\nThe getLoginPredicate() method in IdentityProviderStorageProvider now includes a check for OrganizationModel.BROKER_PUBLIC configuration. This check uses Boolean.parseBoolean() which can throw a NumberFormatException if the configuration value is not a valid boolean string. While the code catches this in some places, the overall design makes the system vulnerable to misconfiguration or malicious input that could cause authentication flows to behave unexpectedly. If an invalid value is provided for BROKER_PUBLIC, it could lead to identity providers not being correctly filtered for login, potentially allowing unauthorized access or preventing legitimate access. The impact is that misconfigured identity providers could either be exposed or blocked incorrectly, affecting authentication. The recommendation is to add proper validation and error handling for the BROKER_PUBLIC configuration value to prevent unexpected behavior.\n\nMisconfigured identity providers could either be exposed or blocked incorrectly, affecting authentication for users.\n\nCloses a way in that shouldn't be open."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 240,
+    "body": "**Medium \u2014 Complex cache management in login provider retrieval**\n\nThe getForLogin() method has a complex caching mechanism that involves checking for invalidation, retrieving data from the delegate, and managing cache entries. The logic for handling cache misses and updates is intricate and involves multiple steps including creating new IdentityProviderListQuery objects and managing revisions. This complexity increases the risk of bugs in cache management, particularly around concurrent access patterns where multiple threads might be modifying the cache simultaneously. If there's a race condition or improper cache synchronization, it could lead to inconsistent data being served to users during login flows. The impact is that users might experience inconsistent or incorrect identity provider listings during login. The recommendation is to simplify the cache management logic and add thorough testing for concurrent access scenarios.\n\nUsers might experience inconsistent or incorrect identity provider listings during login.\n\nMore reliable and predictable identity provider listing during login."
+   },
+   {
+    "path": "services/src/main/java/org/keycloak/organization/forms/login/freemarker/model/OrganizationAwareIdentityProviderBean.java",
+    "line": 75,
+    "body": "**Medium \u2014 Redundant filtering in identity provider search**\n\nIn the searchForIdentityProviders method, the filter condition for IDPs is applied twice - once in the initial filter and again in the re-check. This redundancy can lead to performance degradation and potential logic inconsistencies. The first filter excludes IDPs with matching aliases, and the second filter re-checks isEnabled() after the initial filtering. This double filtering could be simplified to a single, more efficient filter that handles both conditions. The impact is reduced performance and potential confusion in the filtering logic. The recommendation is to consolidate the filtering logic into a single, more efficient operation.\n\nReduced performance and potential confusion in identity provider search logic.\n\nMore efficient and clearer identity provider search process."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 260,
+    "body": "**Medium \u2014 Potential data inconsistency in login cache handling**\n\nIn the getForLogin() method, when handling cache misses, the code retrieves the IDP list from the delegate and creates a new IdentityProviderListQuery object. However, if the delegate returns a stream that is consumed elsewhere or if there are issues with the stream processing, it could lead to data inconsistencies or exceptions. Additionally, the code assumes that the IDP list from the delegate will be consistent with the cache structure, but if there are discrepancies in how the data is structured or if the delegate returns unexpected results, it could cause issues. The impact is that login flows might fail or return incorrect data if there are issues with the delegate or stream processing. The recommendation is to add more robust error handling and validation for the data retrieved from the delegate to ensure consistency with the cache structure.\n\nLogin flows might fail or return incorrect data if there are issues with delegate data or stream processing.\n\nYour team moves faster on the same work."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 69,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 17,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 7,
+    "baseline_findings": 20,
+    "prompt_tokens": 128695,
+    "completion_tokens": 1830,
+    "total_tokens": 130525,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/getsentry/sentry/pull/67876": {
+  "tool": "grace-qwen3-coder-30b",
+  "pr_url": "https://github.com/getsentry/sentry/pull/67876",
+  "review_comments": [
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 344,
+    "body": "**High \u2014 Something here isn't protected the way it should be**\n\nThe OAuthLoginView class handles GitHub OAuth callbacks and validates the state parameter to prevent CSRF attacks. However, the state validation only checks if the state from the request matches the pipeline signature. If the state is missing or invalid, it returns an error page but does not properly handle the case where the state is manipulated by an attacker. This could potentially allow an attacker to bypass the state validation and perform unauthorized actions. The vulnerability lies in the fact that the state parameter is not properly validated against a secure random value that is stored server-side and compared with the one received from GitHub. The code at line 344 in the OAuthLoginView.dispatch method does not adequately protect against state manipulation attacks.\n\nAn attacker could potentially hijack a user's OAuth flow and gain unauthorized access to their GitHub account.\n\nCloses a way in that shouldn't be open."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 389,
+    "body": "**High \u2014 GitHub installation ID not properly validated**\n\nThe GitHubInstallation class processes installation requests from GitHub and validates the installation ID. However, the code does not properly validate the installation ID against the authenticated user's permissions. If an attacker can manipulate the installation ID, they could potentially install a GitHub app on behalf of another user or organization. The vulnerability is in the lack of proper validation of the installation ID against the authenticated user's identity, which could allow privilege escalation or unauthorized installations. The code at line 389 in the GitHubInstallation.dispatch method does not ensure that the installation ID corresponds to the authenticated user.\n\nAn attacker could install a GitHub app on behalf of another user or organization, gaining unauthorized access to their repositories.\n\nThe GitHub installation process will properly validate that the installation ID belongs to the authenticated user."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 344,
+    "body": "**Medium \u2014 Insufficient error handling in OAuth flow**\n\nThe OAuthLoginView class in the GitHub integration has a potential issue with error handling. When the state parameter validation fails, it returns an error page but does not log the error or provide more context to the user. This could make debugging difficult and provide a poor user experience. Additionally, the error handling in the get_user_info function could be improved to handle cases where the access token is invalid or the user information cannot be retrieved from GitHub. The code at line 344 in the OAuthLoginView.dispatch method does not provide sufficient error context for troubleshooting.\n\nUsers may encounter confusing error messages when authenticating with GitHub, and developers may struggle to debug authentication issues.\n\nUsers will receive clearer error messages and developers will have better logging for troubleshooting authentication problems."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 389,
+    "body": "**Medium \u2014 Installation ID validation is incomplete**\n\nThe GitHubInstallation class has a potential issue with the installation ID validation. The code fetches the installation ID from the request or pipeline state, but does not validate that the installation ID is valid or belongs to the authenticated user. This could lead to a situation where an invalid installation ID is processed, potentially causing errors or unexpected behavior. The code at line 389 in the GitHubInstallation.dispatch method does not perform sufficient validation of the installation ID before proceeding with the installation process.\n\nProcessing an invalid installation ID could cause errors or unexpected behavior in the GitHub integration.\n\nThe GitHub installation process will validate the installation ID before proceeding, preventing errors from invalid IDs."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 402,
+    "body": "**Medium \u2014 Potential data inconsistency in GitHub installations**\n\nThe GitHubInstallation class checks if an installation already exists for an organization, but it does not properly handle the case where the installation exists but is associated with a different user. This could lead to a scenario where a user installs a GitHub app on behalf of another user, potentially causing data inconsistency or unauthorized access. The code at line 402 in the GitHubInstallation.dispatch method does not validate that the installation belongs to the authenticated user before allowing the installation to proceed.\n\nA user could install a GitHub app on behalf of another user, leading to data inconsistencies or unauthorized access to repositories.\n\nThe GitHub installation process will properly validate that the installation belongs to the authenticated user before proceeding."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 48,
+   "seconds": 90,
+   "files_reviewed": 48,
+   "deep_read": 48,
+   "findings_before_scoping": 15,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 5,
+    "baseline_findings": 20,
+    "prompt_tokens": 134103,
+    "completion_tokens": 1202,
+    "total_tokens": 135305,
+    "fell_back": false
+   }
+  }
+ }
+}

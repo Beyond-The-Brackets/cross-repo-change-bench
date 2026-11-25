@@ -14,6 +14,7 @@ CHANGES := $(shell $(PYTHON) -c "import json;print(' '.join(c['id'] for c in jso
 
 score:
 	$(PYTHON) bench.py score
+	TRACK=fields $(PYTHON) bench.py score
 	$(PYTHON) bench.py score --dir results/qwen2.5-coder-7b
 
 setup:
@@ -21,9 +22,11 @@ setup:
 
 truth: setup
 	$(PYTHON) tools/build_truth.py
+	$(PYTHON) tools/build_truth.py cases-fields.txt truth-fields.json F
 
 snapshot: setup
 	$(PYTHON) bench.py snapshot
+	TRACK=fields $(PYTHON) bench.py snapshot
 
 grace: setup
 	GRACE="$(GRACE)" $(PYTHON) tools/grace.py && $(PYTHON) bench.py answers grace

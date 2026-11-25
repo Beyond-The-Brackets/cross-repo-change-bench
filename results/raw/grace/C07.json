@@ -70,6 +70,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             951,
@@ -93,6 +94,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             842,
@@ -107,6 +109,7 @@
             "OS_FS_ERR_INVALID_FD"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             721
@@ -120,6 +123,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             103,
@@ -132,6 +136,7 @@
           "path": "fsw/unit_test/ut-assert/src/ut_cfe_es_stubs.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "OS_FS_ERROR",
             "OS_FS_SUCCESS"
@@ -148,6 +153,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             107,
@@ -187,6 +193,7 @@
             "OS_FS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             864
@@ -210,6 +217,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             104,
@@ -234,6 +242,7 @@
             "OS_FS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             158
@@ -248,6 +257,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             72,
@@ -266,6 +276,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             543,
@@ -285,6 +296,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             1890
@@ -298,6 +310,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             177
@@ -311,6 +324,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             1756
@@ -324,6 +338,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             194
@@ -339,6 +354,7 @@
             "OS_FS_UNIMPLEMENTED"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             810,
@@ -354,6 +370,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             857,
@@ -367,6 +384,7 @@
           "path": "fsw/cfe-core/src/tbl/cfe_tbl_internal.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "OS_FS_ERROR",
             "OS_FS_ERR_INVALID_POINTER",
@@ -382,6 +400,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             122,
@@ -397,6 +416,7 @@
             "OS_FS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             3059,
@@ -413,6 +433,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             115,
@@ -432,6 +453,7 @@
             "OS_FS_SUCCESS"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             1764
@@ -443,6 +465,7 @@
           "path": "fsw/cfe-core/ut-stubs/ut_fs_stubs.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "OS_FS_SUCCESS"
           ],

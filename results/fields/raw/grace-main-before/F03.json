@@ -1,0 +1,20 @@
+{
+  "producer": "cFE",
+  "base": "8cdad66e4eafd11c2ea93d0360867045b77fa981",
+  "head": "777feec3ac9da50ccdabf4541ffb3cc88b752199",
+  "symbols": [],
+  "headers_changed": [
+    "modules/core_api/fsw/inc/cfe_msg_api_typedefs.h",
+    "modules/msg/option_inc/default_cfe_msg_hdr_pri.h",
+    "modules/msg/option_inc/default_cfe_msg_hdr_priext.h"
+  ],
+  "consumers": [],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

@@ -1,0 +1,2288 @@
+{
+ "https://github.com/calcom/cal.com/pull/10600": {
+  "bugbot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Backup code validation is case-sensitive and rejects uppercase input because user input is not normalized to lowercase before comparison, affecting both login and 2FA disable flows",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: backup code validation being case-sensitive due to lack of input normalization. The golden comment specifically mentions indexOf() causing failures with uppercase hex characters, while the candidate issue mentions user input not being normalized to lowercase before comparison. Both point to the same fundamental problem of case sensitivity in backup code validation affecting user experience. The candidate provides slightly more detail about affected flows (login and 2FA disable) but still addresses the same underlying issue."
+    }
+   ],
+   "false_positives": [],
+   "false_negatives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style"
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 1,
+   "total_golden": 5,
+   "tp": 1,
+   "fp": 0,
+   "fn": 4,
+   "errors_count": 0,
+   "precision": 1.0,
+   "recall": 0.2,
+   "tool": "bugbot",
+   "repo_name": "cal_dot_com__cal.com__bugbot__PR10600__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__bugbot__PR10600__20260122/pull/1"
+  },
+  "claude-code": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style",
+     "matched_candidate": "BackupCode.tsx exports function named TwoFactor instead of BackupCode, causing confusion in DevTools and error traces",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: the exported function in BackupCode.tsx is named 'TwoFactor' instead of 'BackupCode', leading to inconsistent naming and confusion in DevTools and error traces. The candidate issue is a more detailed version of the golden comment but refers to the exact same bug."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Dismissing the dialog during backup codes step bypasses onEnable callback, leaving UI out of sync with server state"
+    },
+    {
+     "candidate": "First e2e test skips backup codes screen and uses incorrect assertion that always passes"
+    },
+    {
+     "candidate": "PasswordField has explicit type=\"password\" prop that overrides internal show/hide toggle functionality"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 5,
+   "tp": 1,
+   "fp": 3,
+   "fn": 4,
+   "errors_count": 0,
+   "precision": 0.25,
+   "recall": 0.2,
+   "tool": "claude-code",
+   "repo_name": "cal_dot_com__cal.com__claude-code__PR10600__20260310",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__claude-code__PR10600__20260310/pull/1"
+  },
+  "coderabbit": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style",
+     "matched_candidate": "BackupCode component is declared as 'TwoFactor' but file is named 'BackupCode.tsx', causing mismatch in devtools and stack traces",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: there's an inconsistent naming mismatch between the component name ('TwoFactor') and the filename ('BackupCode.tsx'). The golden comment mentions 'inconsistent naming' while the candidate issue specifically points to the mismatch causing problems in devtools and stack traces. They describe the exact same underlying issue from slightly different angles."
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency",
+     "matched_candidate": "Backup codes are consumed as reversible state rather than one-time secrets, leaving them recoverable at rest and creating TOCTOU race conditions",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: backup codes being treated as reversible state instead of one-time secrets, which creates race conditions (TOCTOU - Time-of-Check to Time-of-Use). The golden comment specifically mentions concurrent login requests and the weakening of one-time-use semantics, while the candidate comment generalizes this to 'reversible state' and 'TOCTOU race conditions.' However, they describe the same fundamental vulnerability - that backup codes can be used multiple times due to improper state management and concurrency handling."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Backup codes are stored as decryptable ciphertext instead of one-way hashes, making them recoverable if database and encryption keys are compromised"
+    },
+    {
+     "candidate": "The two-factor switch assertion in Playwright test uses isChecked() which returns a Promise and only asserts the Promise object existence rather than its resolved boolean value"
+    },
+    {
+     "candidate": "Migration file uses outdated timestamp '20230804153419' causing Prisma migration-order drift"
+    },
+    {
+     "candidate": "Password visibility toggle button has tabIndex={-1} which removes it from keyboard navigation, creating accessibility issues for keyboard-only users"
+    },
+    {
+     "candidate": "SSO users are blocked from using backup codes due to authentication guards only exempting totpCode but not backupCode"
+    },
+    {
+     "candidate": "Lost-access CTA is hidden for SAML/Google users on the ?totp= flow because ExternalTotpFooter is rendered instead of TwoFactorFooter"
+    },
+    {
+     "candidate": "End-to-end Playwright tests lack coverage for actual backup code consumption, disable via backup code, and sequential reuse failure scenarios"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 9,
+   "total_golden": 5,
+   "tp": 2,
+   "fp": 7,
+   "fn": 3,
+   "errors_count": 0,
+   "precision": 0.2222222222222222,
+   "recall": 0.4,
+   "tool": "coderabbit",
+   "repo_name": "cal_dot_com__cal.com__coderabbit__PR10600__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__coderabbit__PR10600__20260122/pull/1"
+  },
+  "copilot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style",
+     "matched_candidate": "Component named 'TwoFactor' but handles backup codes - should be renamed to 'BackupCode'",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: the component named 'TwoFactor' is actually handling backup codes functionality, which creates inconsistent naming. The golden comment states 'Inconsistent naming' while the candidate issue directly suggests renaming it to 'BackupCode', both pointing to the same underlying issue of mismatched naming between component name and actual functionality."
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Incomplete test coverage: Backup code login and disabling 2FA with backup code are not tested",
+     "confidence": 0.9,
+     "reasoning": "The golden comment points out an error message that incorrectly mentions 'backup code login' when the endpoint is actually for disabling 2FA, not logging in. The candidate issue identifies incomplete test coverage for both backup code login and disabling 2FA with backup code, which addresses the same core problem - the confusion between login and disable functionality in the backup code handling. Both are pointing to the same underlying issue of incorrect terminology/behavior related to backup codes in the 2FA flow."
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf",
+     "matched_candidate": "Memory leak potential: Blob URL for backup codes download is not revoked on component unmount",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a memory leak caused by not revoking Blob URLs (Object URLs) when a component unmounts. The golden comment specifically mentions 'Object URL for backup codes' while the candidate mentions 'Blob URL for backup codes download', but they refer to the same technical problem. Both highlight the potential for increased memory usage over time due to unreleased URLs, with the candidate being slightly more specific about the download context."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Inconsistent error handling: Uses 'throw new Error' instead of 'return res.status(...).json(...)'"
+    },
+    {
+     "candidate": "Potential issue with null values in backup codes array: Array grows with null values over time"
+    },
+    {
+     "candidate": "Complex nested ternary operator reduces readability in TwoFactor component rendering"
+    },
+    {
+     "candidate": "No validation for backup codes exhaustion: Missing specific error handling when all codes are used"
+    },
+    {
+     "candidate": "resetState function doesn't reset all state variables including backupCodes, backupCodesUrl, dataUri, secret, or isSubmitting"
+    },
+    {
+     "candidate": "Missing input validation for backup code format: Should validate 'XXXXX-XXXXX' pattern before authentication"
+    },
+    {
+     "candidate": "formatBackupCode function is used before it is defined, potentially causing confusion"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 10,
+   "total_golden": 5,
+   "tp": 3,
+   "fp": 7,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.3,
+   "recall": 0.6,
+   "tool": "copilot",
+   "repo_name": "cal_dot_com__cal.com__copilot__PR10600__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__copilot__PR10600__20260122/pull/1"
+  },
+  "greptile": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf",
+     "matched_candidate": "Memory leak potential from blob URLs not being revoked during modal cleanup",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same underlying issue: blob URLs (specifically Object URLs for backup codes) not being revoked during component cleanup/Unmount, which leads to memory leaks. The candidate uses 'modal cleanup' while the golden uses 'component unmount', but they refer to the same lifecycle event. The core problem of unreleased blob URLs causing memory leaks is identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Setting used backup codes to `null` leaves them in the array, preventing reuse of indices and wasting storage space"
+    },
+    {
+     "candidate": "Backup codes are stored while `twoFactorEnabled` is still `false`, creating orphaned data if setup is abandoned"
+    },
+    {
+     "candidate": "Missing end-to-end tests for the backup code login flow"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style"
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 5,
+   "tp": 1,
+   "fp": 3,
+   "fn": 4,
+   "errors_count": 0,
+   "precision": 0.25,
+   "recall": 0.2,
+   "tool": "greptile",
+   "repo_name": "cal_dot_com__cal.com__greptile__PR10600__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__greptile__PR10600__20260122/pull/1"
+  },
+  "qodo": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf",
+     "matched_candidate": "backupCodesUrl created via URL.createObjectURL is not revoked when modal is closed without regenerating codes, causing resource leak",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe the same core issue: an object URL created with URL.createObjectURL is not being properly revoked/released when the component/modal closes/unmounts. The golden comment mentions 'component unmount' while the candidate mentions 'modal is closed', but both refer to the same cleanup problem. Both identify the resource leak aspect and potential memory issues. The candidate is slightly more specific about the scenario (without regenerating codes), but fundamentally describes the identical bug."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Setup endpoint returns backupCodes in JSON response without explicit no-store headers, increasing risk of leakage via caching, proxies, or logs"
+    },
+    {
+     "candidate": "Missing validation for CALENDSO_ENCRYPTION_KEY existence before updating user with encrypted backup codes and TOTP secret"
+    },
+    {
+     "candidate": "Backup codes parsing via JSON.parse(symmetricDecrypt(...)) lacks validation of shape/type, risking unhandled auth errors"
+    },
+    {
+     "candidate": "backupCodes state typed as any[] instead of string[], leading to potential type safety issues"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style"
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 5,
+   "tp": 1,
+   "fp": 4,
+   "fn": 4,
+   "errors_count": 0,
+   "precision": 0.2,
+   "recall": 0.2,
+   "tool": "qodo",
+   "repo_name": "cal_dot_com__cal.com__qodo__PR10600__20260123",
+   "pr_url": "https://github.com/code-review-benchmark/cal_dot_com__cal.com__qodo__PR10600__20260123/pull/1"
+  },
+  "grace-qwen3-coder-30b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency",
+     "matched_candidate": "All backup codes are deleted when one is used, rather than just the specific code",
+     "confidence": 0.95,
+     "reasoning": "The candidate issue focuses on backup codes being deleted 'when one is used, rather than just the specific code' which addresses the core problem described in the golden comment. Both highlight that the backup code handling has incorrect logic - the golden comment explains that concurrent access allows the same code to be used multiple times due to memory mutation, while the candidate identifies that all codes get deleted instead of just the used one. These are describing the same fundamental flaw in the backup code implementation where the one-time use constraint is violated."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Backup codes can be brute-forced due to lack of rate limiting or account lockout mechanisms"
+    },
+    {
+     "candidate": "Backup codes are stored in plaintext in the database without proper encryption"
+    },
+    {
+     "candidate": "2FA input focus does not work correctly when autoFocus prop is set to false"
+    },
+    {
+     "candidate": "Backup code input validation is inconsistent with placeholder formatting"
+    },
+    {
+     "candidate": "App lacks proper production logging and error tracking for diagnostics"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style"
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 6,
+   "total_golden": 5,
+   "tp": 1,
+   "fp": 5,
+   "fn": 4,
+   "errors_count": 0,
+   "precision": 0.16666666666666666,
+   "recall": 0.2,
+   "tool": "grace-qwen3-coder-30b",
+   "repo_name": null,
+   "pr_url": "https://github.com/calcom/cal.com/pull/10600"
+  },
+  "grace-qwen3-coder-next": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style",
+     "matched_candidate": "Component is named 'TwoFactor' instead of 'BackupCode', causing developer confusion",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: inconsistent naming between the component name ('TwoFactor') and its functionality (handling backup codes). The golden comment states the exported function TwoFactor handles backup codes but has inconsistent naming, while the candidate issue states the component is named 'TwoFactor' instead of 'BackupCode', causing confusion. They describe the same problem from slightly different angles - one focuses on the mismatch between function name and purpose, the other on the specific naming discrepancy."
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency",
+     "matched_candidate": "Backup codes are not deleted after use, allowing them to be reused by attackers",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core security issue: backup codes being usable more than once due to concurrency problems. The golden comment specifically explains that concurrent login requests can cause the same backup code to be accepted multiple times because the decryption and mutation happens before write-back, while the candidate comment states the general problem of backup codes not being deleted after use, which leads to reuse. The underlying issue is identical - unauthorized reuse of backup codes due to improper state management."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Backup codes may not be unique, reducing the security of the backup system"
+    },
+    {
+     "candidate": "Missing 'continue' button on backup codes screen, preventing user progression"
+    },
+    {
+     "candidate": "Lost access toggle does not clear backup code field, risking accidental submission"
+    },
+    {
+     "candidate": "App lacks proper production logging and error tracking for diagnostics"
+    },
+    {
+     "candidate": "Backup code tests are incomplete, missing coverage for login and 2FA disable scenarios"
+    },
+    {
+     "candidate": "AutoFocus prop is passed but not used in BackupCode component, causing developer confusion"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 8,
+   "total_golden": 5,
+   "tp": 2,
+   "fp": 6,
+   "fn": 3,
+   "errors_count": 0,
+   "precision": 0.25,
+   "recall": 0.4,
+   "tool": "grace-qwen3-coder-next",
+   "repo_name": null,
+   "pr_url": "https://github.com/calcom/cal.com/pull/10600"
+  },
+  "grace-qwen3.8-27b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Backup code validation is case-sensitive due to the use of indexOf(). This causes validation to fail if a user enters uppercase hex characters, as backup codes should be case-insensitive for a better user experience.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Backup codes with uppercase letters are rejected due to missing .toLowerCase() before comparison",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: backup code validation failing due to case sensitivity when comparing user input against expected values. The golden comment explains this occurs because indexOf() is case-sensitive and mentions that backup codes should be case-insensitive for better UX. The candidate issue directly states that uppercase letters are rejected due to missing .toLowerCase() before comparison, which is the specific implementation detail of the same underlying issue. The semantic meaning and root cause are identical."
+    },
+    {
+     "golden_comment": "Object URL for backup codes is not revoked on component unmount, leading to a potential memory leak. This can cause increased memory usage over time, especially if the component is mounted and unmounted frequently.",
+     "severity": "Low",
+     "category": "perf",
+     "matched_candidate": "Backup code download link is not cleaned up when the dialog closes, causing memory leak",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe the same underlying issue: improper cleanup of Object URLs created for backup codes when the component/dialog closes/Unmounts. The golden comment specifically mentions 'Object URL' and 'memory leak', while the candidate comment refers to 'backup code download link' and 'memory leak'. The core problem is identical - failure to clean up resources (Object URLs/links) leading to memory leaks when components are unmounted."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Two people can spend the same backup code due to non-atomic read-modify-write operation"
+    },
+    {
+     "candidate": "The app doesn't keep proper records of what happens in production due to unstructured logging"
+    },
+    {
+     "candidate": "Backup code input validation is missing, causing TypeError on non-string values"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The exported function TwoFactor handles backup codes and is in BackupCode.tsx. Inconsistent naming.",
+     "severity": "Low",
+     "category": "style"
+    },
+    {
+     "golden_comment": "Error message mentions 'backup code login' but this is a disable endpoint, not login",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "Because backupCodes are decrypted and mutated in memory before being written back, two concurrent login requests using the same backupCode could both pass this check and update, so a single backup code may effectively be accepted more than once if used concurrently, weakening the intended one-time-use semantics.",
+     "severity": "High",
+     "category": "concurrency"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 5,
+   "tp": 2,
+   "fp": 3,
+   "fn": 3,
+   "errors_count": 0,
+   "precision": 0.4,
+   "recall": 0.4,
+   "tool": "grace-qwen3.8-27b",
+   "repo_name": null,
+   "pr_url": "https://github.com/calcom/cal.com/pull/10600"
+  }
+ },
+ "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1": {
+  "bugbot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Duplicate method definition breaks existing callers: Two `downsize` methods defined with same name, second overwrites first, causing ArgumentError for existing caller using 4 positional arguments",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a duplicate method definition where the second definition overrides the first, making the original unreachable. The golden comment specifically mentions the parameter signature difference (separate max_width/max_height vs single dimensions string) and the impact on existing callers, while the candidate comment focuses more on the general overwrite behavior and ArgumentError for existing callers. The core problem of duplicate method definitions breaking existing functionality is identical."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Client-side validation ignores attachment size limit setting: Uses hardcoded 10MB limit instead of type-specific `max_{type}_size_kb` site setting, creating confusing user experience",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: the code uses a hardcoded 10MB limit instead of respecting the dynamic site settings for maximum attachment sizes per type. The golden comment specifically mentions 'max_' + type + '_size_kb' while the candidate mentions 'max_{type}_size_kb', but they refer to the same concept. Both highlight the divergence between client-side and server-side limits and the confusing user experience this creates."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Animated GIFs lose animation during auto-downsize: `tempfile.path` passed to `OptimizedImage.downsize` lacks original file extension, preventing animated GIF detection and causing loss of animation frames"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data"
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 4,
+   "tp": 2,
+   "fp": 1,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.6666666666666666,
+   "recall": 0.5,
+   "tool": "bugbot",
+   "repo_name": "discourse__discourse-graphite__bugbot__PR1__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__bugbot__PR1__20260122/pull/1"
+  },
+  "claude-code": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Duplicate downsize method definitions in Ruby result in dead code, causing ArgumentError when resize_emoji job attempts to call 4-arg version with 5 arguments",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a duplicate method definition where the second definition overrides the first, making the original unreachable. The golden comment specifically mentions the parameter signature mismatch (separate max_width/max_height vs single dimensions string) and that existing code calling with separate args breaks. The candidate comment also identifies the duplicate definitions, dead code, and that it causes ArgumentError when calling what it refers to as the '4-arg version' - this aligns with the golden comment's description of the broken original method that expects separate parameters. The semantic meaning and underlying problem are identical."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Hardcoded 10MB limit applied to all upload types instead of only images, causing client-side validation to pass for large attachments that exceed server-configured limits",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: hardcoded size limits that ignore server-side configuration settings. The golden comment mentions maxSizeKB = 10 * 1024 ignoring Discourse.SiteSettings['max_' + type + '_size_kb'] and the potential divergence between client and server limits. The candidate issue describes hardcoded 10MB limit applied to all upload types instead of only images, causing client-side validation to pass for large attachments exceeding server-configured limits. Both highlight the problem of ignoring per-type server settings and the resulting mismatch between client and server validation."
+    },
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Animated GIF downsizing broken for API uploads due to gifsicle receiving invalid percentage-based resize syntax instead of pixel dimensions",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: animated GIF downsizing fails when percentage dimensions (like 80%) are passed to gifsicle's --resize-fit option, which expects pixel dimensions in WxH format. The candidate comment specifically mentions 'gifsicle receiving invalid percentage-based resize syntax' while the golden comment explains that 'allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage'. Both point to the same fundamental problem of incorrect dimension format being passed to gifsicle."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Animated GIF downsizing broken for browser uploads due to tempfile path lacking .gif extension, causing animation to be stripped by ImageMagick's [0] frame selector"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 4,
+   "tp": 3,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.75,
+   "recall": 0.75,
+   "tool": "claude-code",
+   "repo_name": "discourse__discourse-graphite__claude-code__PR1__20260310",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__claude-code__PR1__20260310/pull/1"
+  },
+  "coderabbit": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Duplicate method definition in optimized_image.rb shadows the first version, causing runtime errors",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a duplicate method definition where the second definition overrides the first, making the original unreachable. The golden comment provides more detail about the specific parameters (max_width/max_height vs single dimensions string), but the fundamental problem - shadowing/overriding of a method definition - is identical. The candidate comment captures the essence and consequence (runtime errors) accurately."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Hardcoded 10MB limit replaces dynamic per-type size limits in client-side validation",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: hardcoded size limits that ignore dynamic per-type settings. The golden comment specifically mentions 'maxSizeKB = 10 * 1024' ignoring 'Discourse.SiteSettings['max_' + type + '_size_kb']', while the candidate comment states 'Hardcoded 10MB limit replaces dynamic per-type size limits'. Both point to the same problem of static limits overriding configurable, per-type server-side settings, leading to client-server divergence."
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "File size becomes stale after image downsizing in uploads_controller.rb because tempfile.size is cached",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core issue: stale cached file size causing problems. The golden comment mentions 'stale cached size' leading to 'infinite loops or incorrect file handling', while the candidate issue states 'File size becomes stale after image downsizing' with 'tempfile.size is cached'. Both identify that tempfile.size caching creates a stale state problem that can lead to incorrect behavior, though the candidate is more specific about the context (uploads_controller.rb and image downsizing)."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Switch case declaration in utilities.js leaks variables to other cases due to missing block scope"
+    },
+    {
+     "candidate": "In-place image modification in uploads_controller.rb risks data loss if operation fails mid-write"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 4,
+   "tp": 3,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.6,
+   "recall": 0.75,
+   "tool": "coderabbit",
+   "repo_name": "discourse__discourse-graphite__coderabbit__PR1__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__coderabbit__PR1__20260122/pull/1"
+  },
+  "copilot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "The downsize method is defined twice, with the later definition overriding the earlier one and potentially breaking existing callers expecting different signatures",
+     "confidence": 0.95,
+     "reasoning": "The candidate issue correctly identifies the core problem described in the golden comment: a method being defined twice where the second definition overrides the first, potentially breaking existing callers. Both highlight that the original method signature (with separate max_width and max_height parameters) becomes unreachable and breaks existing code that calls it with separate arguments. The candidate uses slightly different wording ('potentially breaking existing callers expecting different signatures') but captures the same fundamental issue of method override causing compatibility problems."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "URL-download size cap is hardcoded to 10MB, ignoring site settings like max_image_size_kb and max_attachment_size_kb",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: hardcoded size limits that ignore configurable site settings. The golden comment mentions 'maxSizeKB = 10 * 1024' ignoring 'Discourse.SiteSettings['max_' + type + '_size_kb']', while the candidate comment states 'URL-download size cap is hardcoded to 10MB, ignoring site settings like max_image_size_kb and max_attachment_size_kb'. Both describe the same problem of hardcoding values instead of using configurable settings, with the candidate being more specific about the 10MB cap and mentioning the relevant site settings by name."
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "The downsize loop ignores the return value from OptimizedImage.downsize, potentially leading to infinite retries and failed uploads",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core issue: a loop that may not terminate correctly due to ignoring return values or cached state. The golden comment focuses on stale cached size causing infinite loops, while the candidate comment mentions ignoring return values from downsize() which would also lead to infinite retries. Both identify a problematic loop behavior that could result in infinite execution."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "No controller spec coverage for the new behavior of accepting oversized images and automatically downsizing them below SiteSetting.max_image_size_kb"
+    },
+    {
+     "candidate": "Existing tests do not cover both legacy and new downsize invocation patterns, risking silent breakage in future refactors"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 6,
+   "total_golden": 4,
+   "tp": 3,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.75,
+   "tool": "copilot",
+   "repo_name": "discourse__discourse-graphite__copilot__PR1__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__copilot__PR1__20260122/pull/1"
+  },
+  "greptile": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Duplicate method definition: `downsize` is defined twice in app/models/optimized_image.rb, with the second definition overriding the first",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: the downsize method being defined twice in the same file, where the second definition overrides the first. The golden comment provides additional detail about the specific impact (original method becomes unreachable and breaks existing code calling it with separate parameters), but the fundamental issue of duplicate method definition is exactly what the candidate identifies. The candidate correctly identifies the file location and the duplicate nature of the definitions."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Hardcoded 10MB limit in app/assets/javascripts/discourse/lib/utilities.js doesn't match server-side SiteSetting.max_image_size_kb, causing frontend/backend validation inconsistency",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a hardcoded size limit (10MB/10*1024 KB) that should respect server-side configuration settings (max_image_size_kb, max_file_size_kb, etc.). The candidate comment specifically mentions the file path and the mismatch with SiteSetting.max_image_size_kb, while the golden comment is more general but covers the same problem of ignoring per-type server settings. Both highlight the inconsistency between frontend and backend validation."
+    },
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Method signature mismatch: calling downsize(path, path, \"80%\", opts) with percentage-based dimensions instead of expected numeric max_width/max_height parameters",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: passing percentage dimensions ('80%') instead of proper numeric dimensions (WxH format) to a downsize method. The golden comment specifically mentions that animated GIFs with allow_animated_thumbnails=true use gifsicle --resize-fit which requires WxH geometry, while the candidate comment notes the method signature mismatch with percentage-based dimensions. The underlying problem is identical - incorrect dimension format being passed to a function that expects a specific format."
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Infinite loop in app/controllers/uploads_controller.rb where tempfile.size is never reloaded after downsizing, causing the loop condition to never change",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe the same core issue: a loop that checks `tempfile.size` can become problematic because the size value is cached and doesn't get refreshed after file modifications. The golden comment mentions 'stale cached size' leading to 'infinite loops or incorrect file handling', while the candidate issue specifically mentions 'tempfile.size is never reloaded after downsizing' causing the loop condition to 'never change'. The underlying problem is identical - cached file size preventing loop termination."
+    }
+   ],
+   "false_positives": [],
+   "false_negatives": [],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 4,
+   "tp": 4,
+   "fp": 0,
+   "fn": 0,
+   "errors_count": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "tool": "greptile",
+   "repo_name": "discourse__discourse-graphite__greptile__PR1__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__greptile__PR1__20260122/pull/1"
+  },
+  "qodo": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "The `downsize` method is defined twice with different signatures in Ruby, where the later definition overwrites the earlier one, potentially breaking callers expecting the (from, to, max_width, max_height, opts) variant",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a Ruby method named 'downsize' is defined twice with different signatures, where the second definition overrides the first. This makes the first definition unreachable and breaks existing code that depends on it. The golden comment specifically mentions the parameter difference (max_width/max_height vs single dimensions string), while the candidate comment mentions the parameter difference (from, to, max_width, max_height, opts vs single dimensions string). Both capture the fundamental problem of method overwriting and broken backward compatibility."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Server downloads API-provided URLs with a hard 10MB limit but then attempts to downsize to `SiteSetting.max_image_size_kb`, which can lead to unexpected behavior when the configured limit differs from the download limit",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a hardcoded size limit (10MB/10*1024KB) that ignores configurable site settings, leading to client-server divergence. The golden comment specifically mentions 'maxSizeKB = 10 * 1024' ignoring 'Discourse.SiteSettings['max_' + type + '_size_kb']', while the candidate issue describes 'hard 10MB limit' that conflicts with 'SiteSetting.max_image_size_kb'. Both highlight the same problem of hardcoded limits overriding per-type configuration settings."
+    },
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "The downsizing call passes \"80%\" as dimensions, which may not match what `downsize_instructions` expects (typically WxH format), potentially causing incorrect file size reduction",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: passing '80%' as dimensions instead of WxH format can cause problems. The golden comment specifically mentions that animated GIFs with allow_animated_thumbnails=true use gifsicle --resize-fit which expects WxH geometry, not percentages. The candidate comment captures the essence of this - that '80%' may not match what 'downsize_instructions' expects (WxH format) and could cause incorrect file size reduction. While the candidate is slightly more general in its phrasing, it correctly identifies the fundamental mismatch between percentage dimensions and the expected WxH format for the downsizing operation."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "FileHelper.download allows user-provided URLs with a 10MB limit, increasing SSRF impact and resource usage without proper allowlists/denylists for internal IPs, redirects, and schemes"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 4,
+   "tp": 3,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.6,
+   "recall": 0.75,
+   "tool": "qodo",
+   "repo_name": "discourse__discourse-graphite__qodo__PR1__20260123",
+   "pr_url": "https://github.com/code-review-benchmark/discourse__discourse-graphite__qodo__PR1__20260123/pull/1"
+  },
+  "grace-qwen3-coder-30b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Image resizing method signature changed to pass dimensions as string instead of separate width/height, risking runtime errors",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the core issue of a method being defined twice where the second definition overrides the first, making the original unreachable. The golden comment specifically mentions the parameter difference (max_width/max_height vs single dimensions string) and the impact on existing code calling with separate arguments. The candidate comment captures the essence of this - a method signature change that risks runtime errors due to incompatible parameter handling. While the candidate is more concise, it correctly identifies the same fundamental problem of method overwriting and parameter incompatibility."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "File size limit is hardcoded to 10MB instead of using site setting, preventing admin configuration and risking resource exhaustion",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: hardcoding a file size limit (10MB/10*1024KB) instead of using configurable site settings. The golden comment specifically mentions ignoring 'max_' + type + '_size_kb' settings and the potential for client-server divergence, while the candidate comment generalizes this as preventing admin configuration and risking resource exhaustion. Both capture the fundamental problem of hardcoded limits that should be configurable via admin settings."
+    },
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Missing dimension validation in image processing after removing explicit validation of dimensions parameters",
+     "confidence": 0.85,
+     "reasoning": "The candidate issue focuses on 'missing dimension validation' while the golden comment specifically identifies a problem with 'Passing 80% as the dimensions' causing failures in animated GIF processing due to gifsicle expecting WxH geometry. These are different aspects of the same underlying issue - both relate to improper handling of dimension parameters, but the candidate is more general about missing validation while the golden is specific about the percentage dimension issue with animated GIFs. The core problem of incorrect dimension handling is present in both."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Potential infinite loop in image processing when resizing images multiple times without proper exit conditions"
+    },
+    {
+     "candidate": "Releases are done manually without CI/CD pipeline, leading to slow, error-prone deployments"
+    },
+    {
+     "candidate": "App lacks proper production logging and error tracking, making issue diagnosis difficult"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 8,
+   "total_golden": 4,
+   "tp": 3,
+   "fp": 3,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.375,
+   "recall": 0.75,
+   "tool": "grace-qwen3-coder-30b",
+   "repo_name": null,
+   "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1"
+  },
+  "grace-qwen3-coder-next": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "The downsize method accepts a single dimensions string while resize_instructions expects separate width/height args, leading to command construction errors",
+     "confidence": 0.9,
+     "reasoning": "Both comments identify the core issue of the downsize method being defined twice with conflicting signatures. The golden comment specifically mentions that the second definition (single dimensions string parameter) overrides the first (separate max_width and max_height parameters), making the original unreachable. The candidate comment describes the same fundamental problem - that the method signature mismatch between downsize (single string) and resize_instructions (separate args) causes command construction errors. While the candidate focuses more on the immediate symptom (command construction errors) rather than the root cause (method override), they're describing the same underlying issue of incompatible method definitions."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Client-side file size check uses hardcoded 10MB limit instead of server-configured max_image_size_kb, causing inconsistency between client and server limits",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a hardcoded file size limit (10MB/10*1024KB) that should instead use server-configured settings. The golden comment mentions 'max_' + type + '_size_kb' generically while the candidate specifies 'max_image_size_kb', but both refer to the same pattern of ignoring configurable server-side limits in favor of hardcoded client-side values, leading to inconsistency between client and server behavior."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Server-side loop repeatedly resizes images in-place up to 5 times without verifying file size reduction, potentially causing resource waste and upload hangs"
+    },
+    {
+     "candidate": "In-place image resizing can corrupt the original uploaded file if the resizing command fails, resulting in permanently broken uploads"
+    },
+    {
+     "candidate": "Releases are done manually without CI/CD pipeline, making deployments slow and error-prone"
+    },
+    {
+     "candidate": "Image processing failures are hidden from logs due to discarded stderr output, making debugging difficult in production"
+    },
+    {
+     "candidate": "Application lacks proper production logging and error tracking, hindering issue diagnosis and resolution"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data"
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 7,
+   "total_golden": 4,
+   "tp": 2,
+   "fp": 5,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.2857142857142857,
+   "recall": 0.5,
+   "tool": "grace-qwen3-coder-next",
+   "repo_name": null,
+   "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1"
+  },
+  "grace-qwen3.8-27b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The downsize method is defined twice. The second definition, which expects a single dimensions string parameter, overrides the first, which expected separate max_width and max_height parameters. This makes the original method unreachable and breaks existing code that calls it with separate width and height arguments.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Image-resizing function accidentally redefined, overriding the 4-argument form with a 3-argument form and breaking existing callers",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a function being accidentally redefined where the second definition overrides the first, making the original unreachable and breaking existing code. The golden comment specifically mentions the 'downsize method' being defined twice with different signatures, while the candidate comment refers to an 'Image-resizing function' being redefined. The key details match: function override, breaking existing callers, and the signature mismatch between 4-argument and 3-argument forms."
+    },
+    {
+     "golden_comment": "Hardcoding maxSizeKB = 10 * 1024 ignores Discourse.SiteSettings['max_' + type + '_size_kb'], so the client-side limit can diverge from server-side and per-type settings (also applies to the 413 handler below).",
+     "severity": "Low",
+     "category": "bug",
+     "matched_candidate": "Client-side upload size check hardcoded to 10 MB instead of using admin setting, causing divergence between client and server limits",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: hardcoding upload size limits in client-side code instead of using server-side admin settings. The golden comment specifically mentions 'maxSizeKB = 10 * 1024' ignoring 'Discourse.SiteSettings['max_' + type + '_size_kb']', while the candidate issue states 'Client-side upload size check hardcoded to 10 MB instead of using admin setting'. Both highlight the divergence between client and server limits as the main concern, with the golden comment also mentioning the 413 handler as an additional affected area. The semantic meaning and core issue are identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Failed image shrink can silently corrupt uploaded file by overwriting input with truncated output without checking return value"
+    },
+    {
+     "candidate": "Releases done manually without CI/CD pipeline leading to slow and error-prone deployments"
+    },
+    {
+     "candidate": "Failed image shrinking leaves no trace in logs, making debugging difficult when resize operations fail"
+    },
+    {
+     "candidate": "Lack of structured logging in production results in poor visibility into issues and slow troubleshooting"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Passing 80% as the dimensions can fail for animated GIFs when allow_animated_thumbnails is true, since the animated path uses gifsicle --resize-fit which expects WxH geometry, not a percentage; downsizing would then silently fail.",
+     "severity": "Medium",
+     "category": "data"
+    },
+    {
+     "golden_comment": "The loop checking `tempfile.size` may never terminate correctly due to stale cached size, leading to potential infinite loops or incorrect file handling after modifications.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 8,
+   "total_golden": 4,
+   "tp": 2,
+   "fp": 4,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.25,
+   "recall": 0.5,
+   "tool": "grace-qwen3.8-27b",
+   "repo_name": null,
+   "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1"
+  }
+ },
+ "https://github.com/grafana/grafana/pull/103633": {
+  "bugbot": {
+   "skipped": false,
+   "true_positives": [],
+   "false_positives": [
+    {
+     "candidate": "Denial cache key uses raw identifier (checkReq.UserUID) instead of resolved UID (userIdentifiers.UID), causing ineffective caching when users have multiple identifier formats for the same user"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 1,
+   "total_golden": 3,
+   "tp": 0,
+   "fp": 1,
+   "fn": 3,
+   "errors_count": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "tool": "bugbot",
+   "repo_name": "grafana__grafana__bugbot__PR103633__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__bugbot__PR103633__20260122/pull/1"
+  },
+  "claude-code": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "The denial cache key does not include the identity type, causing anonymous:0 and render:0 to generate identical cache keys and leading to cross-identity cache poisoning",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core issue: cache key construction problems that lead to incorrect cache hits. The golden comment focuses on general string concatenation issues with underscores causing ambiguity and collisions, while the candidate issue specifically identifies that missing identity type causes anonymous:0 and render:0 to have identical cache keys. Both are describing the same fundamental problem of inadequate cache key uniqueness leading to cache poisoning/incorrect behavior."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "The denial cache key uses raw checkReq.UserUID instead of resolved userIdentifiers.UID, reducing cache effectiveness when users are identified by numeric ID vs string UID across requests"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 3,
+   "tp": 1,
+   "fp": 1,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.3333333333333333,
+   "tool": "claude-code",
+   "repo_name": "grafana__grafana__claude-code__PR103633__20260310",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__claude-code__PR103633__20260310/pull/1"
+  },
+  "coderabbit": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Potential cache-key collisions in userPermDenialCacheKey function due to concatenation of name and parent with '_' when values contain underscores",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: cache key collisions in the 'userPermDenialCacheKey' function due to string concatenation with underscores. The golden comment explains this leads to ambiguous keys and collision risks when components contain underscores or are empty, while the candidate issue specifically mentions 'Potential cache-key collisions due to concatenation of name and parent with '_' when values contain underscores.' The candidate captures the essential issue described in the golden comment with slightly different wording but the same technical concern."
+    }
+   ],
+   "false_positives": [],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 3,
+   "tp": 1,
+   "fp": 0,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.3333333333333333,
+   "tool": "coderabbit",
+   "repo_name": "grafana__grafana__coderabbit__PR103633__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__coderabbit__PR103633__20260122/pull/1"
+  },
+  "copilot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Test sets permission cache entry with false value for 'dashboards:uid:dash1' which is semantically incorrect as cache map values should only be true or absent",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: there's an inconsistency where the test comment claims cached permissions 'allow access' but the actual cache stores false for 'dashboards:uid:dash1'. The candidate issue correctly points out that the cache map values should only be true or absent, highlighting the semantic incorrectness of storing false values in the cache. They both focus on the same bug regarding improper cache value handling."
+    },
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Cache key construction for permission denial uses simple string concatenation without delimiters, risking cache key collisions",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: cache key construction using simple string concatenation without proper delimiters, which creates collision risks. The golden comment provides more detail about the specific scenario (underscores in components, empty components) and consequences (incorrect cache hits, user permission issues), while the candidate issue captures the essential problem more concisely. The core issue of improper delimiter usage leading to cache key collisions is present in both."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Permission denial cache is checked before validating cached permissions existence and completeness, potentially causing permanent denial even when permissions are updated"
+    },
+    {
+     "candidate": "getCachedIdentityPermissions method doesn't account for actionSets used in folders:create action, leading to missed valid permissions in cache lookup"
+    },
+    {
+     "candidate": "Test case for returning permissions from cache was removed, leaving getUserPermissions cache behavior unverified"
+    },
+    {
+     "candidate": "Missing test coverage for denial cache population logic when permission check returns false"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 6,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 4,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.3333333333333333,
+   "recall": 0.6666666666666666,
+   "tool": "copilot",
+   "repo_name": "grafana__grafana__copilot__PR103633__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__copilot__PR103633__20260122/pull/1"
+  },
+  "greptile": {
+   "skipped": false,
+   "true_positives": [],
+   "false_positives": [
+    {
+     "candidate": "Cache miss metric is incremented when getCachedIdentityPermissions() returns cached data but the specific resource isn't in it, making the metric misleading"
+    },
+    {
+     "candidate": "Denial cache key includes both name and parent folder, making it too specific to resource location and preventing reuse when resources move between folders"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect"
+    },
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 3,
+   "tp": 0,
+   "fp": 2,
+   "fn": 3,
+   "errors_count": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "tool": "greptile",
+   "repo_name": "grafana__grafana__greptile__PR103633__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__greptile__PR103633__20260122/pull/1"
+  },
+  "qodo": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Test assertion in denial-cache test has inconsistent comment and data - cache is set to false but comment says 'Allow access'",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: there's an inconsistency between the test comment which states 'allow access' and the actual cached data which stores false values. The candidate issue correctly identifies this discrepancy in the denial-cache test where the cache is set to false but the comment claims 'Allow access', matching the golden comment's focus on the mismatch between comment and actual permission mapping values."
+    },
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Cache key concatenation in userPermDenialCacheKey function can lead to collisions if fields contain separator characters",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: cache key construction problems in the userPermDenialCacheKey function that can lead to collisions. The golden comment specifically mentions 'simple string concatenation with underscores' and 'ambiguous keys and collision risks when any component contains underscores or is empty', while the candidate comment states 'Cache key concatenation...can lead to collisions if fields contain separator characters'. The candidate captures the essential problem of collision risks due to separator character handling, which encompasses the underscore issue mentioned in the golden comment."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Denial cache key dimensions may be insufficient for correctness across all callers, missing request attributes like group/resource/verb mapping"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.6666666666666666,
+   "tool": "qodo",
+   "repo_name": "grafana__grafana__qodo__PR103633__20260123",
+   "pr_url": "https://github.com/code-review-benchmark/grafana__grafana__qodo__PR103633__20260123/pull/1"
+  },
+  "grace-qwen3-coder-30b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security",
+     "matched_candidate": "Authorization bypasses permission checks by returning false immediately upon cached denial without checking actual permissions",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe the same core issue: asymmetric cache trust logic where cached grants are trusted but cached denials are ignored, causing stale grants to provide access to revoked resources. The candidate issue rephrases this as 'authorization bypasses permission checks' while the golden comment describes it as 'asymmetric cache trust logic' and 'stale cached grants providing access to revoked resources.' The underlying security vulnerability is identical."
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Stale denial cache entries that persist even after underlying permissions change, causing incorrect authorization decisions",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue describe the same core problem: cached permission values becoming stale and causing incorrect authorization decisions. The golden comment specifically points out that dashboards:uid:dash1 has false in the map but the test says 'allow access', indicating a mismatch between cached data and actual permissions. The candidate issue generalizes this as 'stale denial cache entries' that cause 'incorrect authorization decisions' - which is exactly what the golden comment describes. Both are identifying the same fundamental bug where cached permissions don't reflect current reality."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Incorrect fallback to database for permissions due to flawed handling of cache misses vs cache errors"
+    },
+    {
+     "candidate": "Inconsistent handling of render service permissions where cache returns ErrNotFound but Check method attempts to use cached permissions"
+    },
+    {
+     "candidate": "Cache hit metrics may be inaccurate due to removal of cache hit check in getUserPermissions function"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 3,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.4,
+   "recall": 0.6666666666666666,
+   "tool": "grace-qwen3-coder-30b",
+   "repo_name": null,
+   "pr_url": "https://github.com/grafana/grafana/pull/103633"
+  },
+  "grace-qwen3-coder-next": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security",
+     "matched_candidate": "Explicit permission denials are not cached in the denial cache",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: the asymmetric cache trust logic where cached permissions are trusted but cached denials are ignored. The golden comment explains this leads to stale cached grants providing access to revoked resources, while the candidate issue states that explicit permission denials are not cached - which is the root cause of the asymmetric behavior described in the golden comment."
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Missing population of denial cache for explicit false permission values",
+     "confidence": 0.9,
+     "reasoning": "Both comments address the same core issue: there's a mismatch between what the test comment claims (cached permissions allow access) and the actual behavior (false values in the cache prevent access). The golden comment specifically points out that dashboards:uid:dash1 has false in the map, making checkPermission treat it as not allowed. The candidate issue identifies the broader problem of missing denial cache population for explicit false values, which would cause the same symptom described in the golden comment. While the candidate is more general about the root cause (missing cache population), it correctly identifies the underlying issue that leads to the specific scenario described in the golden comment."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Repeated cache misses for explicit denials lead to unnecessary database queries"
+    },
+    {
+     "candidate": "Slower response times due to repeated database hits for denied requests"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.4,
+   "recall": 0.6666666666666666,
+   "tool": "grace-qwen3-coder-next",
+   "repo_name": null,
+   "pr_url": "https://github.com/grafana/grafana/pull/103633"
+  },
+  "grace-qwen3.8-27b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The Check operation exhibits asymmetric cache trust logic: cached permission grants are trusted and returned immediately, but cached denials from the same permission cache are ignored, leading to a fresh database lookup. This allows stale cached grants to provide access to revoked resources, posing a security risk. ",
+     "severity": "High",
+     "category": "security",
+     "matched_candidate": "Test for quick 'already denied' shortcut doesn't actually test it because the test setup allows the denial to occur via database fallback, not the cache",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core issue: the asymmetric cache trust logic in the Check operation where cached denials are ignored while cached grants are trusted. The golden comment describes this as a security risk allowing stale grants to provide access to revoked resources. The candidate issue rephrases this by focusing on the test setup not properly validating the 'already denied' shortcut behavior, but still points to the fundamental problem of inconsistent cache handling between grants and denials. The underlying security concern and code logic issue are identical."
+    },
+    {
+     "golden_comment": "The test comment says the cached permissions 'allow access', but the map stores false for dashboards:uid:dash1, so checkPermission will still treat this scope as not allowed.",
+     "severity": "Low",
+     "category": "doc_defect",
+     "matched_candidate": "Test for quick 'already denied' shortcut doesn't actually test it because the test setup allows the denial to occur via database fallback, not the cache",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: a test that claims to verify cached permissions behavior is actually not testing the cache path properly. The golden comment points out the inconsistency between the test's expectation (cached permissions allow access) and the actual data (false value in cache for dashboards:uid:dash1). The candidate comment identifies that the test doesn't actually test the 'already denied' shortcut because it allows denial through database fallback instead of the cache. Both are describing the same fundamental problem with the test setup not properly exercising the cached permission logic."
+    },
+    {
+     "golden_comment": "The cache key construction in `userPermDenialCacheKey` uses simple string concatenation with underscores, which can lead to ambiguous keys and collision risks when any component contains underscores or is empty. This could result in incorrect denial cache hits, affecting user permissions.",
+     "severity": "Medium",
+     "category": "data",
+     "matched_candidate": "Two different permission checks can share one 'denied' record due to underscore-separated key concatenation causing hash collisions",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: cache key construction using underscore separation leading to hash collisions and ambiguous keys. The golden comment explains this leads to incorrect denial cache hits affecting user permissions, while the candidate issue states that two different permission checks can share one 'denied' record due to the same underlying cause. The semantic meaning and root issue are identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Leftover test setting 'cacheHit' does nothing as the cache read behavior was moved and the related code branches are now unreachable"
+    },
+    {
+     "candidate": "Permission metrics mislabel database lookups as cache hits due to incorrect 'cached' label usage in database fall-through path"
+    }
+   ],
+   "false_negatives": [],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 3,
+   "fp": 2,
+   "fn": 0,
+   "errors_count": 0,
+   "precision": 0.75,
+   "recall": 1.0,
+   "tool": "grace-qwen3.8-27b",
+   "repo_name": null,
+   "pr_url": "https://github.com/grafana/grafana/pull/103633"
+  }
+ },
+ "https://github.com/keycloak/keycloak/pull/32918": {
+  "bugbot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Test cleanup registration uses literal string \"alias\" instead of actual IDP alias, causing failure to clean up created IDPs",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: incorrect alias usage in cleanup code. The golden comment states the cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'. The candidate issue states that test cleanup registration uses literal string 'alias' instead of actual IDP alias. Both point to the same bug where hardcoded 'alias' string is used instead of the proper dynamically generated alias with the 'idp-alias-' prefix and index."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "getForLogin method missing organization invalidation check, returning stale cached IDP data when organization is modified or deleted"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.5,
+   "tool": "bugbot",
+   "repo_name": "keycloak__keycloak__bugbot__PR32918__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__bugbot__PR32918__20260122/pull/1"
+  },
+  "claude-code": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Test cleanup in testCacheIDPForLogin uses hardcoded 'alias' instead of actual IDP alias, causing silent failure to remove created test IDPs",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: incorrect alias usage in cleanup code. The golden comment states 'Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'', while the candidate issue states 'Test cleanup uses hardcoded 'alias' instead of actual IDP alias'. Both point to the same bug where hardcoded 'alias' string is used instead of the properly constructed IDP alias, causing failure to remove test IDPs. The semantic meaning and root cause are identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "registerIDPLoginInvalidationOnUpdate compares wrapped original model with raw updated model, causing asymmetry in isEnabled() evaluation and leading to under-invalidation when org-linked IDP is updated while org is disabled"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.3333333333333333,
+   "recall": 0.5,
+   "tool": "claude-code",
+   "repo_name": "keycloak__keycloak__claude-code__PR32918__20260310",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__claude-code__PR32918__20260310/pull/1"
+  },
+  "coderabbit": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Cleanup uses literal \"alias\" string instead of actual generated alias, causing IDP leak across tests",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: the cleanup code is using a literal string 'alias' instead of the properly generated alias variable. The golden comment specifies it should be 'idp-alias-' + i, while the candidate mentions 'alias' without the prefix but still correctly identifies that it's using a literal string instead of the generated alias. The underlying problem of incorrect alias usage causing IDP leaks is the same in both cases."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Potential NullPointerException in remove method when storedIdp is null during invalidation calls"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 1,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.5,
+   "tool": "coderabbit",
+   "repo_name": "keycloak__keycloak__coderabbit__PR32918__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__coderabbit__PR32918__20260122/pull/1"
+  },
+  "copilot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Cleanup is using incorrect alias 'alias' instead of actual alias 'idp-alias-20'",
+     "confidence": 0.95,
+     "reasoning": "The candidate issue correctly identifies the same underlying problem as the golden comment - that the cleanup code is using an incorrect alias. Both point out that 'alias' should be 'idp-alias-' + i instead of just 'alias'. The candidate provides more specific information about what the actual alias should be ('idp-alias-20') which aligns with the pattern suggested in the golden comment, confirming they're addressing the same bug."
+    }
+   ],
+   "false_positives": [],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 2,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 0,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.5,
+   "tool": "copilot",
+   "repo_name": "keycloak__keycloak__copilot__PR32918__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__copilot__PR32918__20260122/pull/1"
+  },
+  "greptile": {
+   "skipped": false,
+   "true_positives": [],
+   "false_positives": [
+    {
+     "candidate": "Potential null pointer exception when storedIdp is null and registerIDPLoginInvalidation is called without null check"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 1,
+   "total_golden": 2,
+   "tp": 0,
+   "fp": 1,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "tool": "greptile",
+   "repo_name": "keycloak__keycloak__greptile__PR32918__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__greptile__PR32918__20260122/pull/1"
+  },
+  "qodo": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Test cleanup bug where test attempts to remove IDP with 'alias' but created IDPs use pattern 'idp-alias-*', causing potential test pollution",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue describe the same fundamental problem: a mismatch in alias naming patterns during cleanup. The golden comment states that cleanup uses incorrect alias 'alias' instead of 'idp-alias-' + i, while the candidate issue explains that tests try to remove IDP with 'alias' but created IDPs use 'idp-alias-*' pattern, leading to test pollution. Both identify the same root cause - inconsistent alias usage in cleanup operations."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Possible NPE in remove(String alias) method when alias does not exist, leading to null being passed into invalidation logic"
+    },
+    {
+     "candidate": "Cache growth issue in getForLogin method where login cache accumulates many per-org entries under single cache key without bounds checking"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.3333333333333333,
+   "recall": 0.5,
+   "tool": "qodo",
+   "repo_name": "keycloak__keycloak__qodo__PR32918__20260123",
+   "pr_url": "https://github.com/code-review-benchmark/keycloak__keycloak__qodo__PR32918__20260123/pull/1"
+  },
+  "grace-qwen3-coder-30b": {
+   "skipped": false,
+   "true_positives": [],
+   "false_positives": [
+    {
+     "candidate": "Login cache invalidation logic in registerIDPLoginInvalidationOnUpdate() has flawed conditional logic that may lead to stale data being served during login flows"
+    },
+    {
+     "candidate": "Inconsistent cache invalidation behavior in remove() method when handling IDP removal by alias"
+    },
+    {
+     "candidate": "getLoginPredicate() method vulnerable to NumberFormatException due to unsafe Boolean.parseBoolean() usage on BROKER_PUBLIC configuration"
+    },
+    {
+     "candidate": "Complex cache management in getForLogin() method increases risk of bugs and race conditions during concurrent access"
+    },
+    {
+     "candidate": "Redundant filtering in searchForIdentityProviders() method applies filter conditions twice, causing performance degradation"
+    },
+    {
+     "candidate": "Potential data inconsistency in getForLogin() method due to unvalidated delegate data and stream processing issues"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 6,
+   "total_golden": 2,
+   "tp": 0,
+   "fp": 6,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "tool": "grace-qwen3-coder-30b",
+   "repo_name": null,
+   "pr_url": "https://github.com/keycloak/keycloak/pull/32918"
+  },
+  "grace-qwen3-coder-next": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Test cleanup in testCacheIDPForLogin does not properly remove all created identity providers due to unique aliases, causing test pollution",
+     "confidence": 0.85,
+     "reasoning": "The candidate issue describes a problem with test cleanup not properly removing all created identity providers due to unique aliases causing test pollution. While it doesn't explicitly mention the specific alias construction error ('idp-alias-' + i vs 'alias'), both comments point to the same core issue: incorrect alias usage in cleanup that prevents proper resource removal. The candidate identifies the symptom (test pollution due to cleanup issues) and the root cause (unique aliases), which aligns with the golden comment's focus on the incorrect alias reference."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "getForLogin method in InfinispanIdentityProviderStorageProvider.java may return incomplete results due to cache handling logic flaw when requested organizationId is not found in cache"
+    },
+    {
+     "candidate": "Potential infinite loop or repeated cache invalidation in getForLogin method under concurrent access when identity provider is not found in session"
+    },
+    {
+     "candidate": "getLoginPredicate method may misclassify identity providers for caching invalidation when organization links change and BROKER_PUBLIC flag is not set correctly"
+    },
+    {
+     "candidate": "OrganizationAwareIdentityProviderBean re-checks isEnabled() on IDPs after wrapping, which may lead to inconsistent behavior when organization is disabled or deleted"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 4,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.2,
+   "recall": 0.5,
+   "tool": "grace-qwen3-coder-next",
+   "repo_name": null,
+   "pr_url": "https://github.com/keycloak/keycloak/pull/32918"
+  },
+  "grace-qwen3.8-27b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Cleanup reference uses incorrect alias - should be 'idp-alias-' + i instead of 'alias'.",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Test never cleans up created identity providers due to incorrect cleanup registration with literal string 'alias' instead of actual alias",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: incorrect alias usage in cleanup registration. The golden comment states the cleanup reference uses 'incorrect alias - should be idp-alias-' + i instead of 'alias', while the candidate issue states 'incorrect cleanup registration with literal string 'alias' instead of actual alias'. Both point to the same bug where a hardcoded string 'alias' is used instead of the properly constructed alias variable, and both mention the cleanup problem with identity providers."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Test cannot be re-run reliably because leaked providers from previous runs cause duplicate alias errors and incorrect count assertions"
+    },
+    {
+     "candidate": "Changing a broker's public setting on an unlinked realm-level IDP does not trigger login page invalidation, leading to stale login options"
+    },
+    {
+     "candidate": "registerIDPLoginInvalidationOnUpdate skips invalidation when both original and updated models pass getLoginPredicate() and organization IDs are equal, but fails to account for brokerPublic config changes on unlinked providers"
+    },
+    {
+     "candidate": "JpaIdentityProviderStorageProvider.getAllStream matches BROKER_PUBLIC=true config equality without considering that realm-level IDPs should invalidate cache on brokerPublic toggle"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "InfinispanIdentityProviderStorageProvider.getForLogin() recursively calls session.identityProviders().getById() instead of idpDelegate.getById(), causing the cache lookup to re-enter the same caching layer.",
+     "severity": "Critical",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 2,
+   "tp": 1,
+   "fp": 4,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.2,
+   "recall": 0.5,
+   "tool": "grace-qwen3.8-27b",
+   "repo_name": null,
+   "pr_url": "https://github.com/keycloak/keycloak/pull/32918"
+  }
+ },
+ "https://github.com/getsentry/sentry/pull/67876": {
+  "bugbot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Code directly accesses integration.metadata[\"sender\"][\"login\"] without verifying that sender exists in metadata, causing KeyError and 500 error for older integrations",
+     "confidence": 0.85,
+     "reasoning": "The candidate issue describes accessing integration.metadata['sender']['login'] without checking if 'sender' exists, which would cause a KeyError. The golden comment mentions a null reference when github_authenticated_user state is missing. While the specific error types differ (KeyError vs null reference), both point to the same core problem: insufficient null/missing data checks before accessing nested dictionary keys. The candidate correctly identifies the pattern of unsafe dictionary access that could lead to runtime errors."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "Code directly accesses integration.metadata[\"sender\"][\"login\"] without verifying that sender exists in metadata, causing KeyError and 500 error for older integrations",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: accessing metadata['sender']['login'] without checking if 'sender' key exists in the metadata dictionary. The golden comment mentions 'integration.metadata[sender][login]' while the candidate says 'integration.metadata[\"sender\"][\"login\"]', but they refer to the exact same problematic access pattern. Both correctly identify that this leads to KeyError and 500 errors for integrations where sender metadata wasn't set. The semantic meaning and the specific bug identified are identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "get_user_info() function calls raise_for_status() without try/except wrapper, leading to unhandled exceptions and 500 errors on GitHub API errors"
+    },
+    {
+     "candidate": "safe_urlopen() call at line 423 is positioned outside try/except block, allowing SSLError or ConnectionError to propagate as unhandled exceptions"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.6666666666666666,
+   "recall": 0.6666666666666666,
+   "tool": "bugbot",
+   "repo_name": "sentry__sentry__bugbot__PR67876__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__bugbot__PR67876__20260122/pull/1"
+  },
+  "claude-code": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "KeyError vulnerability when accessing integration.metadata[\"sender\"][\"login\"] at line 503 without checking if \"sender\" key exists",
+     "confidence": 0.95,
+     "reasoning": "The golden comment describes a null reference issue when github_authenticated_user state is missing, which would typically occur when accessing nested dictionary keys without proper existence checks. The candidate issue mentions a KeyError vulnerability when accessing integration.metadata['sender']['login'] without checking if 'sender' key exists. Both issues describe the same fundamental problem: accessing nested dictionary keys without validating that intermediate keys exist, leading to potential runtime errors. The candidate is more specific about the exact line and keys involved, but the core issue is identical - unvalidated nested key access."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "KeyError vulnerability when accessing integration.metadata[\"sender\"][\"login\"] at line 503 without checking if \"sender\" key exists",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same underlying problem: a KeyError vulnerability when accessing integration.metadata[sender][login] without first checking if the 'sender' key exists in the metadata. The candidate issue correctly identifies the specific line (line 503) and the exact access pattern mentioned in the golden comment, just using slightly different wording ('integration.metadata[\"sender\"][\"login\"]' vs 'integration.metadata[sender][login]'). The core issue of missing key existence validation is identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "installation_id from GET params accepted unconditionally at lines 397-399, allowing attacker to bypass sender verification during OAuth callback"
+    },
+    {
+     "candidate": "Token exchange request missing redirect_uri parameter at lines 427-431, violating RFC 6749 Section 4.1.3"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.6666666666666666,
+   "recall": 0.6666666666666666,
+   "tool": "claude-code",
+   "repo_name": "sentry__sentry__claude-code__PR67876__20260310",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__claude-code__PR67876__20260310/pull/1"
+  },
+  "coderabbit": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Guard against missing sender metadata before dereference in GitHub integration to prevent KeyError and 500 error",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same underlying issue: a potential null/reference error when accessing user state/metadata in a GitHub integration. The golden comment specifically mentions 'null reference if github_authenticated_user state is missing' while the candidate issue refers to 'missing sender metadata before dereference' - both describe the same vulnerability where code attempts to access potentially missing user/authentication data without proper null checks, leading to KeyError/500 errors."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "Guard against missing sender metadata before dereference in GitHub integration to prevent KeyError and 500 error",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: accessing integration.metadata[sender][login] without checking if the 'sender' key exists, which leads to a KeyError. The candidate issue correctly summarizes the problem by mentioning 'missing sender metadata' and the potential 'KeyError and 500 error', which aligns with the golden comment's description of the issue causing KeyError for integrations where sender metadata wasn't set."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Use a valid state in tests to properly exercise the 404 path instead of triggering failure via state check"
+    },
+    {
+     "candidate": "Narrow the broad exception when parsing the OAuth token response to avoid catching blind Exception"
+    },
+    {
+     "candidate": "Missing docstrings for functions to meet required docstring coverage threshold"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 3,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.6666666666666666,
+   "tool": "coderabbit",
+   "repo_name": "sentry__sentry__coderabbit__PR67876__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__coderabbit__PR67876__20260122/pull/1"
+  },
+  "copilot": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "No validation that 'sender' exists in integration.metadata before accessing it, which could cause a KeyError",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same core problem: accessing integration.metadata[sender][login] without first validating that the 'sender' key exists in integration.metadata. The candidate issue correctly captures the potential KeyError that occurs when sender metadata isn't set during integration creation, which is exactly what the golden comment describes."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Bare except clause catches all exceptions including system-level exceptions like KeyboardInterrupt and SystemExit"
+    },
+    {
+     "candidate": "safe_urlopen call can raise various unhandled exceptions (RequestException, Timeout, RestrictedIPAddress, SuspiciousOperation) leading to 500 errors"
+    },
+    {
+     "candidate": "get_user_info function can raise HTTPError or JSONDecodeError without handling, resulting in 500 errors"
+    },
+    {
+     "candidate": "Assignment to 'resp' is unnecessary as it is redefined before being used"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 3,
+   "tp": 1,
+   "fp": 4,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.2,
+   "recall": 0.3333333333333333,
+   "tool": "copilot",
+   "repo_name": "sentry__sentry__copilot__PR67876__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__copilot__PR67876__20260122/pull/1"
+  },
+  "greptile": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "Potential `KeyError` when accessing `integration.metadata[\"sender\"][\"login\"]` for older or manually created integrations",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue identify the same underlying problem: accessing integration.metadata[sender][login] without checking if the 'sender' key exists, which would cause a KeyError for integrations where sender metadata wasn't set. The candidate issue uses slightly different wording ('older or manually created integrations') but describes the exact same code vulnerability and error scenario."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "Missing `redirect_uri` parameter in OAuth2 token exchange, violating OAuth2 spec and causing GitHub to reject the request"
+    },
+    {
+     "candidate": "`safe_urlopen` calls lack proper exception handling for network/API failures beyond decoding errors"
+    },
+    {
+     "candidate": "`get_user_info` function can raise exceptions without being wrapped in try-catch, potentially causing crashes"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 1,
+   "fp": 3,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.25,
+   "recall": 0.3333333333333333,
+   "tool": "greptile",
+   "repo_name": "sentry__sentry__greptile__PR67876__20260122",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__greptile__PR67876__20260122/pull/1"
+  },
+  "qodo": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "Possible KeyError when accessing 'integration.metadata[\"sender\"][\"login\"]' without checking if keys exist, potentially causing 500 error instead of controlled failure",
+     "confidence": 0.85,
+     "reasoning": "The candidate issue describes a potential KeyError when accessing nested dictionary keys without proper validation, which could lead to a 500 error. The golden comment mentions a null reference when github_authenticated_user state is missing. While the specific error types differ (KeyError vs null reference), both point to the same fundamental issue: inadequate null/missing value checking in dictionary access patterns that could cause runtime failures. The core concern is about defensive programming against missing data structures."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "Possible KeyError when accessing 'integration.metadata[\"sender\"][\"login\"]' without checking if keys exist, potentially causing 500 error instead of controlled failure",
+     "confidence": 0.95,
+     "reasoning": "Both comments identify the same core issue: accessing nested dictionary keys integration.metadata[sender][login] without proper existence checks can cause a KeyError. The golden comment specifically mentions the sender key not being set during creation, while the candidate comment refers to 'sender' and 'login' keys generally. The semantic meaning and underlying problem are identical - improper null/existence checking in nested dictionary access that leads to runtime errors."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "OAuth flow lacks proper error handling for missing/invalid 'code', non-200 responses from token endpoint, unexpected content-types/bodies, and timeout/retry behavior for outbound HTTP calls"
+    },
+    {
+     "candidate": "Pipeline state management may be inconsistent for 'installation_id' across redirect paths, risking bypass of state binding/fetching leading to confusing redirects or false negatives"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 3,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.6666666666666666,
+   "recall": 0.6666666666666666,
+   "tool": "qodo",
+   "repo_name": "sentry__sentry__qodo__PR67876__20260123",
+   "pr_url": "https://github.com/code-review-benchmark/sentry__sentry__qodo__PR67876__20260123/pull/1"
+  },
+  "grace-qwen3-coder-30b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security",
+     "matched_candidate": "OAuthLoginView state parameter validation is insufficient and allows potential state manipulation attacks",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core security issue with OAuth state parameter handling. The golden comment specifically mentions that OAuth state uses pipeline.signature (static) instead of per-request random values, while the candidate issue states that the state parameter validation is insufficient and allows potential state manipulation attacks. These are describing the same vulnerability - using non-random, predictable state values that can be manipulated by attackers. The candidate is more general in its phrasing but identifies the identical underlying problem."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "GitHubInstallation class does not properly validate installation ID against authenticated user's permissions"
+    },
+    {
+     "candidate": "Insufficient error handling in OAuth flow when state parameter validation fails"
+    },
+    {
+     "candidate": "GitHubInstallation class does not validate that installation ID belongs to the authenticated user"
+    },
+    {
+     "candidate": "Potential data inconsistency in GitHub installations due to improper validation of existing installations"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug"
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 5,
+   "total_golden": 3,
+   "tp": 1,
+   "fp": 4,
+   "fn": 2,
+   "errors_count": 0,
+   "precision": 0.2,
+   "recall": 0.3333333333333333,
+   "tool": "grace-qwen3-coder-30b",
+   "repo_name": null,
+   "pr_url": "https://github.com/getsentry/sentry/pull/67876"
+  },
+  "grace-qwen3-coder-next": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug",
+     "matched_candidate": "GitHub user mismatch check can crash on missing sender data due to KeyError when accessing integration.metadata['sender']['login']",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe null/reference issues when expected user/sender data is missing. The golden comment mentions 'null reference if github_authenticated_user state is missing' while the candidate describes 'KeyError when accessing integration.metadata['sender']['login']' - both are about missing data causing crashes. The candidate is more specific about the technical error (KeyError) but points to the same underlying problem of missing authentication/user state data leading to application failure."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "GitHub user mismatch check can crash on missing sender data due to KeyError when accessing integration.metadata['sender']['login']",
+     "confidence": 0.95,
+     "reasoning": "Both the golden comment and candidate issue describe the same underlying problem: a KeyError that occurs when trying to access integration.metadata[sender][login] or integration.metadata['sender']['login'] without first checking if the 'sender' key exists in the metadata. The candidate issue correctly identifies the same root cause - accessing nested dictionary keys without existence checks - and specifically mentions the 'sender' and 'login' keys which aligns with the golden comment's description of the problematic access pattern."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "New GitHub integrations will fail to install because the code requires an ACTIVE integration before allowing installation, but newly created integrations are not yet ACTIVE"
+    },
+    {
+     "candidate": "GitHub integration test fails on authorization header check because it asserts against the wrong API call after OAuthLoginView adds an additional token exchange call"
+    },
+    {
+     "candidate": "GitHub integration test fails on OAuth token exchange because the OAuth token exchange endpoint is not stubbed in test_github_installed_on_another_org"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 3,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.6666666666666666,
+   "tool": "grace-qwen3-coder-next",
+   "repo_name": null,
+   "pr_url": "https://github.com/getsentry/sentry/pull/67876"
+  },
+  "grace-qwen3.8-27b": {
+   "skipped": false,
+   "true_positives": [
+    {
+     "golden_comment": "OAuth state uses pipeline.signature (static) instead of a per-request random value",
+     "severity": "Medium",
+     "category": "security",
+     "matched_candidate": "A crafted link can swap which GitHub installation is set up by overwriting installation_id in pipeline state during OAuth callback",
+     "confidence": 0.95,
+     "reasoning": "Both comments address the same core security issue: improper state management during OAuth flow. The golden comment identifies that OAuth state uses static pipeline.signature instead of random values, while the candidate issue describes the consequence - that malicious actors can manipulate installation_id through crafted links. The candidate is describing the practical exploit of the same underlying vulnerability (predictable/static state), making it a semantic match for the same bug."
+    },
+    {
+     "golden_comment": "The code attempts to access integration.metadata[sender][login] without checking for the existence of the sender key. This causes a KeyError for integrations where the sender metadata was not set during creation",
+     "severity": "High",
+     "category": "bug",
+     "matched_candidate": "Reinstalling GitHub can crash with a server error when the 'sender' key is missing from integration metadata",
+     "confidence": 0.95,
+     "reasoning": "Both comments describe the same underlying issue: accessing integration.metadata[sender][login] without checking if the 'sender' key exists in the metadata. The golden comment explicitly mentions the KeyError that occurs when sender metadata isn't set, while the candidate issue mentions a server crash when the 'sender' key is missing - both are describing the same root cause of unsafe dictionary key access. The semantic meaning and the core problem are identical."
+    }
+   ],
+   "false_positives": [
+    {
+     "candidate": "The 'installation not found' test no longer checks the 404 path due to OAuthLoginView short-circuiting on state mismatch"
+    },
+    {
+     "candidate": "GitHub outages during installation cause raw HTTP 500 errors instead of friendly error pages due to unhandled exceptions in safe_urlopen and get_user_info"
+    }
+   ],
+   "false_negatives": [
+    {
+     "golden_comment": "Null reference if github_authenticated_user state is missing",
+     "severity": "Medium",
+     "category": "bug"
+    }
+   ],
+   "errors": [],
+   "total_candidates": 4,
+   "total_golden": 3,
+   "tp": 2,
+   "fp": 2,
+   "fn": 1,
+   "errors_count": 0,
+   "precision": 0.5,
+   "recall": 0.6666666666666666,
+   "tool": "grace-qwen3.8-27b",
+   "repo_name": null,
+   "pr_url": "https://github.com/getsentry/sentry/pull/67876"
+  }
+ }
+}

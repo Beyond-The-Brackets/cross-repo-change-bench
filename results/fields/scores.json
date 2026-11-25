@@ -1,0 +1,512 @@
+[
+ {
+  "tool": "grace",
+  "model": null,
+  "version": "grace with field detection (this branch)",
+  "cases": 10,
+  "users_named": 10,
+  "recall": 1.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 8,
+    "cases": 8
+   },
+   "later": {
+    "named": 2,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 15,
+  "file_recall": 0.8823529411764706,
+  "repos_named": 22,
+  "repos_confirmed": 10,
+  "precision_lower_bound": 0.45454545454545453,
+  "changes_warned": 4,
+  "changes": {
+   "F01": {
+    "found": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC"
+    ]
+   },
+   "F03": {
+    "found": [
+     "EdsLib"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [
+     "SBN"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "EdsLib"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "grace (breaks only)",
+  "model": null,
+  "version": "grace with field detection (this branch)",
+  "cases": 10,
+  "users_named": 9,
+  "recall": 0.9,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 7,
+    "cases": 8
+   },
+   "later": {
+    "named": 2,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 14,
+  "file_recall": 0.8235294117647058,
+  "repos_named": 11,
+  "repos_confirmed": 9,
+  "precision_lower_bound": 0.8181818181818182,
+  "changes_warned": 3,
+  "changes": {
+   "F01": {
+    "found": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [
+     "SBN"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "EdsLib"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "model-diff+list",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "prompt v1",
+  "cases": 10,
+  "users_named": 6,
+  "recall": 0.6,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 5,
+    "cases": 8
+   },
+   "later": {
+    "named": 1,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 47,
+  "repos_confirmed": 6,
+  "precision_lower_bound": 0.1276595744680851,
+  "changes_warned": 4,
+  "changes": {
+   "F01": {
+    "found": [
+     "HS",
+     "cFE"
+    ],
+    "missed": [
+     "PSP",
+     "SBN"
+    ],
+    "unconfirmed": [
+     "CF",
+     "DS",
+     "FM",
+     "HK",
+     "LC",
+     "MD",
+     "SC",
+     "ci_lab",
+     "sample_app",
+     "sch_lab"
+    ]
+   },
+   "F02": {
+    "found": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab"
+    ],
+    "missed": [
+     "to_lab"
+    ],
+    "unconfirmed": [
+     "elf2cfetbl",
+     "osal",
+     "sample_lib",
+     "tblCRCTool"
+    ]
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "osal",
+     "sample_app",
+     "tblCRCTool",
+     "to_lab"
+    ]
+   },
+   "F04": {
+    "found": [
+     "SBN"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "ci_lab",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "to_lab"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "grace-main-before",
+  "model": null,
+  "version": "grace f1abb9e3 (main, before field detection)",
+  "cases": 10,
+  "users_named": 5,
+  "recall": 0.5,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 5,
+    "cases": 8
+   },
+   "later": {
+    "named": 0,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 5,
+  "file_recall": 0.29411764705882354,
+  "repos_named": 17,
+  "repos_confirmed": 5,
+  "precision_lower_bound": 0.29411764705882354,
+  "changes_warned": 2,
+  "changes": {
+   "F01": {
+    "found": [],
+    "missed": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC"
+    ]
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [
+     "SBN"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "EdsLib"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "grace-main-before (breaks only)",
+  "model": null,
+  "version": "grace f1abb9e3 (main, before field detection)",
+  "cases": 10,
+  "users_named": 1,
+  "recall": 0.1,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 1,
+    "cases": 8
+   },
+   "later": {
+    "named": 0,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 3,
+  "repos_confirmed": 1,
+  "precision_lower_bound": 0.3333333333333333,
+  "changes_warned": 1,
+  "changes": {
+   "F01": {
+    "found": [],
+    "missed": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [],
+    "missed": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [
+     "SBN"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "EdsLib"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "model-diff",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "prompt v1",
+  "cases": 10,
+  "users_named": 0,
+  "recall": 0.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 0,
+    "cases": 8
+   },
+   "later": {
+    "named": 0,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 1,
+  "repos_confirmed": 0,
+  "precision_lower_bound": 0.0,
+  "changes_warned": 4,
+  "changes": {
+   "F01": {
+    "found": [],
+    "missed": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [],
+    "missed": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [],
+    "missed": [
+     "SBN"
+    ],
+    "unconfirmed": [
+     "osal"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "pr-agent",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "pr-agent 0.50.0",
+  "cases": 10,
+  "users_named": 0,
+  "recall": 0.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 0,
+    "cases": 8
+   },
+   "later": {
+    "named": 0,
+    "cases": 2
+   }
+  },
+  "files": 17,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 0,
+  "repos_confirmed": 0,
+  "precision_lower_bound": null,
+  "changes_warned": 1,
+  "changes": {
+   "F01": {
+    "found": [],
+    "missed": [
+     "HS",
+     "PSP",
+     "SBN",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "F02": {
+    "found": [],
+    "missed": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "F03": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "F04": {
+    "found": [],
+    "missed": [
+     "SBN"
+    ],
+    "unconfirmed": []
+   }
+  }
+ }
+]

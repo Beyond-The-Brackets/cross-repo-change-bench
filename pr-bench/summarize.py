@@ -7,6 +7,8 @@ import json
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 HERE = Path(__file__).resolve().parent
 
 
@@ -32,28 +34,39 @@ def pct(x):
     return "n/a" if x is None else f"{100 * x:.0f} %"
 
 
-def main(local: str, published: str, out_dir: str) -> int:
+def main(published: str, out_dir: str, *local_runs: str) -> int:
+    from select_data import TOOLS
+
     prs = json.loads((HERE / "selection.json").read_text())["prs"]
-    loc = table(json.loads(Path(local).read_text()), prs)
+    present = set(TOOLS) | {f.stem for f in Path(out_dir).glob("grace*.json")}
+    runs = [{k: v for k, v in table(json.loads(Path(f).read_text()), prs).items() if k in present} for f in local_runs]
     pub = table(json.loads(Path(published).read_text()), prs)
-    rows = sorted(loc, key=lambda k: -loc[k]["f1"])
+    tools = sorted(set().union(*runs), key=lambda k: -sum(r[k]["f1"] for r in runs if k in r) / len(runs))
+
+    def mean(k, key):
+        vals = [r[k][key] for r in runs if k in r and r[k][key] is not None]
+        return sum(vals) / len(vals) if vals else None
+
     lines = [
+        f"Local judge, {len(runs)} run(s): mean (min to max of F1).",
+        "",
         "| Tool | PRs | Precision | Recall | F1 (local judge) | F1 (published judge, same PRs) |",
         "|---|---|---|---|---|---|",
     ]
-    for k in rows:
-        t = loc[k]
+    for k in tools:
+        f1s = [r[k]["f1"] for r in runs if k in r]
+        spread = f" ({pct(min(f1s))} to {pct(max(f1s))})" if len(f1s) > 1 else ""
         p = pub.get(k)
         lines.append(
-            f"| {k} | {t['prs']} | {pct(t['precision'])} | {pct(t['recall'])} | {pct(t['f1'])} | "
-            f"{pct(p['f1']) if p else 'not published'} |"
+            f"| {k} | {runs[0][k]['prs']} | {pct(mean(k, 'precision'))} | {pct(mean(k, 'recall'))} | "
+            f"{pct(mean(k, 'f1'))}{spread} | {pct(p['f1']) if p else 'not published'} |"
         )
     md = "\n".join(lines) + "\n"
     Path(out_dir, "SCORES.md").write_text(md)
-    Path(out_dir, "scores.json").write_text(json.dumps({"local_judge": loc, "published_judge": pub}, indent=1) + "\n")
+    Path(out_dir, "scores.json").write_text(json.dumps({"local_judge_runs": runs, "published_judge": pub}, indent=1) + "\n")
     print(md)
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main(*sys.argv[1:4]))
+    sys.exit(main(*sys.argv[1:]))

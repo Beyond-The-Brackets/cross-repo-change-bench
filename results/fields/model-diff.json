@@ -1,0 +1,48 @@
+{
+ "tool": "model-diff",
+ "version": "prompt v1",
+ "model": "alibaba/qwen3-coder-30b-a3b",
+ "changes": {
+  "F01": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "CMakeLists.txt",
+    "coveragetest-clock.c",
+    "osapi-clock.h"
+   ]
+  },
+  "F02": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfe_es_msg.h",
+    "cfe_evs_msg.h",
+    "cfe_tbl_msg.h"
+   ]
+  },
+  "F03": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfe_msg_api_typedefs.h",
+    "cfe_msg_sechdr_checksum.c",
+    "cfe_sb_handlers.c",
+    "default_cfe_msg_hdr_pri.h",
+    "default_cfe_msg_hdr_priext.h",
+    "ut_support.c"
+   ]
+  },
+  "F04": {
+   "answered": true,
+   "repos": [
+    "osal"
+   ],
+   "files": [
+    "ccsds.h",
+    "ccsds_hdr.h",
+    "cfe_msg_api.h"
+   ]
+  }
+ }
+}

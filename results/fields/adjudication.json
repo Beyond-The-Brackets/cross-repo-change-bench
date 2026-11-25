@@ -1,0 +1,40 @@
+{
+ "_rule": "Decided by hand on each free-text review, after reading it whole. warns_elsewhere: the review says that code depending on a public element it names (a function, a macro, a type) may break, even without naming where that code is and even when the reason it gives is not the real one. A generic remark about this repository's own code does not count. not_a_repository: a repository name used as an ordinary word (CS for checksum, HK for housekeeping). also_names: a repository the review names with another spelling (\"CFE\", \"Core Flight Executive\" for cFE), credited as named.",
+ "pr-agent": {
+  "F01": {
+   "warns_elsewhere": false,
+   "note": "precision loss and overflow inside osal; nothing on users of OS_time_t.microsecs"
+  },
+  "F02": {
+   "warns_elsewhere": false,
+   "note": "notes that deprecated SB functions remain callable by older applications; nothing on the removed BaseMsg member"
+  },
+  "F03": {
+   "warns_elsewhere": true,
+   "note": "'requires all dependent code to adapt to accessing message data via byte pointers instead of the previous Byte[] member access'"
+  },
+  "F04": {
+   "warns_elsewhere": false,
+   "note": "deprecated CCSDS types still present; nothing on users of SpacePacket"
+  }
+ },
+ "model-diff": {
+  "F01": {
+   "warns_elsewhere": true,
+   "note": "'any application code ... that uses OS_time_t structures or its fields (seconds, microsecs) will likely break'"
+  },
+  "F02": {
+   "warns_elsewhere": true
+  },
+  "F03": {
+   "warns_elsewhere": true
+  },
+  "F04": {
+   "warns_elsewhere": true,
+   "note": "the 'osal' it names is a guessed 'cfs-osal'; counted as written, it is not one of this change's users anyway"
+  }
+ },
+ "model-diff+list": {
+  "_note": "short names checked in context, as on the main track"
+ }
+}

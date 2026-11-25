@@ -1,0 +1,956 @@
+{
+  "producer": "osal",
+  "base": "bfca5b21f5fc2032505256fc67ae974f53a2a319",
+  "head": "7e34a2c2242d6e75a75d5479ea65ca2aeac5cea2",
+  "symbols": [
+    {
+      "name": "microsecs",
+      "status": "removed",
+      "kind": "member",
+      "of": [
+        "OS_time_t"
+      ],
+      "headers": [
+        "src/os/inc/osapi-clock.h"
+      ]
+    },
+    {
+      "name": "seconds",
+      "status": "removed",
+      "kind": "member",
+      "of": [
+        "OS_time_t"
+      ],
+      "headers": [
+        "src/os/inc/osapi-clock.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "src/os/inc/osapi-clock.h"
+  ],
+  "consumers": [
+    {
+      "repo": "CF",
+      "sha": "cbda7b9cad82e0d37cd0080e21f79b18eb571b17",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/PRI/mib.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/r2.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/s2.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/timer.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PUB/cfdp_config.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PUB/cfdp_provides.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PUB/cfdp_syntax.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "DS",
+      "sha": "1518fa2b377e4176266a66c838c2f3cc21a31ab5",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/platform_inc/ds_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_file.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_file.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_msg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_table.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ds_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "test_and_ground/asist/tools/ds_file_util.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "EdsLib",
+      "sha": "089902f20e3bc199ed60323a8da216189721393f",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "cfecfs/testexecutive/src/test_interface.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "FM",
+      "sha": "a6ceee3822adc4e15f55ec16e015044f73e1787e",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/platform_inc/fm_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "HS",
+      "sha": "192a10f1adfb1a2cd5c64bd6c5be918058e9441c",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/hs_custom.c",
+          "symbols": [
+            "microsecs"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            75
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "LC",
+      "sha": "82bd57b541f313fba238ba3f191dda607b097656",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/lc_cmds.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "PSP",
+      "sha": "317892063e94a063337a6713eb7a24ab69d2ed69",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/mcp750-vxworks/src/cfe_psp_timer.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            101,
+            115
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/mcp750-vxworks/src/cfe_psp_watchdog.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/pc-linux/src/cfe_psp_timer.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            167,
+            168
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/pc-rtems/src/cfe_psp_timer.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            161,
+            162
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "ut-stubs/ut_psp_stubs.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            203,
+            204
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "SBN",
+      "sha": "70a2b72bf6b86fa506508d7adc85c600259aa039",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/platform_inc/sbn_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_app.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_pack.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            64,
+            65
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/protocol/serial/fsw/src/sbn_serial_if.c",
+          "symbols": [
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            69,
+            139,
+            144
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/protocol/serial/fsw/src/sbn_serial_if.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/protocol/tcp/fsw/src/sbn_tcp_if.c",
+          "symbols": [
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            279,
+            284,
+            357,
+            362
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/protocol/udp/fsw/src/sbn_udp_if.c",
+          "symbols": [
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            155,
+            163,
+            172
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/protocol/udp/fsw/src/sbn_udp_if.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/protocol/udp/unit-test/coveragetest/coveragetest_sbn_udp_if.c",
+          "symbols": [
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            321,
+            342,
+            363
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "test/cFS/sample_defs/cpu1_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "test/cFS/sample_defs/cpu2_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "test/cFS/sample_defs/cpu3_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "test/cFS/sample_defs/sample_mission_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "microsecs",
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sbn_pack.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            47,
+            48,
+            49,
+            50
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "SC",
+      "sha": "43392d75418998a75f04b64416a3323be1d51918",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/sc_msg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/tables/sc_ats1.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "cFE",
+      "sha": "56397a3a2c47c674892c14610e78263030441d73",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "cmake/sample_defs/cpu1_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "cmake/sample_defs/sample_mission_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/es/cfe_es_backgroundtask.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            146,
+            147,
+            148
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/cfe-core/src/inc/cfe_fs.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/inc/cfe_fs_extern_typedefs.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/inc/cfe_time.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/inc/cfe_time_events.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/inc/cfe_time_msg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/time/cfe_time_api.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/time/cfe_time_task.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/time/cfe_time_tone.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/src/time/cfe_time_utils.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            94,
+            95
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/cfe-core/src/time/cfe_time_utils.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/fs_UT.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/time_UT.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/ut_support.c",
+          "symbols": [
+            "microsecs",
+            "seconds"
+          ],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [],
+          "lines": [
+            376,
+            377
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/ut_support.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "microsecs",
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/msg/mission_inc/default_cfe_msg_sechdr.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/msg/src/cfe_msg_sechdr_time.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/sbr/unit-test-coverage/test_cfe_sbr_map_direct.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "modules/sbr/unit-test-coverage/test_cfe_sbr_map_hash.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "sch_lab",
+      "sha": "f7b0595e9184cf5b846dc405a18deaac471f8ec8",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/platform_inc/sch_lab_table.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "seconds"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

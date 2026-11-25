@@ -32,13 +32,15 @@ def changed_paths(diff: str) -> list[str]:
 
 
 def body(f: dict) -> str:
-    title = f.get("plain_title") or ""
-    return (f"{title}\n\n" if title else "") + str(f.get("rationale") or "")
+    """Exactly what Grace posts on a pull request, without its signature line."""
+    from grace.review.comments import _default_body
+
+    return _default_body(f).replace("\n\n_Flagged by Grace._", "")
 
 
 def main() -> int:
     os.environ.setdefault("MODEL_PROVIDER", "internal")
-    from grace.audit.pipeline import run_review
+    from grace.audit.pipeline import cap_review, run_review
     from grace.impact.index import build_index
     from grace.impact.seeds import from_diff
     from grace.impact.traverse import traverse
@@ -48,7 +50,9 @@ def main() -> int:
     gateway = build_chat_gateway(provider="internal")
     sel = json.loads((HERE / "selection.json").read_text())
     OUT.mkdir(parents=True, exist_ok=True)
-    out_path = OUT / "grace.json"
+    # TOOL names the run (one file per model: grace.json, grace-qwen3.8-27b.json, ...).
+    tool = os.environ.get("TOOL", "grace")
+    out_path = OUT / f"{tool}.json"
     done = json.loads(out_path.read_text()) if out_path.exists() else {}
     only = os.environ.get("ONLY")
     for url in sel["prs"]:
@@ -62,7 +66,7 @@ def main() -> int:
         diff = (WORK / f"{pr_id}.diff").read_text(encoding="utf-8", errors="replace")
         changed = [p for p in changed_paths(diff) if is_reviewable_path(p) and (workdir / p).exists()]
         started = time.time()
-        entry: dict = {"tool": "grace", "pr_url": url, "review_comments": []}
+        entry: dict = {"tool": tool, "pr_url": url, "review_comments": []}
         try:
             index = build_index(str(workdir))
             near = traverse(index, from_diff(index, changed), depth=1)
@@ -70,6 +74,7 @@ def main() -> int:
             findings, meta = asyncio.run(
                 run_review(repo_path=str(workdir), changed_paths=changed, scope_paths=scope, gateway=gateway, diff=diff)
             )
+            findings = cap_review(findings)  # no known findings here: everything is introduced
             for f in findings:
                 loc = str(f.get("location") or "")
                 path, _, line = loc.partition(":")

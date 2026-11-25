@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -22,6 +23,13 @@ from pathlib import Path, PurePosixPath
 HERE = Path(__file__).resolve().parent
 WORK = HERE / "work" / "repos"
 RESULTS = HERE / "results"
+# A track = a ground truth with its own snapshots and results. `main`: names removed from headers;
+# `fields`: struct members removed while the type stays (what the first version of Grace missed).
+TRACKS = {
+    "main": {"truth": "truth.json", "snapshots": "snapshots.json", "results": "results"},
+    "fields": {"truth": "truth-fields.json", "snapshots": "snapshots-fields.json", "results": "results/fields"},
+}
+TRACK = TRACKS[os.environ.get("TRACK", "main")]
 
 
 def load(name: str) -> dict:
@@ -72,10 +80,10 @@ def snapshot_of(change: dict, repos: list[str]) -> dict[str, str]:
 
 def snapshot() -> None:
     repos = [r["name"] for r in load("system.json")["repos"]]
-    truth = load("truth.json")
+    truth = load(TRACK["truth"])
     snaps = {ch["id"]: snapshot_of(ch, repos) for ch in truth["changes"]}
-    (HERE / "snapshots.json").write_text(json.dumps(snaps, indent=1) + "\n", encoding="utf-8")
-    print(f"snapshots.json: {len(snaps)} changes, {sum(len(v) for v in snaps.values())} repository states")
+    (HERE / TRACK["snapshots"]).write_text(json.dumps(snaps, indent=1) + "\n", encoding="utf-8")
+    print(f"{TRACK['snapshots']}: {len(snaps)} changes, {sum(len(v) for v in snaps.values())} repository states")
 
 
 # --- answers --------------------------------------------------------------------------------------
@@ -103,7 +111,7 @@ def text_answers(tool: str, results: Path) -> dict:
     meta_path = results / "raw" / tool / "meta.json"
     meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
     changes = {}
-    for ch in load("truth.json")["changes"]:
+    for ch in load(TRACK["truth"])["changes"]:
         f = results / "raw" / tool / f"{ch['id']}.md"
         text = f.read_text(encoding="utf-8", errors="replace") if f.exists() else ""
         changes[ch["id"]] = {
@@ -114,11 +122,11 @@ def text_answers(tool: str, results: Path) -> dict:
     return {"tool": tool, **meta, "changes": changes}
 
 
-def grace_answers(results: Path) -> dict:
-    raw = results / "raw" / "grace"
+def grace_answers(results: Path, tool: str = "grace") -> dict:
+    raw = results / "raw" / tool
     meta = json.loads((raw / "meta.json").read_text()) if (raw / "meta.json").exists() else {}
     changes = {}
-    for ch in load("truth.json")["changes"]:
+    for ch in load(TRACK["truth"])["changes"]:
         f = raw / f"{ch['id']}.json"
         if not f.exists():
             changes[ch["id"]] = {"answered": False, "repos": [], "files": []}
@@ -131,11 +139,11 @@ def grace_answers(results: Path) -> dict:
             "files": [f"{c['repo']}:{x['path']}" for c in code for x in c["files"] if not x["comment_only"]],
             "breaks": [c["repo"] for c in code if c["breaks"]],
         }
-    return {"tool": "grace", **meta, "changes": changes}
+    return {"tool": tool, **meta, "changes": changes}
 
 
 def answers(tool: str, results: Path) -> None:
-    out = grace_answers(results) if tool == "grace" else text_answers(tool, results)
+    out = grace_answers(results, tool) if tool.startswith("grace") else text_answers(tool, results)
     (results / f"{tool}.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     print(f"{(results / tool).relative_to(HERE)}.json written")
 
@@ -224,12 +232,18 @@ def pct(x: float | None) -> str:
 
 
 def score(results: Path) -> None:
-    truth = load("truth.json")
+    truth = load(TRACK["truth"])
     rows = []
     for f in sorted(results.glob("*.json")):
         if f.name in ("scores.json", "adjudication.json"):
             continue
-        rows.append(score_tool(json.loads(f.read_text()), truth, results))
+        ans = json.loads(f.read_text())
+        rows.append(score_tool(ans, truth, results))
+        if any("breaks" in c for c in ans["changes"].values()):
+            # A structured answer that separates "breaks" from "to check": scored both ways, since the
+            # truth lists repositories that broke, not those that will have to migrate later.
+            strict = {k: {**c, "repos": c.get("breaks", [])} for k, c in ans["changes"].items()}
+            rows.append(score_tool({**ans, "tool": ans["tool"] + " (breaks only)", "changes": strict}, truth, results))
     rows.sort(key=lambda r: -(r["recall"] or 0))
     (results / "scores.json").write_text(json.dumps(rows, indent=1) + "\n", encoding="utf-8")
     lines = [
@@ -278,9 +292,9 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("snapshot")
     a = sub.add_parser("answers")
     a.add_argument("tool")
-    a.add_argument("--dir", default="results", help="results folder (default results/)")
+    a.add_argument("--dir", default=TRACK["results"], help="results folder (default: the track's)")
     sc = sub.add_parser("score")
-    sc.add_argument("--dir", default="results", help="results folder (default results/)")
+    sc.add_argument("--dir", default=TRACK["results"], help="results folder (default: the track's)")
     args = p.parse_args(argv)
     if args.cmd == "setup":
         setup(args.source)

@@ -307,6 +307,7 @@
             "CFE_PLATFORM_TLM_MID_BASE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             84,
@@ -331,6 +332,7 @@
             "CFE_PLATFORM_TLM_MID_BASE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             55
@@ -354,6 +356,7 @@
             "CFE_PLATFORM_TLM_MID_BASE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             87,
@@ -378,6 +381,7 @@
             "CFE_PLATFORM_TLM_MID_BASE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             69
@@ -401,6 +405,7 @@
             "CFE_PLATFORM_TLM_MID_BASE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             86

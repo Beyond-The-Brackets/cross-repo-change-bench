@@ -1,0 +1,18 @@
+{
+  "producer": "osal",
+  "base": "bfca5b21f5fc2032505256fc67ae974f53a2a319",
+  "head": "7e34a2c2242d6e75a75d5479ea65ca2aeac5cea2",
+  "symbols": [],
+  "headers_changed": [
+    "src/os/inc/osapi-clock.h"
+  ],
+  "consumers": [],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

@@ -1,0 +1,834 @@
+{
+  "producer": "cFE",
+  "base": "d3a073e90cbb6f8529f468c751b144138973bb26",
+  "head": "856367951848fdf00a3985144765edb6b13b0e61",
+  "symbols": [
+    {
+      "name": "CCSDS_APIDQHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_APIDqualifiers_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_BIG_ENDIAN",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CLR_CMDSEC_HDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CLR_PRI_HDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CLR_SEC_APIDQ",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CLR_TLMSEC_HDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CMD",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CmdSecHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_CommandPacket_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_ComputeCheckSum",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_EDS_MASK",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_ENDIAN_MASK",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_HAS_SEC_HDR",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_INC_SEQ",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_INIT_CHECKSUM",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_INIT_FC",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_INIT_SEQ",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_INIT_SEQFLG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_LITTLE_ENDIAN",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_LoadCheckSum",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_NON_PLAYBACK_PKT",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_NO_SEC_HDR",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_PLAYBACK_PKT",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_PLAYBACK_PKT_MASK",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_PriHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_APID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_BITS",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_CHECKSUM",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_EDS_VER",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_ENDIAN",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_FC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_LEN",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_PLAYBACK",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SEC_HDR_SEC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SEC_HDR_SUBSEC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SEQ",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SEQFLG",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SHDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SUBSYSTEM_ID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_SYSTEM_ID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_TYPE",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_RD_VERS",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_SID_APID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_SID_SHDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_SID_TYPE",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_SID_VERS",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_SpacePacket_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_TLM",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_TelemetryPacket_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_TlmSecHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_ValidCheckSum",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_APID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_BITS",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_CHECKSUM",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_EDS_VER",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_ENDIAN",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_FC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_LEN",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_PLAYBACK",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SEC_HDR_SEC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SEC_HDR_SUBSEC",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SEQ",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SEQFLG",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SHDR",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SUBSYSTEM_ID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_SYSTEM_ID",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_TYPE",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "CCSDS_WR_VERS",
+      "status": "removed",
+      "kind": "macro_fn",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "NUM_CCSDS_APIDS",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "NUM_CCSDS_PKT_TYPES",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/ccsds.h"
+      ]
+    },
+    {
+      "name": "cfe_sb_msg_id_util.h",
+      "status": "removed",
+      "kind": "header",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_msg_id_util.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "fsw/cfe-core/src/inc/ccsds.h",
+    "fsw/cfe-core/src/inc/ccsds_hdr.h",
+    "fsw/cfe-core/src/inc/cfe.h",
+    "fsw/cfe-core/src/inc/cfe_sb.h",
+    "fsw/cfe-core/src/sb/cfe_sb_msg_id_util.h"
+  ],
+  "consumers": [
+    {
+      "repo": "CF",
+      "sha": "cbda7b9cad82e0d37cd0080e21f79b18eb571b17",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/unit_test/ut-assert/inc/ut_cfe_sb_hooks.h",
+          "symbols": [
+            "CCSDS_ComputeCheckSum",
+            "CCSDS_LoadCheckSum",
+            "CCSDS_PriHdr_t",
+            "CCSDS_ValidCheckSum"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            86,
+            87,
+            88,
+            89
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/src/ut_cfe_sb_hooks.c",
+          "symbols": [
+            "CCSDS_CLR_PRI_HDR",
+            "CCSDS_CMD",
+            "CCSDS_ComputeCheckSum",
+            "CCSDS_LoadCheckSum",
+            "CCSDS_PriHdr_t",
+            "CCSDS_RD_CHECKSUM",
+            "CCSDS_RD_FC",
+            "CCSDS_RD_LEN",
+            "CCSDS_RD_SEQ",
+            "CCSDS_RD_SHDR",
+            "CCSDS_RD_SID",
+            "CCSDS_RD_TYPE",
+            "CCSDS_TLM",
+            "CCSDS_ValidCheckSum",
+            "CCSDS_WR_CHECKSUM",
+            "CCSDS_WR_FC",
+            "CCSDS_WR_LEN",
+            "CCSDS_WR_SEQ",
+            "CCSDS_WR_SID"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            229,
+            239,
+            243,
+            245,
+            247,
+            280,
+            290,
+            324,
+            333,
+            342,
+            355,
+            382,
+            410,
+            417,
+            430,
+            437,
+            452,
+            459,
+            471,
+            477
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "EdsLib",
+      "sha": "089902f20e3bc199ed60323a8da216189721393f",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h",
+          "symbols": [
+            "CCSDS_SpacePacket_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            54,
+            55
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "cfecfs/missionlib/fsw/src/cfe_missionlib_runtime_default.c",
+          "symbols": [
+            "CCSDS_SpacePacket_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            158,
+            177
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "cfecfs/missionlib/fsw/ut-stubs/ut_missionlib_stubs.c",
+          "symbols": [
+            "CCSDS_SpacePacket_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            269,
+            280
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "SBN",
+      "sha": "847098664ba3498d618219122de36cc945ef2234",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "modules/filter/ccsds_end/fsw/src/sbn_f_ccsds_end.c",
+          "symbols": [
+            "CCSDS_PriHdr_t",
+            "CCSDS_RD_SEC_HDR_SEC",
+            "CCSDS_RD_SEC_HDR_SUBSEC",
+            "CCSDS_RD_TYPE",
+            "CCSDS_TLM",
+            "CCSDS_TelemetryPacket_t",
+            "CCSDS_WR_SEC_HDR_SEC",
+            "CCSDS_WR_SEC_HDR_SUBSEC"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            9,
+            10,
+            12,
+            14,
+            16,
+            23,
+            25,
+            29,
+            31
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/filter/remap/fsw/src/sbn_f_remap.c",
+          "symbols": [
+            "CCSDS_PriHdr_t",
+            "CCSDS_RD_SID",
+            "CCSDS_WR_SID"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            212,
+            214,
+            249
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/filter/test/fsw/src/sbn_f_test.c",
+          "symbols": [
+            "CCSDS_PriHdr_t",
+            "CCSDS_RD_SID"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            8,
+            9,
+            15,
+            16
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/protocol/udp/unit-test/coveragetest/coveragetest_sbn_udp_if.c",
+          "symbols": [
+            "CCSDS_TelemetryPacket_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            431,
+            460,
+            486
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 2
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

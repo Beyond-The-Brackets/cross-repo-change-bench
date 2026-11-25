@@ -1,0 +1,257 @@
+{
+ "https://github.com/calcom/cal.com/pull/10600": {
+  "tool": "grace-qwen3-coder-next",
+  "pr_url": "https://github.com/calcom/cal.com/pull/10600",
+  "review_comments": [
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 62,
+    "body": "**High \u2014 Backup codes are not deleted after use**\n\nWhen a user disables 2FA using a backup code, the system deletes all stored backup codes. However, the code does not delete the specific backup code that was used for authentication. This means that if a user loses access to their authenticator and uses a backup code, that backup code is still valid and can be used again, potentially by an attacker who has gained access to the user's account.\n\nIf a user loses access to their authenticator and uses a backup code, that backup code remains valid and can be used again, potentially by an attacker who has gained access to the user's account.\n\nOnce a backup code is used, it is permanently invalidated, preventing unauthorized access using the same code."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/setup.ts",
+    "line": 62,
+    "body": "**High \u2014 Backup codes may not be unique**\n\nThe code generates 10 backup codes, but it does not validate that the generated codes are unique. If two or more backup codes are identical, the user will have fewer unique backup codes than expected, reducing the security of the backup code system.\n\nIf backup codes are not unique, the number of valid backup codes is reduced, making it easier for an attacker to guess a valid backup code.\n\nEach backup code is unique, ensuring the full security of the backup code system."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 1,
+    "body": "**Medium \u2014 Component name is misleading**\n\nThe component is named 'TwoFactor' instead of 'BackupCode', which is misleading and could cause confusion for developers maintaining the code.\n\nDevelopers may be confused by the component name and introduce bugs when modifying the code.\n\nThe component name accurately reflects its purpose, making the code easier to understand and maintain."
+   },
+   {
+    "path": "apps/web/components/settings/EnableTwoFactorModal.tsx",
+    "line": 135,
+    "body": "**Medium \u2014 Missing continue button on backup codes screen**\n\nThe 'DisplayBackupCodes' step does not have a 'continue' button, which means the user cannot proceed to the next step after viewing the backup codes. This could leave the user stuck on the backup codes screen.\n\nA user may be stuck on the backup codes screen and unable to complete the 2FA setup process.\n\nThe user can proceed to the next step after viewing the backup codes, completing the 2FA setup process."
+   },
+   {
+    "path": "apps/web/components/settings/DisableTwoFactorModal.tsx",
+    "line": 105,
+    "body": "**Medium \u2014 Lost access toggle does not clear backup code field**\n\nThe 'lost_access' button toggles the 'twoFactorLostAccess' state, but it does not clear the 'backupCode' field when switching back to the TOTP input. This could lead to a situation where the user enters a backup code, switches to the TOTP input, and then accidentally submits the backup code as the TOTP code.\n\nA user may accidentally submit a backup code as their TOTP code, leading to authentication failure and confusion.\n\nThe backup code field is cleared when switching back to the TOTP input, preventing accidental submission of the wrong code."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (38\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   },
+   {
+    "path": "apps/web/playwright/login.2fa.e2e.ts",
+    "line": 12,
+    "body": "**Low \u2014 Backup code tests are incomplete**\n\nThe comment 'TODO: add more backup code tests, e.g. login + disabling 2fa with backup' indicates that the test suite is incomplete. This could lead to backup code functionality being broken without being detected by tests.\n\nBackup code functionality may be broken and go undetected until a user reports the issue.\n\nThe backup code functionality is thoroughly tested, ensuring it works as expected."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 43,
+    "body": "**Low \u2014 AutoFocus prop not used in BackupCode component**\n\nThe 'autoFocus' prop is passed to the 'TwoFactor' component, but it is not used in the 'BackupCode' component. This could lead to confusion for developers who expect the 'autoFocus' prop to work in both components.\n\nEvery change here costs your team more time than it should, week after week.\n\nYour team moves faster on the same work."
+   }
+  ],
+  "meta": {
+   "files_changed": 16,
+   "scope": 44,
+   "seconds": 47,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 19,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-next",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 8,
+    "baseline_findings": 16,
+    "prompt_tokens": 67730,
+    "completion_tokens": 1564,
+    "total_tokens": 69294,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1": {
+  "tool": "grace-qwen3-coder-next",
+  "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1",
+  "review_comments": [
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 182,
+    "body": "**Critical \u2014 Upload size limits can mismatch between client and server**\n\nThe client-side file size check was changed from using `Discourse.SiteSettings['max_' + type + '_size_kb']` to a hardcoded 10MB limit. If the server-side limit (`SiteSetting.max_image_size_kb`) is configured differently (e.g., lower for security or higher for legitimate use), the client and server will disagree. An attacker or user can bypass the client-side check by disabling JavaScript or tampering with the request, but the bigger risk is that legitimate users may be confused when their uploads are rejected by the server despite the client showing a 10MB limit. This inconsistency can lead to user frustration and potential abuse reports.\n\nUsers may be confused or frustrated when their uploads are rejected, and attackers can exploit the mismatch to bypass intended limits.\n\nUsers know the real limit and uploads behave consistently."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 65,
+    "body": "**High \u2014 Large image uploads can hang the server for seconds**\n\nThe change introduces a loop that repeatedly resizes an image file in-place up to 5 times, reducing it to 80% of its current size each iteration. If the file size is not decreasing as expected (e.g., because ImageMagick/gifsicle fails silently or the file is already below the limit), the loop will still run 5 times, wasting server resources and blocking the upload request. The loop condition checks `tempfile.size` but the `downsize` method overwrites the file at `tempfile.path` and its return value (success/failure) is ignored. This can cause unnecessary delays or timeouts for users uploading large images, especially under concurrent load.\n\nUsers uploading large images may wait many seconds or hit a timeout, and the server can become unresponsive if many uploads happen at once.\n\nUploads complete quickly and reliably, and the server stays responsive under load."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 152,
+    "body": "**High \u2014 Image resizing can fail and break uploads**\n\nThe `downsize` method was changed to accept a single `dimensions` string (e.g., \"80%\"), but the `resize_instructions` and `downsize_instructions` methods still expect separate width/height arguments. The new `downsize` method calls `optimize(\"downsize\", from, to, dimensions, opts)`, which then calls `downsize_instructions(from, to, dimensions, opts)`. However, the instruction methods are defined to take `from, to, dimensions, opts` and interpolate `dimensions` directly into the command string. This is inconsistent with the original API and can cause command construction errors if the `dimensions` string is not properly formatted, leading to failed image processing and broken uploads.\n\nUsers' image uploads may fail silently, leaving them without their attached images.\n\nImage uploads succeed and users see their images correctly."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 65,
+    "body": "**High \u2014 Image uploads can be permanently corrupted**\n\nThe in-place resizing loop (`tempfile.path` as both input and output) can corrupt or destroy the original uploaded file if the resizing command fails partway through or overwrites the file with invalid data. Since the loop does not verify the file size decreased after each attempt, a failed resize could leave the file in a broken state, and `Upload.create_for` would then persist a corrupted file to storage. This risks data loss for the uploaded image and could lead to broken thumbnails or missing files.\n\nUsers lose their uploaded images, and the system stores broken files.\n\nUsers' images are saved correctly and never lost."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**High \u2014 Releases are done by hand, with no automated checks**\n\nno CI/CD pipeline \u2014 manual, non-reproducible deployment/validation\n\nShipping is slow and error-prone, and a bad change can reach users unnoticed.\n\nFaster, safer, repeatable releases."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 163,
+    "body": "**Medium \u2014 Image processing failures are hidden from logs**\n\nThe `convert_with` method runs a shell command and discards its output (`&> /dev/null`), then only checks `$?.exitstatus`. If the command fails (e.g., ImageMagick not installed, invalid file), the error is logged generically as \"Could not optimize image\" without any details (command, exit code, or stderr). This makes debugging image processing failures extremely difficult in production, especially when the new in-place resizing loop in `uploads_controller.rb` may be failing silently.\n\nYour team cannot diagnose why image uploads are failing or images are broken, leading to longer outages and user complaints.\n\nYour team can quickly fix image issues when they happen."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "**Medium \u2014 The app doesn't keep proper records of what happens in production**\n\nunstructured logging (24\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production\n\nWhen something breaks, there's little trace to understand why \u2014 so problems take longer to fix.\n\nYou can see and diagnose issues in production."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 43,
+   "seconds": 38,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 19,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-next",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 5,
+    "baseline_findings": 20,
+    "prompt_tokens": 179409,
+    "completion_tokens": 1428,
+    "total_tokens": 180837,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/grafana/grafana/pull/103633": {
+  "tool": "grace-qwen3-coder-next",
+  "pr_url": "https://github.com/grafana/grafana/pull/103633",
+  "review_comments": [
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": 113,
+    "body": "**High \u2014 Explicit permission denials are not cached in the denial cache**\n\nThe Check method now checks a denial cache before fetching permissions. If a cached denial exists, it returns false without checking the actual permissions. However, if the permission cache returns a cached permission that is explicitly false (denied), the code does not store this in the denial cache. This means subsequent requests for the same denied permission will hit the permission cache (which has the false value) instead of the denial cache, and the denial cache will never be populated for explicit false values. This leads to inconsistent caching behavior and potential performance issues due to repeated cache misses for explicit denials.\n\nUsers who are explicitly denied access will still hit the permission cache on every request, causing unnecessary database queries and slower response times.\n\nExplicit denials will be cached, reducing database load and improving response times for denied requests."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 100,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 11,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-next",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 8,
+    "baseline_findings": 15,
+    "prompt_tokens": 86147,
+    "completion_tokens": 2251,
+    "total_tokens": 88398,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/keycloak/keycloak/pull/32918": {
+  "tool": "grace-qwen3-coder-next",
+  "pr_url": "https://github.com/keycloak/keycloak/pull/32918",
+  "review_comments": [
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 214,
+    "body": "**High \u2014 Login identity provider cache may return incomplete results**\n\nThe getForLogin method in InfinispanIdentityProviderStorageProvider.java has a critical logic flaw in its cache handling. When a cached IdentityProviderListQuery exists but the requested organizationId is not found in the cache (cached == null), the code invalidates the cache key and creates a new query, but it fails to re-check if the newly created query contains the required organizationId. This can lead to returning an incomplete or empty list of identity providers for login when the cache is partially populated. The issue occurs under concurrent load when multiple threads may be populating the cache simultaneously, leading to inconsistent results.\n\nUsers may see fewer identity providers than available for login, causing authentication failures or confusion when expected login options are missing.\n\nAll configured identity providers will appear correctly in the login interface, ensuring users can authenticate with all available options."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": 227,
+    "body": "**High \u2014 Cache invalidation loop may occur during concurrent login IDP lookups**\n\nIn the getForLogin method, when an identity provider is not found in the session (idp == null), the code invalidates the cache and delegates to idpDelegate.getForLogin again. However, this creates a potential infinite loop or repeated cache invalidation under concurrent access, as multiple threads may simultaneously detect missing IDPs and repeatedly invalidate and repopulate the cache. The logic should ensure only one thread repopulates while others wait or use a fallback mechanism.\n\nUnder high concurrent login traffic, the system may experience repeated cache invalidations and database queries, causing slow login performance or timeouts.\n\nLogin performance will remain stable under concurrent load, with consistent response times for users attempting to authenticate."
+   },
+   {
+    "path": "server-spi/src/main/java/org/keycloak/models/IdentityProviderStorageProvider.java",
+    "line": 254,
+    "body": "**Medium \u2014 Login IDP predicate may misclassify IDPs when organization links change**\n\nThe getLoginPredicate method now includes a check for organization ID and BROKER_PUBLIC config, but this predicate is used to determine which IDPs qualify for login caching invalidation. If an IDP's organization link changes but the BROKER_PUBLIC flag is not set correctly, the predicate may incorrectly classify the IDP, leading to either unnecessary cache invalidations (performance impact) or missed invalidations (stale data). The predicate should be consistent with how IDPs are actually fetched for login.\n\nIdentity providers may not appear or disappear from login screens at the right time, causing users to see outdated or missing login options.\n\nLogin identity providers will update correctly when organization links or public settings change, ensuring accurate login options."
+   },
+   {
+    "path": "services/src/main/java/org/keycloak/organization/forms/login/freemarker/model/OrganizationAwareIdentityProviderBean.java",
+    "line": 75,
+    "body": "**Medium \u2014 This part of the app is easy to break by accident \u2014 signing in**\n\nThe OrganizationAwareIdentityProviderBean re-checks isEnabled() on IDPs after they may have been wrapped by createOrganizationAwareIdentityProviderModel. However, the wrapped IDP's isEnabled() method already includes organization-specific logic (checking if the org exists and is enabled). Re-checking isEnabled() on the original IDP model may lead to inconsistent behavior if the delegate's isEnabled() returns a different value than the wrapped version, especially when the organization is disabled or deleted.\n\nSome identity providers may incorrectly appear or disappear from the login screen depending on whether the organization is enabled, leading to authentication issues.\n\nLogin identity providers will consistently appear or disappear based on their actual configuration, not on implementation details of the bean."
+   },
+   {
+    "path": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/organization/cache/OrganizationCacheTest.java",
+    "line": 368,
+    "body": "**Low \u2014 Test cleanup may not remove all created identity providers**\n\nThe testCacheIDPForLogin test creates 20 IDPs with half enabled and associates 10 with an organization, but the cleanup cleanup rule uses testRealm().identityProviders().get(\"alias\")::remove which may not correctly clean up all created IDPs since they have unique aliases like \"idp-alias-0\" through \"idp-alias-19\". This could lead to test pollution where subsequent tests see leftover IDPs.\n\nSubsequent tests may see leftover identity providers from this test, causing flaky test results or incorrect test behavior.\n\nTests will run in a clean environment, ensuring consistent and reliable test results."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 62,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 16,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-next",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 5,
+    "baseline_findings": 20,
+    "prompt_tokens": 128693,
+    "completion_tokens": 1545,
+    "total_tokens": 130238,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/getsentry/sentry/pull/67876": {
+  "tool": "grace-qwen3-coder-next",
+  "pr_url": "https://github.com/getsentry/sentry/pull/67876",
+  "review_comments": [
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 401,
+    "body": "**Critical \u2014 GitHub user mismatch check can crash on missing sender data**\n\nThe code compares the GitHub user who authenticated via OAuth (from the 'github_authenticated_user' pipeline state) with the 'sender.login' stored in the integration metadata. However, the 'sender' field is only populated in the integration metadata when the integration is built from an installation webhook event. If the integration was created through any other flow (e.g., a manual setup or a different webhook), the 'sender' field will be missing. This will cause a KeyError when the code tries to access `integration.metadata['sender']['login']`, breaking the installation flow for those users and potentially allowing unauthorized installations if the error handling is not robust.\n\nUsers who installed GitHub before this change, or installed via a different flow, will be unable to complete the integration setup. An attacker could potentially exploit this to bypass the user verification check if the error handling is not robust.\n\nThe integration setup will work reliably for all users, and the security check will only pass when the correct user is installing the app."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 393,
+    "body": "**High \u2014 New GitHub integrations will fail to install**\n\nThe code now requires an ACTIVE integration to exist before allowing the installation to proceed. However, the previous logic allowed the pipeline to continue if the integration did not exist (returning `pipeline.next_step()`). This change breaks the installation flow for new integrations because the code now returns an error if the integration is not ACTIVE, which is the case for a newly created integration. The integration is only created and set to ACTIVE after the pipeline completes, so this check will always fail for a new installation.\n\nAny new GitHub integration installation will fail with an 'Invalid installation request' error, preventing users from connecting their GitHub account.\n\nNew GitHub integrations will install successfully, and the user will be able to connect their GitHub account to Sentry."
+   },
+   {
+    "path": "tests/sentry/integrations/github/test_integration.py",
+    "line": 257,
+    "body": "**Medium \u2014 GitHub integration test will fail on authorization header check**\n\nThe test `assert_setup_flow` was updated to expect the third API call (`responses.calls[2]`) for the authorization header, but the new `OAuthLoginView` adds an additional call to exchange the code for an access token. This means the test is now asserting against the wrong call, and the test will fail or, worse, pass silently while the actual integration is broken.\n\nThe test suite will produce false negatives, making it hard to detect real regressions in the integration flow.\n\nThe test suite will accurately reflect the integration flow, and developers will be confident that changes do not break the integration."
+   },
+   {
+    "path": "tests/sentry/integrations/github/test_integration.py",
+    "line": 335,
+    "body": "**Medium \u2014 GitHub integration test will fail on OAuth token exchange**\n\nThe test `test_github_installed_on_another_org` now makes an additional GET request to the setup path with a code and state, but the test does not stub the OAuth token exchange endpoint (`https://github.com/login/oauth/access_token`). This will cause the test to fail because the `safe_urlopen` call will not be mocked, and the test will not accurately reflect the integration flow.\n\nThe test suite will produce false negatives, making it hard to detect real regressions in the integration flow.\n\nThe test suite will accurately reflect the integration flow, and developers will be confident that changes do not break the integration."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 48,
+   "seconds": 94,
+   "files_reviewed": 48,
+   "deep_read": 48,
+   "findings_before_scoping": 14,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-next",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 6,
+    "baseline_findings": 20,
+    "prompt_tokens": 133830,
+    "completion_tokens": 1712,
+    "total_tokens": 135542,
+    "fell_back": false
+   }
+  }
+ }
+}

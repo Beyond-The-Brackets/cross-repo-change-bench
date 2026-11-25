@@ -13,13 +13,16 @@ import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-RAW = HERE / "results" / "raw" / "grace"
+sys.path.insert(0, str(HERE))
+from bench import TRACK  # noqa: E402
+
+RAW = HERE / TRACK["results"] / "raw" / "grace"
 
 
 def main() -> int:
     grace = shlex.split(os.environ.get("GRACE", "grace"))
-    truth = json.loads((HERE / "truth.json").read_text())
-    snaps = json.loads((HERE / "snapshots.json").read_text())
+    truth = json.loads((HERE / TRACK["truth"]).read_text())
+    snaps = json.loads((HERE / TRACK["snapshots"]).read_text())
     RAW.mkdir(parents=True, exist_ok=True)
     for ch in truth["changes"]:
         p = ch["producer"]

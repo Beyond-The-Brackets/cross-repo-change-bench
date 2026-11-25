@@ -18,6 +18,8 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(HERE))
+from bench import TRACK  # noqa: E402
 BUDGET = 60_000  # characters of diff: about 17k tokens, inside a 32k context with room to answer
 HEADER_EXT = (".h", ".hh", ".hpp", ".hxx", ".inc")
 
@@ -72,9 +74,9 @@ def main() -> int:
     if variant not in ("diff", "diff+list"):
         print("usage: model.py diff|diff+list", file=sys.stderr)
         return 2
-    truth = json.loads((HERE / "truth.json").read_text())
+    truth = json.loads((HERE / TRACK["truth"]).read_text())
     repos = [r["name"] for r in json.loads((HERE / "system.json").read_text())["repos"]]
-    raw = HERE / "results" / "raw" / f"model-{variant}"
+    raw = HERE / TRACK["results"] / "raw" / f"model-{variant}"
     raw.mkdir(parents=True, exist_ok=True)
     for ch in truth["changes"]:
         p = ch["producer"]

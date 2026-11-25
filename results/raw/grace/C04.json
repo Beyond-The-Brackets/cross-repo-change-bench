@@ -30,6 +30,7 @@
             "OS_TaskRegister"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             149
@@ -53,6 +54,7 @@
             "OS_TaskRegister"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             654,
@@ -67,6 +69,7 @@
             "OS_TaskRegister"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             2204,

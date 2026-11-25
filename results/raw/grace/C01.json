@@ -64,6 +64,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             157
@@ -78,6 +79,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             84,
@@ -93,6 +95,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             73,
@@ -119,6 +122,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             133
@@ -132,6 +136,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             516,
@@ -158,6 +163,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             80
@@ -169,6 +175,7 @@
           "path": "fsw/unit_test/ds_app_test.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -192,6 +199,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             77
@@ -205,6 +213,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             133
@@ -228,6 +237,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             60
@@ -251,6 +261,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             69
@@ -264,6 +275,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             58
@@ -275,6 +287,7 @@
           "path": "fsw/unit_test/hs_app_test.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -298,6 +311,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             64
@@ -309,6 +323,7 @@
           "path": "fsw/unit_test/lc_app_test.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -332,6 +347,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             67
@@ -343,6 +359,7 @@
           "path": "fsw/src/md_app.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -354,6 +371,7 @@
           "path": "fsw/unit_test/md_app_test.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -378,6 +396,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             278,
@@ -394,6 +413,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             17
@@ -408,6 +428,7 @@
             "CFE_ES_RegisterChildTask"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             13,
@@ -434,6 +455,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             110
@@ -445,6 +467,7 @@
           "path": "fsw/unit_test/sc_app_test.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_RegisterApp"
           ],
@@ -468,6 +491,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             157
@@ -491,6 +515,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             57
@@ -514,6 +539,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             90
@@ -537,6 +563,7 @@
             "CFE_ES_RegisterApp"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             154

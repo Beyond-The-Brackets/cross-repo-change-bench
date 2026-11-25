@@ -3668,6 +3668,28 @@
       ]
     },
     {
+      "name": "Sender",
+      "status": "removed",
+      "kind": "member",
+      "of": [
+        "CFE_SB_BufferD_t"
+      ],
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "ShellPacket",
+      "status": "removed",
+      "kind": "member",
+      "of": [
+        "CFE_ES_TaskData_t"
+      ],
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
       "name": "cfe_es_shell.h",
       "status": "removed",
       "kind": "header",
@@ -3720,9 +3742,250 @@
           "path": "fsw/platform_inc/cf_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_SB_MAX_SB_MSG_SIZE"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/aaa.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/aaa.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/cfdp_lib.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/misc.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/misc.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/nak.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/nak.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/pdu.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/pdu.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/r1.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/r2.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/r2.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/s1.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/s1.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/s2.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/s2.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/structures.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PRI/utils.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PUB/cfdp_data_structures.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/PUB/cfdp_provides.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
           ],
           "lines": [],
           "comment_only": true,
@@ -3739,6 +4002,7 @@
             "CFE_SB_HIGHEST_VALID_MSGID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             169,
@@ -3775,6 +4039,7 @@
             "CFE_SB_MAX_SB_MSG_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             208,
@@ -3810,6 +4075,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             228,
@@ -3844,6 +4110,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             129,
@@ -3876,6 +4143,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             522,
@@ -3895,6 +4163,7 @@
             "CFE_SB_MAX_SB_MSG_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             55,
@@ -3909,6 +4178,7 @@
           "path": "fsw/unit_test/cf_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_SB_MAX_SB_MSG_SIZE"
@@ -3926,6 +4196,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             371,
@@ -3959,6 +4230,7 @@
             "CFE_FS_IsGzFile"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             52,
@@ -3974,6 +4246,7 @@
             "CCSDS_PriHdr_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             86,
@@ -3991,6 +4264,7 @@
             "CFE_SB_SenderId_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             86
@@ -4004,6 +4278,7 @@
             "CFE_ES_APP_RUN"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_ERROR",
             "CFE_ES_APP_EXIT"
@@ -4024,6 +4299,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             45,
@@ -4043,6 +4319,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             96
@@ -4057,6 +4334,7 @@
             "CFE_FS_IsGzFile"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             53,
@@ -4074,6 +4352,7 @@
             "CCSDS_PriHdr_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             229,
@@ -4098,6 +4377,7 @@
             "CFE_SB_SenderId_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             84,
@@ -4112,6 +4392,7 @@
             "CFE_OSAPI_NOT_IMPLEMENTED"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             456,
@@ -4145,6 +4426,7 @@
             "CFE_ES_DEFAULT_CRC"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_CRC_16"
           ],
@@ -4158,6 +4440,7 @@
           "path": "fsw/platform_inc/cs_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_DEFAULT_STACK_SIZE",
             "CFE_ES_MAX_APPLICATIONS",
@@ -4178,6 +4461,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_EXIT"
           ],
@@ -4215,6 +4499,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             57,
@@ -4246,6 +4531,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             54,
@@ -4280,6 +4566,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             324,
@@ -4305,6 +4592,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             59,
@@ -4338,6 +4626,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             59,
@@ -4371,6 +4660,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             57,
@@ -4401,6 +4691,7 @@
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             80,
@@ -4433,6 +4724,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             483,
@@ -4452,6 +4744,7 @@
           "path": "fsw/src/cs_verify.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_MAX_APPLICATIONS",
             "CFE_TBL_MAX_NUM_TABLES"
@@ -4468,6 +4761,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             68,
@@ -4501,6 +4795,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             121,
@@ -4535,6 +4830,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             81,
@@ -4569,6 +4865,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             243,
@@ -4601,6 +4898,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             68,
@@ -4635,6 +4933,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             68,
@@ -4669,6 +4968,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             68,
@@ -4700,6 +5000,7 @@
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             95,
@@ -4732,6 +5033,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             474,
@@ -4761,6 +5063,7 @@
           "path": "fsw/platform_inc/ds_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_TBL_MAX_NAME_LENGTH"
@@ -4780,6 +5083,7 @@
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_EXIT"
           ],
@@ -4808,6 +5112,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             66,
@@ -4840,6 +5145,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             407,
@@ -4859,6 +5165,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             87,
@@ -4889,6 +5196,7 @@
           "path": "fsw/src/ds_verify.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH"
           ],
@@ -4903,6 +5211,7 @@
             "CFE_EVS_EVENT_MSG_MID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             167,
@@ -4920,6 +5229,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             100,
@@ -4954,6 +5264,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             85,
@@ -4986,6 +5297,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             310,
@@ -5002,6 +5314,7 @@
           "path": "fsw/unit_test/ds_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_TBL_MAX_NAME_LENGTH"
@@ -5018,6 +5331,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             139,
@@ -5064,6 +5378,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             72,
@@ -5098,6 +5413,7 @@
             "CFE_TIME_FS2CFESeconds"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             108,
@@ -5130,6 +5446,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             64,
@@ -5165,6 +5482,7 @@
             "CFE_TIME_FS2CFESeconds"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             64,
@@ -5186,6 +5504,7 @@
           "path": "fsw/src/fm_events.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_FS_Decompress"
           ],
@@ -5197,6 +5516,7 @@
           "path": "fsw/src/fm_msgdefs.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_FS_Decompress"
           ],
@@ -5211,6 +5531,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             128,
@@ -5230,6 +5551,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             96,
@@ -5263,6 +5585,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             204,
@@ -5295,6 +5618,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             138,
@@ -5329,6 +5653,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             139,
@@ -5354,6 +5679,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             85,
@@ -5390,6 +5716,7 @@
           "path": "fsw/platform_inc/hk_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH"
           ],
@@ -5408,6 +5735,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             74,
@@ -5443,6 +5771,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             107,
@@ -5469,6 +5798,7 @@
           "path": "fsw/src/hk_verify.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH"
           ],
@@ -5487,6 +5817,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             183,
@@ -5522,6 +5853,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             144,
@@ -5560,6 +5892,7 @@
           "path": "fsw/platform_inc/hs_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_MAX_PROCESSOR_RESETS",
             "CFE_SB_MAX_PIPE_DEPTH",
@@ -5582,6 +5915,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_EXIT"
           ],
@@ -5619,6 +5953,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             119,
@@ -5653,6 +5988,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             113,
@@ -5669,6 +6005,7 @@
           "path": "fsw/src/hs_events.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_EVS_EVENT_MSG_MID"
           ],
@@ -5687,6 +6024,7 @@
             "CFE_SB_MAX_SB_MSG_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             76,
@@ -5719,6 +6057,7 @@
             "CFE_SB_MAX_SB_MSG_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH"
           ],
@@ -5739,6 +6078,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_ERROR"
           ],
@@ -5776,6 +6116,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             309,
@@ -5810,6 +6151,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             134,
@@ -5832,6 +6174,7 @@
             "CFE_SB_MAX_SB_MSG_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             96,
@@ -5862,6 +6205,7 @@
           "path": "fsw/unit_test/hs_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_MAX_PROCESSOR_RESETS",
             "CFE_SB_MAX_PIPE_DEPTH",
@@ -5886,6 +6230,7 @@
           "path": "fsw/mission_inc/lc_mission_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_HIGHEST_VALID_MSGID"
           ],
@@ -5897,6 +6242,7 @@
           "path": "fsw/platform_inc/lc_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_EVS_MAX_MESSAGE_LENGTH",
             "CFE_TBL_MAX_SNGL_TABLE_SIZE"
@@ -5915,6 +6261,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             62,
@@ -5948,6 +6295,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_EXIT"
           ],
@@ -5984,6 +6332,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             98,
@@ -6016,6 +6365,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             102
@@ -6027,6 +6377,7 @@
           "path": "fsw/src/lc_tbl.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_EVS_CRITICAL",
             "CFE_EVS_DEBUG",
@@ -6044,6 +6395,7 @@
             "CFE_SB_HIGHEST_VALID_MSGID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             37,
@@ -6066,6 +6418,7 @@
             "CFE_SB_HIGHEST_VALID_MSGID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             85,
@@ -6093,6 +6446,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             197,
@@ -6127,6 +6481,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             87,
@@ -6161,6 +6516,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             160,
@@ -6195,6 +6551,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             126,
@@ -6227,6 +6584,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             81,
@@ -6239,6 +6597,7 @@
           "path": "fsw/unit_test/lc_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_EVS_MAX_MESSAGE_LENGTH",
             "CFE_TBL_MAX_SNGL_TABLE_SIZE"
@@ -6255,6 +6614,7 @@
             "CFE_SB_HIGHEST_VALID_MSGID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             72,
@@ -6302,6 +6662,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
@@ -6336,6 +6697,7 @@
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             140
@@ -6350,6 +6712,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             105,
@@ -6382,6 +6745,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             98
@@ -6396,6 +6760,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             57,
@@ -6425,6 +6790,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             95,
@@ -6458,6 +6824,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             97,
@@ -6491,6 +6858,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             86,
@@ -6520,6 +6888,7 @@
           "path": "fsw/mcp750-vxworks/src/cfe_psp_exception.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_EXCEPTION_FUNCTION"
           ],
@@ -6541,6 +6910,7 @@
           "path": "fsw/platform_inc/sbn_interfaces.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_CPU_ID"
           ],
@@ -6552,6 +6922,7 @@
           "path": "fsw/src/sbn_app.c",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_CPU_ID"
           ],
@@ -6566,6 +6937,7 @@
             "CCSDS_TelemetryPacket_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             9,
@@ -6582,6 +6954,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             70,
@@ -6605,6 +6978,7 @@
             "CFE_ES_APP_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             8,
@@ -6620,6 +6994,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             14,
@@ -6644,6 +7019,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             23,
@@ -6668,7 +7044,10 @@
             "CFE_SB_SenderId_t"
           ],
           "in_conditions_only": [],
-          "mentioned": [],
+          "members_to_check": [],
+          "mentioned": [
+            "Sender"
+          ],
           "lines": [
             142,
             144,
@@ -6688,6 +7067,7 @@
             "CFE_SB_SenderId_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             34
@@ -6702,6 +7082,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             79,
@@ -6734,6 +7115,7 @@
             "CCSDS_TelemetryPacket_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             405,
@@ -6749,6 +7131,7 @@
             "CCSDS_CommandPacket_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             8
@@ -6770,6 +7153,7 @@
           "path": "fsw/platform_inc/sc_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_SB_MAX_SB_MSG_SIZE",
@@ -6790,6 +7174,7 @@
             "CFE_TBL_MAX_NAME_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             106,
@@ -6824,6 +7209,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             120,
@@ -6858,6 +7244,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             220,
@@ -6886,6 +7273,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             443,
@@ -6912,6 +7300,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             141,
@@ -6945,6 +7334,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             270,
@@ -6962,6 +7352,7 @@
             "CFE_EVS_ERROR"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             198
@@ -6979,6 +7370,7 @@
             "CFE_TBL_MAX_SNGL_TABLE_SIZE"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             70,
@@ -7008,6 +7400,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_ES_APP_ERROR"
           ],
@@ -7044,6 +7437,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             97,
@@ -7079,6 +7473,7 @@
             "CFE_EVS_MAX_MESSAGE_LENGTH"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             253,
@@ -7112,6 +7507,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             483,
@@ -7142,6 +7538,7 @@
           "path": "fsw/unit_test/sc_platform_cfg.h",
           "symbols": [],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [
             "CFE_SB_MAX_PIPE_DEPTH",
             "CFE_SB_MAX_SB_MSG_SIZE",
@@ -7159,6 +7556,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             98,
@@ -7192,6 +7590,7 @@
             "CFE_EVS_INFORMATION"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             230,
@@ -7220,6 +7619,7 @@
             "CFE_EVS_Packet_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             395,
@@ -7245,6 +7645,7 @@
             "CFE_EVS_Packet_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             85
@@ -7258,6 +7659,7 @@
             "CFE_EVS_Packet_t"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             51
@@ -7281,6 +7683,7 @@
             "CFE_ES_SHELL_TLM_MID"
           ],
           "in_conditions_only": [],
+          "members_to_check": [],
           "mentioned": [],
           "lines": [
             86

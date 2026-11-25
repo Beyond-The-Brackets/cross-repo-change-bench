@@ -1,0 +1,2924 @@
+{
+  "producer": "cFE",
+  "base": "95c25e541777ef3a5c1b632703e6a0306faec5d8",
+  "head": "d127a160ca48723359ff610ae3c5b2bb668ad729",
+  "symbols": [
+    {
+      "name": "CFE_ES_ClearERLogCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ClearERLog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ClearSyslogCmd",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ClearSyslog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_DeleteCDSCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_DeleteCDS_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_DumpCDSRegistryCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_DumpCDSRegistry_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_HousekeepingCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_NoopCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_Noop_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_OverWriteSyslogCmd",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_OverWriteSyslog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryAllCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryAllTasksCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryAllTasks_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryAll_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryOneCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_QueryOne_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ReloadAppCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ReloadApp_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ResetCountersCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ResetCounters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ResetPRCountCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_ResetPRCount_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_RestartAppCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_RestartApp_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_RestartCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_Restart_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SendMemPoolStatsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SendMemPoolStats_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetMaxPRCountCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetMaxPRCount_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetPerfFilterMaskCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetPerfFilterMask_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetPerfTriggerMaskCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_SetPerfTriggerMask_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StartAppCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StartApp_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StartPerfDataCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StartPerfData_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StopAppCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StopApp_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StopPerfDataCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_StopPerfData_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_TaskPipe",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_WriteERLogCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_WriteERLog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_WriteSyslogCmd",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/es/cfe_es_task.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_WriteSyslog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_es_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_AddEventFilterCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_AddEventFilter_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ClearLogCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ClearLog_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DeleteEventFilterCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DeleteEventFilter_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableAppEventTypeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableAppEventType_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableAppEventsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableAppEvents_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableEventTypeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisableEventType_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisablePortsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_DisablePorts_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableAppEventTypeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableAppEventType_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableAppEventsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableAppEvents_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableEventTypeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnableEventType_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnablePortsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_EnablePorts_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_NoopCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_Noop_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ProcessCommandPacket",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ReportHousekeepingCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetAllFiltersCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetAllFilters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetAppCounterCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetAppCounter_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetCountersCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetCounters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetFilterCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_ResetFilter_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetEventFormatModeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetEventFormatMode_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetFilterCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetFilter_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetLogModeCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_log.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_SetLogMode_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_WriteAppDataFileCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_task.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_WriteAppDataFile_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_WriteLogDataFileCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/evs/cfe_evs_log.h"
+      ]
+    },
+    {
+      "name": "CFE_EVS_WriteLogDataFile_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_evs_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_CMD_HDR_SIZE",
+      "status": "deprecated",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_CmdHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_DisableRouteCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_DisableRoute_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_DisableSubReportingCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_DisableSubReporting_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_EnableRouteCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_EnableRoute_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_EnableSubReportingCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_EnableSubReporting_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_NoopCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_Noop_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_PassMsg",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ProcessCmdPipePkt",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_RcvMsg",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ResetCountersCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ResetCounters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendHKTlmCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendMapInfoCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendMapInfo_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendMsg",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendMsgFull",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendPipeInfoCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendPipeInfo_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendPrevSubsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendPrevSubs_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendRoutingInfoCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendRoutingInfo_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendSbStats_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_SendStatsCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_TLM_HDR_SIZE",
+      "status": "deprecated",
+      "kind": "macro",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_TlmHdr_t",
+      "status": "deprecated",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ZeroCopyPass",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ZeroCopyReleaseDesc",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/sb/cfe_sb_priv.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ZeroCopyReleasePtr",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_SB_ZeroCopySend",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_sb.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_AbortLoadCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_AbortLoad_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_ActivateCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_Activate_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_DeleteCDSCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_DeleteCDS_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_DumpCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_DumpRegistryCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_DumpRegistry_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_Dump_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_HousekeepingCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_LoadCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_Load_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_NoopCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_Noop_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_ResetCountersCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_ResetCounters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_SendRegistryCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_SendRegistry_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_TaskPipe",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_ValidateCmd",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h"
+      ]
+    },
+    {
+      "name": "CFE_TBL_Validate_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_tbl_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_Add1HZAdjustment_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_AddAdjust_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_AddDelay_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_Noop_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_ResetCounters_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SendDiagnosticTlm_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetLeapSeconds_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetMET_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetSTCF_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetSignal_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetSource_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetState_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SetTime_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_Sub1HZAdjustment_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SubAdjust_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_SubDelay_t",
+      "status": "removed",
+      "kind": "typedef",
+      "headers": [
+        "fsw/cfe-core/src/inc/cfe_time_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_TIME_TaskPipe",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "fsw/cfe-core/src/time/cfe_time_utils.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "fsw/cfe-core/src/es/cfe_es_log.h",
+    "fsw/cfe-core/src/es/cfe_es_task.h",
+    "fsw/cfe-core/src/es/cfe_es_verify.h",
+    "fsw/cfe-core/src/evs/cfe_evs_log.h",
+    "fsw/cfe-core/src/evs/cfe_evs_task.h",
+    "fsw/cfe-core/src/inc/cfe_error.h",
+    "fsw/cfe-core/src/inc/cfe_es_msg.h",
+    "fsw/cfe-core/src/inc/cfe_evs.h",
+    "fsw/cfe-core/src/inc/cfe_evs_msg.h",
+    "fsw/cfe-core/src/inc/cfe_msg_typedefs.h",
+    "fsw/cfe-core/src/inc/cfe_sb.h",
+    "fsw/cfe-core/src/inc/cfe_sb_events.h",
+    "fsw/cfe-core/src/inc/cfe_sb_msg.h",
+    "fsw/cfe-core/src/inc/cfe_tbl_events.h",
+    "fsw/cfe-core/src/inc/cfe_tbl_msg.h",
+    "fsw/cfe-core/src/inc/cfe_time_msg.h",
+    "fsw/cfe-core/src/sb/cfe_sb_priv.h",
+    "fsw/cfe-core/src/tbl/cfe_tbl_task.h",
+    "fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.h",
+    "fsw/cfe-core/src/time/cfe_time_utils.h"
+  ],
+  "consumers": [
+    {
+      "repo": "CF",
+      "sha": "cbda7b9cad82e0d37cd0080e21f79b18eb571b17",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/cf_app.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            190,
+            975,
+            977
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/cf_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/cf_callbacks.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE",
+            "CFE_SB_ZeroCopySend"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            805,
+            809,
+            874,
+            878,
+            900
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/cf_cmds.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            128,
+            199,
+            221,
+            1182,
+            1263
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/cf_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            128,
+            135,
+            144,
+            158,
+            172,
+            180,
+            190,
+            206,
+            214,
+            222,
+            230,
+            241,
+            251,
+            259,
+            266,
+            277,
+            286,
+            294,
+            302,
+            309
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/cf_testcase.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            63
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/inc/ut_cfe_sb_stubs.h",
+          "symbols": [
+            "CFE_SB_PassMsg",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg",
+            "CFE_SB_ZeroCopyPass",
+            "CFE_SB_ZeroCopyReleasePtr",
+            "CFE_SB_ZeroCopySend"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            83,
+            84,
+            85,
+            88,
+            89,
+            90
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/src/ut_cfe_sb_hooks.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TLM_HDR_SIZE",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            249,
+            253,
+            352,
+            359,
+            379,
+            386,
+            407,
+            415,
+            427,
+            435,
+            449,
+            457
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/src/ut_cfe_sb_stubs.c",
+          "symbols": [
+            "CFE_SB_PassMsg",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg",
+            "CFE_SB_ZeroCopyPass",
+            "CFE_SB_ZeroCopyReleasePtr",
+            "CFE_SB_ZeroCopySend"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            81,
+            82,
+            83,
+            86,
+            87,
+            88,
+            212,
+            219,
+            220,
+            225,
+            234,
+            242,
+            243,
+            258,
+            263,
+            268
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 4
+    },
+    {
+      "repo": "CS",
+      "sha": "4a324f14d4991a6a19cc6ef4b88d068805099e0c",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/cs_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            157,
+            881
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/cs_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            54,
+            128,
+            138,
+            150,
+            161,
+            173,
+            183
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/cs_app_test.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            84,
+            85
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "DS",
+      "sha": "1518fa2b377e4176266a66c838c2f3cc21a31ab5",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/ds_app.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            114,
+            318,
+            614
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_cmds.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            1418
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ds_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            47,
+            60,
+            72,
+            87,
+            106,
+            123,
+            143,
+            158,
+            174,
+            192,
+            209,
+            226,
+            243,
+            260,
+            277,
+            293,
+            306,
+            318,
+            337,
+            406
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ds_app_test.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [
+            61,
+            417
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/ds_cmds_test.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            63,
+            64
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "FM",
+      "sha": "a6ceee3822adc4e15f55ec16e015044f73e1787e",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/fm_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            110,
+            446
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/fm_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/fm_child.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            1029,
+            1355
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/fm_cmds.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            639,
+            947
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/fm_events.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/fm_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            53,
+            65,
+            77,
+            89,
+            104,
+            119,
+            133,
+            146,
+            159,
+            173,
+            188,
+            202,
+            214,
+            227,
+            240,
+            256,
+            272,
+            284,
+            298,
+            331
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/fm_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "HK",
+      "sha": "6402eb2cf7d2f559d9ad6b1ee935d232db4bc27f",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/hk_app.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            88,
+            368,
+            373,
+            454,
+            467,
+            494
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hk_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hk_events.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hk_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            49,
+            65
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hk_msgdefs.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_CmdHdr_t"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hk_utils.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            427
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/hk_app_test.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [
+            971,
+            974,
+            997,
+            1027,
+            1057,
+            1085,
+            1113,
+            1142,
+            1157,
+            1190,
+            1241,
+            1307,
+            1310,
+            1335
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "HS",
+      "sha": "192a10f1adfb1a2cd5c64bd6c5be918058e9441c",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/platform_inc/hs_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            139,
+            659,
+            688
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_cmds.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            296
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_cmds.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_custom.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            225,
+            233
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_monitors.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            197,
+            359
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            64,
+            73,
+            83
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/hs_tbl.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            93
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/hs_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/hs_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "LC",
+      "sha": "82bd57b541f313fba238ba3f191dda607b097656",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/lc_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            103
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/lc_cmds.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            477
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/lc_cmds.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/lc_custom.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            50,
+            66
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/lc_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            46,
+            54,
+            66,
+            78,
+            90,
+            102,
+            114,
+            128
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/lc_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "MD",
+      "sha": "49ffb5ce8ecf3d88924d65f58a0d44a891556c41",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/md_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            108,
+            806
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/md_dwell_pkt.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            254
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/md_events.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/md_msg.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            65,
+            77,
+            93,
+            111,
+            130,
+            169
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "SBN",
+      "sha": "8162390611f6013e2dd046f802a228a443acb591",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/platform_inc/sbn_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            9,
+            11,
+            14,
+            17,
+            20,
+            23,
+            26,
+            29,
+            32,
+            35,
+            44
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_app.c",
+          "symbols": [
+            "CFE_SB_PassMsg",
+            "CFE_SB_RcvMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            529,
+            639,
+            823,
+            907,
+            1419
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_cmds.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_SendMsg",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            129,
+            164,
+            199,
+            239,
+            251,
+            252,
+            264,
+            285,
+            302,
+            303,
+            313,
+            334,
+            361,
+            362,
+            378,
+            393,
+            406,
+            407,
+            421,
+            433
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_cmds.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sbn_subs.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            37,
+            40,
+            42,
+            51,
+            299
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "modules/protocol/udp/unit-test/coveragetest/coveragetest_sbn_udp_if.c",
+          "symbols": [
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            408,
+            414,
+            426,
+            431,
+            441,
+            444,
+            446
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "test/cFS/apps/fib/fsw/src/fib_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            36,
+            37,
+            43,
+            51
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "test/cFS/apps/fib/fsw/src/fib_app_msg.h",
+          "symbols": [
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            5
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sbn_app.c",
+          "symbols": [
+            "CFE_SB_PassMsg",
+            "CFE_SB_RcvMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            509,
+            512,
+            520,
+            546,
+            558,
+            576,
+            584,
+            608,
+            620,
+            653,
+            654,
+            662,
+            686,
+            687,
+            716,
+            717,
+            746,
+            747,
+            753,
+            790
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sbn_cmds.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            24,
+            44,
+            49,
+            83,
+            146,
+            169,
+            232,
+            255,
+            301,
+            323,
+            328,
+            343,
+            363,
+            368,
+            403,
+            426,
+            470,
+            475,
+            490,
+            509
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sbn_subs.c",
+          "symbols": [
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            13,
+            25,
+            71,
+            94,
+            115,
+            134,
+            155,
+            179,
+            204,
+            226,
+            249,
+            276,
+            295,
+            310
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 6
+    },
+    {
+      "repo": "SC",
+      "sha": "43392d75418998a75f04b64416a3323be1d51918",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/platform_inc/sc_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_app.c",
+          "symbols": [
+            "CFE_SB_RcvMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            135
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_app.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            239,
+            240,
+            256,
+            275,
+            292
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_cmds.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            204,
+            408,
+            558
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_events.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_SendMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TLM_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            83,
+            170,
+            180,
+            190,
+            200,
+            211,
+            222,
+            233
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_rtsrq.c",
+          "symbols": [
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            641
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_utils.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sc_verify.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            141
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/sc_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_RcvMsg"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/sc_platform_cfg.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_SB_CMD_HDR_SIZE"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "ci_lab",
+      "sha": "aa805af0ea10fc27f2754ba12e02aa246f2161c3",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/ci_lab_app.c",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            90,
+            119,
+            236,
+            322,
+            326,
+            367,
+            371
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/ci_lab_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            44,
+            77
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "sample_app",
+      "sha": "c2223674461b8793e5d5349a4ca4b650c6677c60",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/sample_app.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            85,
+            248,
+            321,
+            335
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sample_app.h",
+          "symbols": [
+            "CFE_SB_CmdHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            109
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/sample_app_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            47,
+            76
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sample_app.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            213,
+            221,
+            281,
+            335,
+            415,
+            424
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "sch_lab",
+      "sha": "25e2784ae98a58850a8d2e2c2832ff3dc8c8a602",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/sch_lab_app.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            54,
+            106,
+            125
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "to_lab",
+      "sha": "c20250e6fc7ab51cbd9f82329a25be31193cd6a3",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/to_lab_app.c",
+          "symbols": [
+            "CFE_SB_CmdHdr_t",
+            "CFE_SB_RcvMsg",
+            "CFE_SB_SendMsg"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            87,
+            284,
+            298,
+            433,
+            444,
+            447,
+            580
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/src/to_lab_msg.h",
+          "symbols": [
+            "CFE_SB_CMD_HDR_SIZE",
+            "CFE_SB_TlmHdr_t"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            51,
+            83,
+            93,
+            119,
+            141,
+            154
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

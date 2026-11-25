@@ -1,0 +1,134 @@
+{
+ "tool": "model-diff+list",
+ "version": "prompt v1",
+ "model": "alibaba/qwen3-coder-30b-a3b",
+ "changes": {
+  "F01": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SC",
+    "cFE",
+    "ci_lab",
+    "sample_app",
+    "sch_lab"
+   ],
+   "files": []
+  },
+  "F02": {
+   "answered": true,
+   "repos": [
+    "ci_lab",
+    "elf2cfetbl",
+    "osal",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool"
+   ],
+   "files": [
+    "cfe_es_msg.h",
+    "cfe_es_task.h",
+    "cfe_evs_msg.h",
+    "cfe_evs_task.h",
+    "cfe_msg_typedefs.h"
+   ]
+  },
+  "F03": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "ci_lab",
+    "osal",
+    "sample_app",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "cfe_msg_api_typedefs.h",
+    "cfe_msg_sechdr_checksum.c",
+    "cfe_sb_handlers.c",
+    "default_cfe_msg_hdr_pri.h",
+    "default_cfe_msg_hdr_priext.h",
+    "ut_support.c"
+   ]
+  },
+  "F04": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "ci_lab",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "to_lab"
+   ],
+   "files": [
+    "ccsds.c",
+    "ccsds.h",
+    "ccsds_hdr.h",
+    "cf_app.c",
+    "cf_msg.h",
+    "cfe.h",
+    "cfe_msg_api.h",
+    "cfe_msg_hdr.h",
+    "cfe_sb.h",
+    "cfe_sb_msg_id_util.c",
+    "cfe_sb_msg_id_util.h",
+    "cfe_sb_priv.c",
+    "cfe_sb_task.c",
+    "cfe_sb_util.c",
+    "ci_lab_app.c",
+    "ci_lab_msg.h",
+    "cs_app.c",
+    "cs_msg.h",
+    "ds_app.c",
+    "ds_msg.h",
+    "fm_app.c",
+    "fm_msg.h",
+    "hk_app.c",
+    "hk_msg.h",
+    "hs_app.c",
+    "hs_msg.h",
+    "lc_app.c",
+    "lc_msg.h",
+    "md_app.c",
+    "md_msg.h",
+    "sample_app.c",
+    "sample_app.h",
+    "sample_lib.c",
+    "sample_lib.h",
+    "sbn_app.c",
+    "sbn_msg.h",
+    "sc_app.c",
+    "sc_msg.h",
+    "sch_lab_app.c",
+    "sch_lab_msg.h",
+    "to_lab_app.c",
+    "to_lab_msg.h"
+   ]
+  }
+ }
+}
