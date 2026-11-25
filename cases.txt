@@ -1,0 +1,10 @@
+cFE 8c70e950 removed CFE_ES_RegisterApp,CFE_ES_RegisterChildTask | ci_lab 11d03e9a direct | sample_app 847ff903 direct | sch_lab f3253939 direct | to_lab 9d53b246 direct | CF 2ca7f978 later | CS 0f34b32d later | DS 68cb97b4 later | FM 142eec97 later | HK 85a8b20d later | HS f72c7b10 later | LC 6d68cf8f later | MD 19526253 later | SBN 02f3193e later | SC ae2d615e later
+osal 52ee8713 deprecated UT_SetForceFail | PSP 1f802ae5 direct | cFE fe3427fc direct | sample_app 473e7d4b direct | sample_lib b48d981c direct
+cFE f3cdfbe3 renamed CFE_PLATFORM_TLM_MID_BASE,CFE_PLATFORM_CMD_MID_BASE | DS dc147848 direct | HK 90218205 direct | LC 2749d8e8 direct | MD 00266ac4 direct | SC 2849e7cc direct
+osal 36700760 removed OS_TaskRegister | cFE 8c70e950 direct | CF 2ca7f978 later
+osal b2447bdc renamed UT_Stub_CheckForceFail | cFE ba562e39 direct
+PSP a6c07e1a removed CFE_PSP_VERSION | cFE 9c4b36f9 direct
+osal 41862fd7 deprecated OS_FS_ERROR,OS_FS_ERR_INVALID_POINTER,OS_FS_SUCCESS | cFE 6ef8a02a direct | CF 2ca7f978 later | CS f6f16bc5 later | FM b3ea3d11 later
+EdsLib 147dc086 renamed CFE_HDR_CommandHeader_t,CFE_HDR_CommandHeader_PackedBuffer_t,CFE_HDR_CommandHeader_Buffer_t,CFE_HDR_TelemetryHeader_PackedBuffer_t,CFE_SB_Telecommand_Interface_ID,CFE_SB_Telemetry_Interface_ID | ci_lab 2c9e4f20 direct | to_lab 21bacbb direct
+cFE 4a4ada46 removed CFE_MSG_UpdateHeader | EdsLib 068bebb2 direct
+cFE 37a5ac9c removed CFE_ES_SHELL_TLM_MID,CFE_ES_APP_ERROR,CFE_ES_APP_RUN,CFE_EVS_INFORMATION,CFE_EVS_ERROR,CFE_EVS_DEBUG,CFE_EVS_CRITICAL | to_lab 801e8e53 direct | CS f6f16bc5 release | DS 1518fa2b release | HK 6402eb2c release | HS 192a10f1 release | LC 82bd57b5 release | MD b33513cd release | CF 2ca7f978 later | FM 142eec97 later | SBN 777d2462 later | SC ae2d615e later

@@ -1,0 +1,675 @@
+[
+ {
+  "tool": "grace",
+  "model": null,
+  "version": "grace 193939cd (grace system impact)",
+  "cases": 45,
+  "users_named": 45,
+  "recall": 1.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 21,
+    "cases": 21
+   },
+   "later": {
+    "named": 18,
+    "cases": 18
+   },
+   "release": {
+    "named": 6,
+    "cases": 6
+   }
+  },
+  "files": 138,
+  "files_named": 131,
+  "file_recall": 0.9492753623188406,
+  "repos_named": 46,
+  "repos_confirmed": 45,
+  "precision_lower_bound": 0.9782608695652174,
+  "changes_warned": 10,
+  "changes": {
+   "C01": {
+    "found": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C02": {
+    "found": [
+     "PSP",
+     "cFE",
+     "sample_app",
+     "sample_lib"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C03": {
+    "found": [
+     "DS",
+     "HK",
+     "LC",
+     "MD",
+     "SC"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C04": {
+    "found": [
+     "CF",
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C05": {
+    "found": [
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C06": {
+    "found": [
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C07": {
+    "found": [
+     "CF",
+     "CS",
+     "FM",
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C08": {
+    "found": [
+     "ci_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C09": {
+    "found": [
+     "EdsLib"
+    ],
+    "missed": [],
+    "unconfirmed": []
+   },
+   "C10": {
+    "found": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "osal"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "model-diff+list",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "prompt v1",
+  "cases": 45,
+  "users_named": 30,
+  "recall": 0.6666666666666666,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 17,
+    "cases": 21
+   },
+   "later": {
+    "named": 7,
+    "cases": 18
+   },
+   "release": {
+    "named": 6,
+    "cases": 6
+   }
+  },
+  "files": 138,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 142,
+  "repos_confirmed": 30,
+  "precision_lower_bound": 0.2112676056338028,
+  "changes_warned": 10,
+  "changes": {
+   "C01": {
+    "found": [
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "missed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC"
+    ],
+    "unconfirmed": [
+     "elf2cfetbl",
+     "sample_lib"
+    ]
+   },
+   "C02": {
+    "found": [
+     "PSP",
+     "cFE",
+     "sample_app",
+     "sample_lib"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "EdsLib",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "sch_lab",
+     "to_lab"
+    ]
+   },
+   "C03": {
+    "found": [
+     "DS",
+     "HK"
+    ],
+    "missed": [
+     "LC",
+     "MD",
+     "SC"
+    ],
+    "unconfirmed": [
+     "CS",
+     "FM",
+     "ci_lab",
+     "elf2cfetbl",
+     "osal",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "tblCRCTool",
+     "to_lab"
+    ]
+   },
+   "C04": {
+    "found": [
+     "CF",
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CS",
+     "DS",
+     "EdsLib",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "PSP",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "elf2cfetbl",
+     "sample_app",
+     "tblCRCTool",
+     "to_lab"
+    ]
+   },
+   "C05": {
+    "found": [
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "EdsLib",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "PSP",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "elf2cfetbl",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "tblCRCTool",
+     "to_lab"
+    ]
+   },
+   "C06": {
+    "found": [
+     "cFE"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "EdsLib",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "osal",
+     "sample_app"
+    ]
+   },
+   "C07": {
+    "found": [
+     "CF",
+     "CS",
+     "cFE"
+    ],
+    "missed": [
+     "FM"
+    ],
+    "unconfirmed": [
+     "ci_lab",
+     "elf2cfetbl",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ]
+   },
+   "C08": {
+    "found": [
+     "ci_lab",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "elf2cfetbl",
+     "osal",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "tblCRCTool"
+    ]
+   },
+   "C09": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "elf2cfetbl",
+     "osal",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "tblCRCTool",
+     "to_lab"
+    ]
+   },
+   "C10": {
+    "found": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "to_lab"
+    ],
+    "missed": [],
+    "unconfirmed": [
+     "EdsLib",
+     "ci_lab",
+     "elf2cfetbl",
+     "osal",
+     "sample_app",
+     "sample_lib",
+     "sch_lab",
+     "tblCRCTool"
+    ]
+   }
+  }
+ },
+ {
+  "tool": "model-diff",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "prompt v1",
+  "cases": 45,
+  "users_named": 0,
+  "recall": 0.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 0,
+    "cases": 21
+   },
+   "later": {
+    "named": 0,
+    "cases": 18
+   },
+   "release": {
+    "named": 0,
+    "cases": 6
+   }
+  },
+  "files": 138,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 1,
+  "repos_confirmed": 0,
+  "precision_lower_bound": 0.0,
+  "changes_warned": 10,
+  "changes": {
+   "C01": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "C02": {
+    "found": [],
+    "missed": [
+     "PSP",
+     "cFE",
+     "sample_app",
+     "sample_lib"
+    ],
+    "unconfirmed": []
+   },
+   "C03": {
+    "found": [],
+    "missed": [
+     "DS",
+     "HK",
+     "LC",
+     "MD",
+     "SC"
+    ],
+    "unconfirmed": []
+   },
+   "C04": {
+    "found": [],
+    "missed": [
+     "CF",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C05": {
+    "found": [],
+    "missed": [
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C06": {
+    "found": [],
+    "missed": [
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C07": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "FM",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C08": {
+    "found": [],
+    "missed": [
+     "ci_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "C09": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": [
+     "SBN"
+    ]
+   },
+   "C10": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   }
+  }
+ },
+ {
+  "tool": "pr-agent",
+  "model": "alibaba/qwen3-coder-30b-a3b",
+  "version": "pr-agent 0.50.0",
+  "cases": 45,
+  "users_named": 0,
+  "recall": 0.0,
+  "recall_by_evidence": {
+   "direct": {
+    "named": 0,
+    "cases": 21
+   },
+   "later": {
+    "named": 0,
+    "cases": 18
+   },
+   "release": {
+    "named": 0,
+    "cases": 6
+   }
+  },
+  "files": 138,
+  "files_named": 0,
+  "file_recall": 0.0,
+  "repos_named": 0,
+  "repos_confirmed": 0,
+  "precision_lower_bound": null,
+  "changes_warned": 5,
+  "changes": {
+   "C01": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "ci_lab",
+     "sample_app",
+     "sch_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "C02": {
+    "found": [],
+    "missed": [
+     "PSP",
+     "cFE",
+     "sample_app",
+     "sample_lib"
+    ],
+    "unconfirmed": []
+   },
+   "C03": {
+    "found": [],
+    "missed": [
+     "DS",
+     "HK",
+     "LC",
+     "MD",
+     "SC"
+    ],
+    "unconfirmed": []
+   },
+   "C04": {
+    "found": [],
+    "missed": [
+     "CF",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C05": {
+    "found": [],
+    "missed": [
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C06": {
+    "found": [],
+    "missed": [
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C07": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "FM",
+     "cFE"
+    ],
+    "unconfirmed": []
+   },
+   "C08": {
+    "found": [],
+    "missed": [
+     "ci_lab",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   },
+   "C09": {
+    "found": [],
+    "missed": [
+     "EdsLib"
+    ],
+    "unconfirmed": []
+   },
+   "C10": {
+    "found": [],
+    "missed": [
+     "CF",
+     "CS",
+     "DS",
+     "FM",
+     "HK",
+     "HS",
+     "LC",
+     "MD",
+     "SBN",
+     "SC",
+     "to_lab"
+    ],
+    "unconfirmed": []
+   }
+  }
+ }
+]

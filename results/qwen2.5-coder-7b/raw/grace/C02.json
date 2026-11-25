@@ -1,0 +1,309 @@
+{
+  "producer": "osal",
+  "base": "1a826576f8dd9eb37f47da0e633b1d4712b8ac61",
+  "head": "52ee87136d915a0c10547b15a88c39a253eca8bd",
+  "symbols": [
+    {
+      "name": "UT_SetForceFail",
+      "status": "deprecated",
+      "kind": "function",
+      "headers": [
+        "ut_assert/inc/utstubs.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "ut_assert/inc/utstubs.h"
+  ],
+  "consumers": [
+    {
+      "repo": "PSP",
+      "sha": "e3249a99168fd5e7fc25642e9a880aa5c0a62ec7",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "unit-test-coverage/mcp750-vxworks/src/coveragetest-cfe-psp-start.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            79,
+            85
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "unit-test-coverage/shared/src/coveragetest-cfe-psp-exceptionstorage.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            114
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "cFE",
+      "sha": "9804b59eb34154b10bb2946bde7654f3d27f4b85",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/cfe-core/unit-test/es_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            715,
+            729,
+            863,
+            864,
+            865,
+            878,
+            879,
+            880,
+            896,
+            908,
+            921,
+            955,
+            1025,
+            1026,
+            1092,
+            1093,
+            1223,
+            1270,
+            1562,
+            1594
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/evs_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            446,
+            497,
+            507,
+            515,
+            523,
+            531,
+            542,
+            553,
+            561,
+            569,
+            697,
+            1359,
+            1377,
+            1455,
+            1466,
+            1467,
+            1492,
+            1544,
+            1555,
+            1566
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/fs_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            98,
+            107,
+            126,
+            154,
+            162,
+            316
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/sb_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            569,
+            689,
+            824
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/tbl_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            740,
+            1143,
+            1413,
+            1729,
+            1739,
+            4215,
+            4813,
+            4984
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/time_UT.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            473,
+            485,
+            494
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "fsw/cfe-core/unit-test/ut_support.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            284,
+            313
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "modules/sbr/unit-test-coverage/test_cfe_sbr_map_direct.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            51
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "modules/sbr/unit-test-coverage/test_cfe_sbr_map_hash.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            70
+          ],
+          "comment_only": false,
+          "breaks": false
+        },
+        {
+          "path": "modules/sbr/unit-test-coverage/test_cfe_sbr_route_unsorted.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            63,
+            140
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 10
+    },
+    {
+      "repo": "sample_app",
+      "sha": "23fe3c6772acd714a5702693d9a5f207b5541142",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "unit-test/coveragetest/coveragetest_sample_app.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            357,
+            490,
+            567
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "sample_lib",
+      "sha": "2cbab9d0f135e2c44d74acc3774f1963dee33c14",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "unit-test/coveragetest/coveragetest_sample_lib.c",
+          "symbols": [
+            "UT_SetForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            132
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 1
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "producer": "osal",
+  "base": "ff4f52312297a3cdf3ddc0cf5ead95f27954630b",
+  "head": "b2447bdcbd5097d9fc607cd3a4830d057c5085e2",
+  "symbols": [
+    {
+      "name": "UT_Stub_CheckForceFail",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "ut_assert/inc/utstubs.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "ut_assert/inc/utstubs.h"
+  ],
+  "consumers": [
+    {
+      "repo": "cFE",
+      "sha": "c708d64bf2b25500cd0308a700aa4ee0b3fd5909",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/cfe-core/ut-stubs/ut_tbl_stubs.c",
+          "symbols": [
+            "UT_Stub_CheckForceFail"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            135
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

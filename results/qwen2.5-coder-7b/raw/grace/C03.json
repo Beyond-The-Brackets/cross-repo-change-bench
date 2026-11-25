@@ -1,0 +1,423 @@
+{
+  "producer": "cFE",
+  "base": "ee187426d08e0d4f0edf640d07381b8f676be8d3",
+  "head": "f3cdfbe3ab63162a602ba8c00b69d705f212bc8a",
+  "symbols": [
+    {
+      "name": "CFE_MISSION_ES_APP_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/es/config/default_cfe_es_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_ES_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/es/config/default_cfe_es_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_ES_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/es/config/default_cfe_es_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_ES_MEMSTATS_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/es/config/default_cfe_es_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_ES_SEND_HK_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/es/config/default_cfe_es_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_EVS_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/evs/config/default_cfe_evs_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_EVS_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/evs/config/default_cfe_evs_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_EVS_LONG_EVENT_MSG_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/evs/config/default_cfe_evs_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_EVS_SEND_HK_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/evs/config/default_cfe_evs_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_EVS_SHORT_EVENT_MSG_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/evs/config/default_cfe_evs_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_ALLSUBS_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_ONESUB_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_SEND_HK_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_STATS_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_SB_SUB_RPT_CTRL_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/sb/config/default_cfe_sb_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TBL_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/tbl/config/default_cfe_tbl_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TBL_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/tbl/config/default_cfe_tbl_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TBL_REG_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/tbl/config/default_cfe_tbl_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TBL_SEND_HK_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/tbl/config/default_cfe_tbl_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TEST_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/cfe_testcase/config/default_cfe_test_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TEST_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/cfe_testcase/config/default_cfe_test_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_1HZ_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_DATA_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_DIAG_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_HK_TLM_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_SEND_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_SEND_HK_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_MISSION_TIME_TONE_CMD_MSG",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/time/config/default_cfe_time_topicids.h"
+      ]
+    },
+    {
+      "name": "CFE_PLATFORM_CMD_MID_BASE",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/core_api/config/default_cfe_core_api_base_msgids.h"
+      ]
+    },
+    {
+      "name": "CFE_PLATFORM_CMD_MID_BASE_GLOB",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/core_api/config/default_cfe_core_api_base_msgids.h"
+      ]
+    },
+    {
+      "name": "CFE_PLATFORM_TLM_MID_BASE",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/core_api/config/default_cfe_core_api_base_msgids.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "cmake/sample_defs/example_platform_cfg.h",
+    "modules/cfe_testcase/config/default_cfe_test_msgids.h",
+    "modules/cfe_testcase/config/default_cfe_test_topicids.h",
+    "modules/core_api/config/default_cfe_core_api_base_msgids.h",
+    "modules/es/config/default_cfe_es_msgids.h",
+    "modules/es/config/default_cfe_es_topicids.h",
+    "modules/evs/config/default_cfe_evs_msgids.h",
+    "modules/evs/config/default_cfe_evs_topicids.h",
+    "modules/sb/config/default_cfe_sb_msgids.h",
+    "modules/sb/config/default_cfe_sb_topicids.h",
+    "modules/sb/ut-coverage/sb_UT.h",
+    "modules/tbl/config/default_cfe_tbl_msgids.h",
+    "modules/tbl/config/default_cfe_tbl_topicids.h",
+    "modules/time/config/default_cfe_time_msgids.h",
+    "modules/time/config/default_cfe_time_topicids.h"
+  ],
+  "consumers": [
+    {
+      "repo": "DS",
+      "sha": "f04f6a04da60a3a003200cccb99ff71008f97f1e",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "unit-test/utilities/ds_test_utils.h",
+          "symbols": [
+            "CFE_PLATFORM_TLM_MID_BASE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            84,
+            85
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "HK",
+      "sha": "22a36f140ad2181f10a1e8378c50f004d408e14f",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "unit-test/utilities/hk_test_utils.h",
+          "symbols": [
+            "CFE_PLATFORM_TLM_MID_BASE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            55
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "LC",
+      "sha": "9a2e6391c95dcb3547fd63670b19d043426bc26c",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "unit-test/utilities/lc_test_utils.h",
+          "symbols": [
+            "CFE_PLATFORM_TLM_MID_BASE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            87,
+            88
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "MD",
+      "sha": "b0ae64d9043b8a3ffdc0c332595ca94548bd1cfd",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "unit-test/utilities/md_test_utils.h",
+          "symbols": [
+            "CFE_PLATFORM_TLM_MID_BASE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            69
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "SC",
+      "sha": "ddeab42c4e22be6b2eecce6d46f83c818f9546b7",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "unit-test/utilities/sc_test_utils.h",
+          "symbols": [
+            "CFE_PLATFORM_TLM_MID_BASE"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            86
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

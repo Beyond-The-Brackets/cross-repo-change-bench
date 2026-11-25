@@ -1,0 +1,12 @@
+{
+ "benchmark": "https://github.com/withmartian/code-review-benchmark",
+ "benchmark_commit": "23a35d0d64f7de5a68e5679da08414e0edacea9b",
+ "rule": "the first pull request of each of the five projects, in the order of their URLs (five, to keep a laptop's run short)",
+ "prs": [
+  "https://github.com/calcom/cal.com/pull/10600",
+  "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1",
+  "https://github.com/grafana/grafana/pull/103633",
+  "https://github.com/keycloak/keycloak/pull/32918",
+  "https://github.com/getsentry/sentry/pull/67876"
+ ]
+}

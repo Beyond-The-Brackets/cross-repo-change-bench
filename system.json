@@ -1,0 +1,90 @@
+{
+ "system": "NASA core Flight System (cFS)",
+ "branch": "dev",
+ "repos": [
+  {
+   "name": "CF",
+   "url": "https://github.com/nasa/CF.git"
+  },
+  {
+   "name": "CS",
+   "url": "https://github.com/nasa/CS.git"
+  },
+  {
+   "name": "DS",
+   "url": "https://github.com/nasa/DS.git"
+  },
+  {
+   "name": "EdsLib",
+   "url": "https://github.com/nasa/EdsLib.git"
+  },
+  {
+   "name": "FM",
+   "url": "https://github.com/nasa/FM.git"
+  },
+  {
+   "name": "HK",
+   "url": "https://github.com/nasa/HK.git"
+  },
+  {
+   "name": "HS",
+   "url": "https://github.com/nasa/HS.git"
+  },
+  {
+   "name": "LC",
+   "url": "https://github.com/nasa/LC.git"
+  },
+  {
+   "name": "MD",
+   "url": "https://github.com/nasa/MD.git"
+  },
+  {
+   "name": "PSP",
+   "url": "https://github.com/nasa/PSP.git"
+  },
+  {
+   "name": "SBN",
+   "url": "https://github.com/nasa/SBN.git"
+  },
+  {
+   "name": "SC",
+   "url": "https://github.com/nasa/SC.git"
+  },
+  {
+   "name": "cFE",
+   "url": "https://github.com/nasa/cFE.git"
+  },
+  {
+   "name": "ci_lab",
+   "url": "https://github.com/nasa/ci_lab.git"
+  },
+  {
+   "name": "elf2cfetbl",
+   "url": "https://github.com/nasa/elf2cfetbl.git"
+  },
+  {
+   "name": "osal",
+   "url": "https://github.com/nasa/osal.git"
+  },
+  {
+   "name": "sample_app",
+   "url": "https://github.com/nasa/sample_app.git"
+  },
+  {
+   "name": "sample_lib",
+   "url": "https://github.com/nasa/sample_lib.git"
+  },
+  {
+   "name": "sch_lab",
+   "url": "https://github.com/nasa/sch_lab.git"
+  },
+  {
+   "name": "tblCRCTool",
+   "url": "https://github.com/nasa/tblCRCTool.git"
+  },
+  {
+   "name": "to_lab",
+   "url": "https://github.com/nasa/to_lab.git"
+  }
+ ]
+}

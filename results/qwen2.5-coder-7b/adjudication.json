@@ -1,0 +1,89 @@
+{
+ "_rule": "Decided by hand on each free-text review, after reading it whole. warns_elsewhere: the review says that code depending on a public element it names (a function, a macro, a type) may break, even without naming where that code is and even when the reason it gives is not the real one. A generic remark about this repository's own code does not count. not_a_repository: a repository name used as an ordinary word (CS for checksum, HK for housekeeping). also_names: a repository the review names with another spelling (\"CFE\", \"Core Flight Executive\" for cFE), credited as named.",
+ "pr-agent": {
+  "C01": {
+   "warns_elsewhere": true,
+   "note": "'The removal of the CFE_ES_RegisterApp function from cfe_es.h may break existing code that relies on this function': the real breakage, without saying where."
+  },
+  "C02": {
+   "warns_elsewhere": false,
+   "note": "comments on test return values only"
+  },
+  "C03": {
+   "warns_elsewhere": false,
+   "note": "a CMake variable that may be undefined; rerun with a 24k budget after a timeout"
+  },
+  "C04": {
+   "warns_elsewhere": true,
+   "note": "'The removal of OS_TaskRegister ... might break existing tests that rely on it'; rerun with a 24k budget after a timeout"
+  },
+  "C05": {
+   "warns_elsewhere": false,
+   "note": "says the new function is not implemented (it is, in a file outside the diff)"
+  },
+  "C06": {
+   "warns_elsewhere": true,
+   "note": "warns that code relying on the PSP version functions will break, for a wrong reason (hard-coded values); the removed CFE_PSP_VERSION macro, the real breakage, is not mentioned"
+  },
+  "C07": {
+   "warns_elsewhere": false,
+   "note": "'could break existing tests that expect the old error codes', with examples from osal's own tests only; rerun with a 24k budget after a context error"
+  },
+  "C08": {
+   "warns_elsewhere": false,
+   "note": "an initialisation concern inside EdsLib"
+  },
+  "C09": {
+   "warns_elsewhere": false,
+   "note": "test stubs always return true"
+  },
+  "C10": {
+   "warns_elsewhere": true,
+   "note": "'may break existing code that relies on these deprecated symbols'"
+  }
+ },
+ "model-diff": {
+  "C01": {
+   "warns_elsewhere": true,
+   "note": "'could potentially impact other modules ... if they rely on the cFE for application registration'"
+  },
+  "C02": {
+   "warns_elsewhere": true
+  },
+  "C03": {
+   "warns_elsewhere": true
+  },
+  "C04": {
+   "warns_elsewhere": true
+  },
+  "C05": {
+   "warns_elsewhere": true
+  },
+  "C06": {
+   "warns_elsewhere": true,
+   "also_names": [
+    "cFE"
+   ],
+   "note": "'1. Core Flight Executive (CFE) Repository' listed among the repositories that could be affected"
+  },
+  "C07": {
+   "warns_elsewhere": true
+  },
+  "C08": {
+   "warns_elsewhere": true,
+   "note": "takes the change for a change to cFE; 'Other Repositories Using CFE' may need to update, without naming one"
+  },
+  "C09": {
+   "warns_elsewhere": true
+  },
+  "C10": {
+   "warns_elsewhere": true
+  }
+ },
+ "model-diff+list": {
+  "C01": {
+   "warns_elsewhere": true,
+   "note": "'will break or force changes in any repository that includes this header file and calls these functions', no repository named"
+  }
+ }
+}

@@ -1,0 +1,559 @@
+{
+  "producer": "cFE",
+  "base": "98bc15851ebbca83b01947520232ca0cf67a30cf",
+  "head": "8c70e950b37bcee4dd35fcd1c62c7609f97e0d87",
+  "symbols": [
+    {
+      "name": "CFE_ES_RegisterApp",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/core_api/fsw/inc/cfe_es.h"
+      ]
+    },
+    {
+      "name": "CFE_ES_RegisterChildTask",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/core_api/fsw/inc/cfe_es.h"
+      ]
+    },
+    {
+      "name": "Test_SB_AppInit_ESRegFail",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/sb/ut-coverage/sb_UT.h"
+      ]
+    },
+    {
+      "name": "UT_OSP_BACKGROUND_REGISTER",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/core_private/ut-stubs/inc/ut_osprintf_stubs.h"
+      ]
+    },
+    {
+      "name": "UT_OSP_REGISTER_APP",
+      "status": "removed",
+      "kind": "macro",
+      "headers": [
+        "modules/core_private/ut-stubs/inc/ut_osprintf_stubs.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "modules/core_api/fsw/inc/cfe_error.h",
+    "modules/core_api/fsw/inc/cfe_es.h",
+    "modules/core_private/ut-stubs/inc/ut_osprintf_stubs.h",
+    "modules/sb/ut-coverage/sb_UT.h"
+  ],
+  "consumers": [
+    {
+      "repo": "CF",
+      "sha": "cbda7b9cad82e0d37cd0080e21f79b18eb571b17",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/cf_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            157
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/inc/ut_cfe_es_stubs.h",
+          "symbols": [
+            "CFE_ES_RegisterApp",
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            84,
+            90
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/ut-assert/src/ut_cfe_es_stubs.c",
+          "symbols": [
+            "CFE_ES_RegisterApp",
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            73,
+            79,
+            182,
+            215
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "CS",
+      "sha": "4a324f14d4991a6a19cc6ef4b88d068805099e0c",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/cs_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            133
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/src/cs_compute.c",
+          "symbols": [
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            516,
+            657,
+            783,
+            907
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "DS",
+      "sha": "1518fa2b377e4176266a66c838c2f3cc21a31ab5",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/ds_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            80
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/ds_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "FM",
+      "sha": "a6ceee3822adc4e15f55ec16e015044f73e1787e",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/fm_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            77
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/src/fm_child.c",
+          "symbols": [
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            133
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "HK",
+      "sha": "6402eb2cf7d2f559d9ad6b1ee935d232db4bc27f",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/hk_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            60
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "HS",
+      "sha": "192a10f1adfb1a2cd5c64bd6c5be918058e9441c",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/hs_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            69
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/src/hs_custom.c",
+          "symbols": [
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            58
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/hs_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "LC",
+      "sha": "82bd57b541f313fba238ba3f191dda607b097656",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/lc_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            64
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/lc_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "MD",
+      "sha": "49ffb5ce8ecf3d88924d65f58a0d44a891556c41",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/md_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            67
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/src/md_app.h",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        },
+        {
+          "path": "fsw/unit_test/md_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "SBN",
+      "sha": "11d5755d6c676f817fe161649291eb3642a71153",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/sbn_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp",
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            278,
+            370,
+            607,
+            1607
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "test/cFS/apps/fib/fsw/src/fib_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            17
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "unit-test/coveragetest/coveragetest_sbn_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp",
+            "CFE_ES_RegisterChildTask"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            13,
+            1726,
+            1810,
+            1920
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 2
+    },
+    {
+      "repo": "SC",
+      "sha": "43392d75418998a75f04b64416a3323be1d51918",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/sc_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            110
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "fsw/unit_test/sc_app_test.c",
+          "symbols": [],
+          "in_conditions_only": [],
+          "mentioned": [
+            "CFE_ES_RegisterApp"
+          ],
+          "lines": [],
+          "comment_only": true,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "ci_lab",
+      "sha": "c5714d9cf187cebb58f71d8d9a567f4c8745cf86",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/ci_lab_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            157
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "sample_app",
+      "sha": "dac28c05ba1e6aa4228c7d1088fa462d20305071",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/sample_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            57
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "sch_lab",
+      "sha": "f2ed3d20b1f4beb243b983aca23aa56e9d6b0193",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/sch_lab_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            90
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "to_lab",
+      "sha": "f4fd9ec5b3d0f795fea7f6d9c9d527b57f9e8919",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/src/to_lab_app.c",
+          "symbols": [
+            "CFE_ES_RegisterApp"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            154
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

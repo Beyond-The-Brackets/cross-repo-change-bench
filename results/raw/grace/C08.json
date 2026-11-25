@@ -1,0 +1,154 @@
+{
+  "producer": "EdsLib",
+  "base": "cf0616683bdfdd2156c1135e0b73e27fb69466c7",
+  "head": "147dc08653cfedf8b937a172e74726182733d982",
+  "symbols": [
+    {
+      "name": "CFE_MissionLib_Get_PubSub_Parameters",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_Lua_MapPubSubParams",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/lua/inc/cfe_missionlib_lua_softwarebus.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_Lua_UnmapPubSubParams",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/lua/inc/cfe_missionlib_lua_softwarebus.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_MapListenerComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_MapPublisherComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_PubSub_IsListenerComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_PubSub_IsPublisherComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_Set_PubSub_Parameters",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_UnmapListenerComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    },
+    {
+      "name": "CFE_MissionLib_UnmapPublisherComponent",
+      "status": "changed",
+      "kind": "function",
+      "headers": [
+        "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "cfecfs/eds2cfetbl/scripts/eds_tbltool_filedef.h",
+    "cfecfs/edsmsg/fsw/inc/cfe_msg_hdr_eds.h",
+    "cfecfs/missionlib/fsw/inc/cfe_missionlib_runtime.h",
+    "cfecfs/missionlib/lua/inc/cfe_missionlib_lua_softwarebus.h",
+    "cfecfs/missionlib/python/inc/cfe_missionlib_python.h"
+  ],
+  "consumers": [
+    {
+      "repo": "ci_lab",
+      "sha": "deb5759056d9e9f5180adbe83502d497865f5ca7",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/ci_lab_eds_decode.c",
+          "symbols": [
+            "CFE_MissionLib_Get_PubSub_Parameters",
+            "CFE_MissionLib_UnmapListenerComponent"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            125,
+            126
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    },
+    {
+      "repo": "to_lab",
+      "sha": "276eaf3e286faeee4028f001dd114fec911435f1",
+      "own_copy": [],
+      "breaks": false,
+      "to_check": true,
+      "files": [
+        {
+          "path": "fsw/src/to_lab_eds_encode.c",
+          "symbols": [
+            "CFE_MissionLib_Get_PubSub_Parameters",
+            "CFE_MissionLib_UnmapPublisherComponent"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            60,
+            61
+          ],
+          "comment_only": false,
+          "breaks": false
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

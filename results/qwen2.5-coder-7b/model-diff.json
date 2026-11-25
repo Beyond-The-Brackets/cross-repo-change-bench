@@ -1,0 +1,121 @@
+{
+ "tool": "model-diff",
+ "version": "prompt v1",
+ "model": "qwen2.5-coder-7b-instruct-mlx",
+ "changes": {
+  "C01": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C02": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C03": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfs_core_api/arch_build.cmake",
+    "cfs_core_api/mission_build.cmake",
+    "cfs_es/config/default_cfe_es_msgids.h",
+    "cfs_evs/config/default_cfe_evs_msgids.h",
+    "cfs_evs/ut-coverage/evs_UT.c",
+    "cfs_mission_config/config/default_cfe_core_api_base_msgids.h",
+    "cfs_mission_config/config/default_cfe_msgids.h",
+    "cfs_sb/config/default_cfe_sb_msgids.h",
+    "cfs_testcase/src/sb_subscription_test.c"
+   ]
+  },
+  "C04": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "osapi-utstub-task.c",
+    "tasking-example.c",
+    "ut_oscore_task_test.c",
+    "ut_oscore_test.c"
+   ]
+  },
+  "C05": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C06": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfe_core/src/cfe_es_api.c",
+    "cfe_core/src/cfe_es_startup.c",
+    "cfe_core/src/cfe_es_task.c",
+    "cfe_psp_configdata.h",
+    "fsw/mcp750-vxworks/src/psp_module.c",
+    "fsw/pc-linux/src/psp_module.c",
+    "fsw/pc-rtems/src/psp_module.c",
+    "unit-test-coverage/ut-stubs/src/cfe-configdata-stubs.c"
+   ]
+  },
+  "C07": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C08": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfe_missionlib_lua_softwarebus.h",
+    "cfe_missionlib_runtime.h",
+    "cfe_msg_commonhdr.c",
+    "cfe_msg_dispatcher.c",
+    "cfe_msg_hdr_eds.h",
+    "cfe_msg_init.c",
+    "cfe_msg_msgid.c",
+    "cfe_msg_sechdr_cmd.c",
+    "cfe_msg_sechdr_tlm.c",
+    "cfe_sb_eds_datatypes.h",
+    "eds2cfetbl.c"
+   ]
+  },
+  "C09": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfe-unit/ut-coverage/test_cfe_msg_init.c",
+    "cfe-unit/ut-coverage/test_cfe_msg_verify.c",
+    "cfs/fsw/src/cfe_core_api.c",
+    "cfs/ut-coverage/test_cfe_core_api.c"
+   ]
+  },
+  "C10": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cmake/sample_defs/cpu1_msgids.h",
+    "cmake/sample_defs/cpu1_platform_cfg.h",
+    "cmake/sample_defs/sample_mission_cfg.h",
+    "cpu1_platform_cfg.h",
+    "fsw/cfe-cfdp/src/cfdp.c",
+    "fsw/cfe-core/src/es/cfe_es.c",
+    "fsw/cfe-core/src/es/cfe_es_shell.h",
+    "fsw/cfe-core/src/es/cfe_es_task.h",
+    "fsw/cfe-core/src/evs/cfe_evs.c",
+    "fsw/cfe-core/src/fs/cfe_fs_decompress.h",
+    "fsw/cfe-core/src/inc/ccsds.h",
+    "fsw/cfe-core/src/inc/cfe_error.h",
+    "fsw/cfe-core/src/inc/cfe_es.h",
+    "fsw/cfe-core/src/inc/cfe_evs.h",
+    "fsw/cfe-core/src/inc/cfe_fs.h",
+    "fsw/cfe-core/src/inc/cfe_sb.h",
+    "fsw/cfe-core/src/sb/cfe_sb.c",
+    "fsw/cfe-core/src/sb/cfe_sb_priv.h",
+    "fsw/cfe-shell/src/shell.c",
+    "fsw/cfe-tables/src/table.c",
+    "fsw/cfe-time/src/time.c",
+    "sample_mission_cfg.h"
+   ]
+  }
+ }
+}

@@ -1,0 +1,79 @@
+{
+  "producer": "cFE",
+  "base": "b72dd4e1f9f44c7dbb7a12895b5ac1635eb239b2",
+  "head": "4a4ada462aff10f6237d50f920754f34a730a6f9",
+  "symbols": [
+    {
+      "name": "CFE_MSG_UpdateHeader",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/core_api/fsw/inc/cfe_msg.h"
+      ]
+    },
+    {
+      "name": "CFE_MSG_Verify",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/core_api/fsw/inc/cfe_msg.h"
+      ]
+    },
+    {
+      "name": "Test_MSG_UpdateHeader",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/msg/ut-coverage/test_cfe_msg_init.h"
+      ]
+    },
+    {
+      "name": "Test_MSG_Verify",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "modules/msg/ut-coverage/test_cfe_msg_verify.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "modules/core_api/fsw/inc/cfe_msg.h",
+    "modules/core_api/fsw/inc/cfe_sb.h",
+    "modules/msg/ut-coverage/test_cfe_msg_init.h",
+    "modules/msg/ut-coverage/test_cfe_msg_verify.h",
+    "modules/sb/fsw/inc/cfe_sb_eventids.h"
+  ],
+  "consumers": [
+    {
+      "repo": "EdsLib",
+      "sha": "465471d835a93a8e917827929c3fd900cb3b6d1c",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "cfecfs/edsmsg/fsw/src/cfe_msg_init.c",
+          "symbols": [
+            "CFE_MSG_UpdateHeader"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            74
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 0
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

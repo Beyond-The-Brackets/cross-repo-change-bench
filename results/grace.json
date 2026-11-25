@@ -1,0 +1,362 @@
+{
+ "tool": "grace",
+ "version": "grace 193939cd (grace system impact)",
+ "model": null,
+ "changes": {
+  "C01": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "ci_lab",
+    "sample_app",
+    "sch_lab",
+    "to_lab"
+   ],
+   "files": [
+    "CF:fsw/src/cf_app.c",
+    "CF:fsw/unit_test/ut-assert/inc/ut_cfe_es_stubs.h",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_es_stubs.c",
+    "CS:fsw/src/cs_app.c",
+    "CS:fsw/src/cs_compute.c",
+    "DS:fsw/src/ds_app.c",
+    "FM:fsw/src/fm_app.c",
+    "FM:fsw/src/fm_child.c",
+    "HK:fsw/src/hk_app.c",
+    "HS:fsw/src/hs_app.c",
+    "HS:fsw/src/hs_custom.c",
+    "LC:fsw/src/lc_app.c",
+    "MD:fsw/src/md_app.c",
+    "SBN:fsw/src/sbn_app.c",
+    "SBN:test/cFS/apps/fib/fsw/src/fib_app.c",
+    "SBN:unit-test/coveragetest/coveragetest_sbn_app.c",
+    "SC:fsw/src/sc_app.c",
+    "ci_lab:fsw/src/ci_lab_app.c",
+    "sample_app:fsw/src/sample_app.c",
+    "sch_lab:fsw/src/sch_lab_app.c",
+    "to_lab:fsw/src/to_lab_app.c"
+   ],
+   "breaks": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "ci_lab",
+    "sample_app",
+    "sch_lab",
+    "to_lab"
+   ]
+  },
+  "C02": {
+   "answered": true,
+   "repos": [
+    "PSP",
+    "cFE",
+    "sample_app",
+    "sample_lib"
+   ],
+   "files": [
+    "PSP:unit-test-coverage/mcp750-vxworks/src/coveragetest-cfe-psp-start.c",
+    "PSP:unit-test-coverage/shared/src/coveragetest-cfe-psp-exceptionstorage.c",
+    "cFE:fsw/cfe-core/unit-test/es_UT.c",
+    "cFE:fsw/cfe-core/unit-test/evs_UT.c",
+    "cFE:fsw/cfe-core/unit-test/fs_UT.c",
+    "cFE:fsw/cfe-core/unit-test/sb_UT.c",
+    "cFE:fsw/cfe-core/unit-test/tbl_UT.c",
+    "cFE:fsw/cfe-core/unit-test/time_UT.c",
+    "cFE:fsw/cfe-core/unit-test/ut_support.c",
+    "cFE:modules/sbr/unit-test-coverage/test_cfe_sbr_map_direct.c",
+    "cFE:modules/sbr/unit-test-coverage/test_cfe_sbr_map_hash.c",
+    "cFE:modules/sbr/unit-test-coverage/test_cfe_sbr_route_unsorted.c",
+    "sample_app:unit-test/coveragetest/coveragetest_sample_app.c",
+    "sample_lib:unit-test/coveragetest/coveragetest_sample_lib.c"
+   ],
+   "breaks": []
+  },
+  "C03": {
+   "answered": true,
+   "repos": [
+    "DS",
+    "HK",
+    "LC",
+    "MD",
+    "SC"
+   ],
+   "files": [
+    "DS:unit-test/utilities/ds_test_utils.h",
+    "HK:unit-test/utilities/hk_test_utils.h",
+    "LC:unit-test/utilities/lc_test_utils.h",
+    "MD:unit-test/utilities/md_test_utils.h",
+    "SC:unit-test/utilities/sc_test_utils.h"
+   ],
+   "breaks": [
+    "DS",
+    "HK",
+    "LC",
+    "MD",
+    "SC"
+   ]
+  },
+  "C04": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "cFE"
+   ],
+   "files": [
+    "CF:fsw/unit_test/ut-assert/src/ut_osapi_stubs.c",
+    "cFE:modules/es/fsw/src/cfe_es_api.c",
+    "cFE:modules/es/ut-coverage/es_UT.c"
+   ],
+   "breaks": [
+    "CF",
+    "cFE"
+   ]
+  },
+  "C05": {
+   "answered": true,
+   "repos": [
+    "cFE"
+   ],
+   "files": [
+    "cFE:fsw/cfe-core/ut-stubs/ut_tbl_stubs.c"
+   ],
+   "breaks": [
+    "cFE"
+   ]
+  },
+  "C06": {
+   "answered": true,
+   "repos": [
+    "cFE"
+   ],
+   "files": [
+    "cFE:cmake/target/inc/target_config.h",
+    "cFE:cmake/target/src/target_config.c",
+    "cFE:modules/es/fsw/src/cfe_es_task.c"
+   ],
+   "breaks": [
+    "cFE"
+   ]
+  },
+  "C07": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "FM",
+    "cFE"
+   ],
+   "files": [
+    "CF:fsw/src/cf_callbacks.c",
+    "CF:fsw/src/cf_cmds.c",
+    "CF:fsw/src/cf_utils.c",
+    "CF:fsw/unit_test/cf_testcase.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_osfileapi_stubs.c",
+    "CS:fsw/src/cs_table_processing.c",
+    "FM:fsw/src/fm_cmd_utils.c",
+    "cFE:fsw/cfe-core/src/es/cfe_es_apps.c",
+    "cFE:fsw/cfe-core/src/es/cfe_es_shell.c",
+    "cFE:fsw/cfe-core/src/es/cfe_es_start.c",
+    "cFE:fsw/cfe-core/src/es/cfe_es_task.c",
+    "cFE:fsw/cfe-core/src/evs/cfe_evs_log.c",
+    "cFE:fsw/cfe-core/src/evs/cfe_evs_task.c",
+    "cFE:fsw/cfe-core/src/fs/cfe_fs_api.c",
+    "cFE:fsw/cfe-core/src/inc/cfe_error.h",
+    "cFE:fsw/cfe-core/src/sb/cfe_sb_task.c",
+    "cFE:fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.c",
+    "cFE:fsw/cfe-core/unit-test/es_UT.c",
+    "cFE:fsw/cfe-core/unit-test/fs_UT.c",
+    "cFE:fsw/cfe-core/unit-test/tbl_UT.c"
+   ],
+   "breaks": []
+  },
+  "C08": {
+   "answered": true,
+   "repos": [
+    "ci_lab",
+    "to_lab"
+   ],
+   "files": [
+    "ci_lab:fsw/src/ci_lab_eds_decode.c",
+    "to_lab:fsw/src/to_lab_eds_encode.c"
+   ],
+   "breaks": []
+  },
+  "C09": {
+   "answered": true,
+   "repos": [
+    "EdsLib"
+   ],
+   "files": [
+    "EdsLib:cfecfs/edsmsg/fsw/src/cfe_msg_init.c"
+   ],
+   "breaks": [
+    "EdsLib"
+   ]
+  },
+  "C10": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "osal",
+    "to_lab"
+   ],
+   "files": [
+    "CF:fsw/src/cf_app.c",
+    "CF:fsw/src/cf_callbacks.c",
+    "CF:fsw/src/cf_cmds.c",
+    "CF:fsw/src/cf_playback.c",
+    "CF:fsw/src/cf_utils.c",
+    "CF:fsw/src/cf_verify.h",
+    "CF:fsw/unit_test/cf_testcase.c",
+    "CF:fsw/unit_test/ut-assert/inc/ut_cfe_fs_stubs.h",
+    "CF:fsw/unit_test/ut-assert/inc/ut_cfe_sb_hooks.h",
+    "CF:fsw/unit_test/ut-assert/inc/ut_cfe_sb_stubs.h",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_es_hooks.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_evs_hooks.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_evs_stubs.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_fs_stubs.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_sb_hooks.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_cfe_sb_stubs.c",
+    "CF:fsw/unit_test/ut-assert/src/ut_osapi_stubs.c",
+    "CS:fsw/mission_inc/cs_mission_cfg.h",
+    "CS:fsw/src/cs_app.c",
+    "CS:fsw/src/cs_app_cmds.c",
+    "CS:fsw/src/cs_cmds.c",
+    "CS:fsw/src/cs_compute.c",
+    "CS:fsw/src/cs_eeprom_cmds.c",
+    "CS:fsw/src/cs_memory_cmds.c",
+    "CS:fsw/src/cs_table_cmds.c",
+    "CS:fsw/src/cs_table_processing.c",
+    "CS:fsw/src/cs_utils.c",
+    "CS:fsw/unit_test/cs_app_cmds_test.c",
+    "CS:fsw/unit_test/cs_app_test.c",
+    "CS:fsw/unit_test/cs_cmds_test.c",
+    "CS:fsw/unit_test/cs_compute_test.c",
+    "CS:fsw/unit_test/cs_eeprom_cmds_test.c",
+    "CS:fsw/unit_test/cs_memory_cmds_test.c",
+    "CS:fsw/unit_test/cs_table_cmds_test.c",
+    "CS:fsw/unit_test/cs_table_processing_test.c",
+    "CS:fsw/unit_test/cs_utils_test.c",
+    "DS:fsw/src/ds_app.c",
+    "DS:fsw/src/ds_cmds.c",
+    "DS:fsw/src/ds_file.c",
+    "DS:fsw/src/ds_table.c",
+    "DS:fsw/tables/ds_filter_tbl.c",
+    "DS:fsw/unit_test/ds_app_test.c",
+    "DS:fsw/unit_test/ds_cmds_test.c",
+    "DS:fsw/unit_test/ds_file_test.c",
+    "DS:fsw/unit_test/ds_table_test.c",
+    "FM:fsw/src/fm_app.c",
+    "FM:fsw/src/fm_child.c",
+    "FM:fsw/src/fm_cmd_utils.c",
+    "FM:fsw/src/fm_cmds.c",
+    "FM:fsw/src/fm_tbl.c",
+    "FM:fsw/unit_test/fm_app_test.c",
+    "FM:fsw/unit_test/fm_child_test.c",
+    "FM:fsw/unit_test/fm_cmd_utils_test.c",
+    "FM:fsw/unit_test/fm_cmds_test.c",
+    "FM:fsw/unit_test/fm_tbl_test.c",
+    "HK:fsw/src/hk_app.c",
+    "HK:fsw/src/hk_utils.c",
+    "HK:fsw/unit_test/hk_app_test.c",
+    "HK:fsw/unit_test/hk_utils_test.c",
+    "HS:fsw/src/hs_app.c",
+    "HS:fsw/src/hs_cmds.c",
+    "HS:fsw/src/hs_custom.c",
+    "HS:fsw/src/hs_monitors.c",
+    "HS:fsw/src/hs_verify.h",
+    "HS:fsw/unit_test/hs_app_test.c",
+    "HS:fsw/unit_test/hs_cmds_test.c",
+    "HS:fsw/unit_test/hs_custom_test.c",
+    "HS:fsw/unit_test/hs_monitors_test.c",
+    "LC:fsw/src/lc_action.c",
+    "LC:fsw/src/lc_app.c",
+    "LC:fsw/src/lc_cmds.c",
+    "LC:fsw/src/lc_custom.c",
+    "LC:fsw/src/lc_verify.h",
+    "LC:fsw/src/lc_watch.c",
+    "LC:fsw/tables/lc_def_adt.c",
+    "LC:fsw/unit_test/lc_action_test.c",
+    "LC:fsw/unit_test/lc_app_test.c",
+    "LC:fsw/unit_test/lc_cmds_test.c",
+    "LC:fsw/unit_test/lc_custom_test.c",
+    "LC:fsw/unit_test/lc_watch_test.c",
+    "MD:fsw/src/md_app.c",
+    "MD:fsw/src/md_app.h",
+    "MD:fsw/src/md_cmds.c",
+    "MD:fsw/src/md_dwell_pkt.c",
+    "MD:fsw/src/md_dwell_tbl.c",
+    "MD:fsw/unit_test/md_app_test.c",
+    "MD:fsw/unit_test/md_cmds_test.c",
+    "MD:fsw/unit_test/md_dwell_tbl_test.c",
+    "SBN:modules/filter/ccsds_end/fsw/src/sbn_f_ccsds_end.c",
+    "SBN:modules/filter/remap/fsw/src/sbn_f_remap.c",
+    "SBN:modules/filter/test/fsw/src/sbn_f_test.c",
+    "SBN:modules/protocol/dtn/fsw/src/sbn_dtn_if.c",
+    "SBN:modules/protocol/serial/fsw/src/sbn_serial_if.c",
+    "SBN:modules/protocol/spacewire/fsw/src/spw_sbn_if.c",
+    "SBN:modules/protocol/spacewire/fsw/src/spw_sbn_if.h",
+    "SBN:modules/protocol/tcp/fsw/src/sbn_tcp_if.c",
+    "SBN:modules/protocol/udp/unit-test/coveragetest/coveragetest_sbn_udp_if.c",
+    "SBN:unit-test/coveragetest/coveragetest_sbn_cmds.c",
+    "SC:fsw/src/sc_app.c",
+    "SC:fsw/src/sc_atsrq.c",
+    "SC:fsw/src/sc_cmds.c",
+    "SC:fsw/src/sc_loads.c",
+    "SC:fsw/src/sc_rtsrq.c",
+    "SC:fsw/src/sc_state.c",
+    "SC:fsw/src/sc_utils.c",
+    "SC:fsw/src/sc_verify.h",
+    "SC:fsw/unit_test/sc_app_test.c",
+    "SC:fsw/unit_test/sc_atsrq_test.c",
+    "SC:fsw/unit_test/sc_cmds_test.c",
+    "SC:fsw/unit_test/sc_loads_test.c",
+    "SC:fsw/unit_test/sc_rtsrq_test.c",
+    "SC:fsw/unit_test/sc_state_test.c",
+    "osal:src/unit-tests/osprintf-test/ut_osprintf_offset.c",
+    "osal:src/unit-tests/osprintf-test/ut_osprintf_offset.h",
+    "osal:src/unit-tests/osprintf-test/ut_osprintf_offset_dummy.c",
+    "to_lab:fsw/tables/to_lab_sub.c"
+   ],
+   "breaks": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "osal",
+    "to_lab"
+   ]
+  }
+ }
+}

@@ -1,0 +1,309 @@
+{
+ "tool": "model-diff+list",
+ "version": "prompt v1",
+ "model": "alibaba/qwen3-coder-30b-a3b",
+ "changes": {
+  "C01": {
+   "answered": true,
+   "repos": [
+    "ci_lab",
+    "elf2cfetbl",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "to_lab"
+   ],
+   "files": [
+    "modules/cfe_testrunner/src/cfe_testrunner_main.c",
+    "modules/core_api/fsw/inc/cfe_error.h",
+    "modules/core_api/fsw/inc/cfe_es.h",
+    "modules/core_api/ut-stubs/src/ut_es_stubs.c",
+    "modules/core_private/ut-stubs/inc/ut_osprintf_stubs.h",
+    "modules/core_private/ut-stubs/src/ut_osprintf_stubs.c",
+    "modules/es/fsw/src/cfe_es_api.c",
+    "modules/es/fsw/src/cfe_es_apps.c",
+    "modules/es/fsw/src/cfe_es_backgroundtask.c",
+    "modules/es/fsw/src/cfe_es_task.c",
+    "modules/es/ut-coverage/es_UT.c",
+    "modules/evs/fsw/src/cfe_evs_task.c",
+    "modules/sb/ut-coverage/sb_UT.h"
+   ]
+  },
+  "C02": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "EdsLib",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "PSP",
+    "SBN",
+    "SC",
+    "cFE",
+    "ci_lab",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "to_lab"
+   ],
+   "files": []
+  },
+  "C03": {
+   "answered": true,
+   "repos": [
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "ci_lab",
+    "elf2cfetbl",
+    "osal",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "CMakeLists.txt",
+    "arch_build.cmake",
+    "cfe_core_api_base_msgids.h",
+    "cfe_msgids.h",
+    "cfs_msgids.h"
+   ]
+  },
+  "C04": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "EdsLib",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "PSP",
+    "SBN",
+    "SC",
+    "cFE",
+    "ci_lab",
+    "elf2cfetbl",
+    "sample_app",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "ci_lab/src/tasking-example/tasking-example.c",
+    "sample_app/src/tasking-example/tasking-example.c",
+    "tasking-example.c",
+    "to_lab/src/tasking-example/tasking-example.c"
+   ]
+  },
+  "C05": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "EdsLib",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "PSP",
+    "SBN",
+    "SC",
+    "cFE",
+    "ci_lab",
+    "elf2cfetbl",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": []
+  },
+  "C06": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "EdsLib",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "cFE",
+    "ci_lab",
+    "osal",
+    "sample_app"
+   ],
+   "files": [
+    "CMakeLists.txt",
+    "cfe_psp.h",
+    "cfe_psp_configdata.c",
+    "cfe_psp_configdata.h",
+    "cfe_psp_module.c",
+    "cfe_psp_version.c",
+    "fsw/inc/cfe_psp.h",
+    "psp_version.h"
+   ]
+  },
+  "C07": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "cFE",
+    "ci_lab",
+    "elf2cfetbl",
+    "sample_app",
+    "sch_lab",
+    "to_lab"
+   ],
+   "files": [
+    "ut_osfile_test.c"
+   ]
+  },
+  "C08": {
+   "answered": true,
+   "repos": [
+    "ci_lab",
+    "elf2cfetbl",
+    "osal",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "_datatypes.h",
+    "_typedefs.h",
+    "ccsds_spacepacket_eds_typedefs.h",
+    "cfe/fsw/cfe-core/src/fs/cfe_fs_api.c",
+    "cfe/fsw/cfe-core/src/msg/cfe_msg_api.c",
+    "cfe/fsw/cfe-core/src/sb/cfe_sb_api.c",
+    "cfe/fsw/cfe-core/src/tbl/cfe_tbl_api.c",
+    "cfe/fsw/cfe-core/src/time/cfe_time_api.c",
+    "cfe_fs_eds_typedefs.h",
+    "cfe_hdr_eds_typedefs.h",
+    "cfe_mission_eds_interface_parameters.h",
+    "cfe_missionlib_lua_softwarebus.h",
+    "cfe_missionlib_runtime.h",
+    "cfe_msg_commonhdr.c",
+    "cfe_msg_dispatcher.c",
+    "cfe_msg_hdr_eds.h",
+    "cfe_msg_init.c",
+    "cfe_msg_msgid.c",
+    "cfe_msg_sechdr_cmd.c",
+    "cfe_msg_sechdr_tlm.c",
+    "cfe_sb_eds_datatypes.h",
+    "cfe_sb_eds_typedefs.h",
+    "cfe_tbl_eds_typedefs.h",
+    "ci_to_lab_interface.c",
+    "eds2cfetbl.c",
+    "eds_tbltool_filedef.h",
+    "sample_app/fsw/src/sample_app.c",
+    "scriptengine.c",
+    "testctrl.c"
+   ]
+  },
+  "C09": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "ci_lab",
+    "elf2cfetbl",
+    "osal",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "modules/CF/fsw/src/cf_app.c",
+    "modules/CS/fsw/src/cs_app.c",
+    "modules/DS/fsw/src/ds_app.c",
+    "modules/FM/fsw/src/fm_app.c",
+    "modules/HK/fsw/src/hk_app.c",
+    "modules/HS/fsw/src/hs_app.c",
+    "modules/LC/fsw/src/lc_app.c",
+    "modules/MD/fsw/src/md_app.c",
+    "modules/SBN/fsw/src/sbn_core.c",
+    "modules/SC/fsw/src/sc_app.c",
+    "modules/cfe_testcase/src/sb_sendrecv_test.c",
+    "modules/ci_lab/fsw/src/ci_lab_app.c",
+    "modules/elf2cfetbl/src/elf2cfetbl.c",
+    "modules/osal/src/osapi.c",
+    "modules/sample_app/fsw/src/sample_app.c",
+    "modules/sample_lib/fsw/src/sample_lib.c",
+    "modules/sch_lab/fsw/src/sch_lab_app.c",
+    "modules/to_lab/fsw/src/to_lab_app.c"
+   ]
+  },
+  "C10": {
+   "answered": true,
+   "repos": [
+    "CF",
+    "CS",
+    "DS",
+    "EdsLib",
+    "FM",
+    "HK",
+    "HS",
+    "LC",
+    "MD",
+    "SBN",
+    "SC",
+    "ci_lab",
+    "elf2cfetbl",
+    "osal",
+    "sample_app",
+    "sample_lib",
+    "sch_lab",
+    "tblCRCTool",
+    "to_lab"
+   ],
+   "files": [
+    "ccsds.h",
+    "cfe_error.h",
+    "cfe_es.h",
+    "cfe_es_msg.h",
+    "cfe_es_shell.h",
+    "cfe_es_task.h",
+    "cfe_evs.h",
+    "cfe_evs_msg.h",
+    "cfe_fs.h",
+    "cfe_fs_decompress.h",
+    "cfe_sb.h",
+    "cpu1_platform_cfg.h",
+    "msgids.h",
+    "sample_mission_cfg.h"
+   ]
+  }
+ }
+}

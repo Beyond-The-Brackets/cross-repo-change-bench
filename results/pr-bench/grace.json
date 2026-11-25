@@ -1,0 +1,462 @@
+{
+ "https://github.com/calcom/cal.com/pull/10600": {
+  "tool": "grace",
+  "pr_url": "https://github.com/calcom/cal.com/pull/10600",
+  "review_comments": [
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 46,
+    "body": "Backup codes can be exhausted by attackers\n\nThe backup code verification process in the disable endpoint has a critical flaw where it deletes all backup codes instead of just the one used. This is a severe security vulnerability because it allows an attacker who gains access to a single backup code to effectively invalidate all backup codes for the account. The system should only delete the specific backup code that was used, not all backup codes. This creates a scenario where a single compromised backup code can be used to completely bypass 2FA for the account."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/setup.ts",
+    "line": 65,
+    "body": "Weak backup code generation\n\nThe backup code generation process uses crypto.randomBytes(5) which produces 40 bits of entropy (5 bytes * 8 bits/byte = 40 bits). However, the backup codes are formatted as 10-character hexadecimal strings (5 characters before dash + 5 characters after dash = 10 characters). This means the actual entropy is only 40 bits, which is insufficient for strong security. Additionally, the backup codes are stored in plain text in the database without proper encryption, making them vulnerable to exposure if the database is compromised. The system should use a higher entropy source for generating backup codes."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 18,
+    "body": "Inconsistent backup code validation\n\nThe backup code input field in the login form has a minimum length of 10 characters but a maximum length of 11 characters (including dash). This is inconsistent with the actual backup code format which is 10 characters without dashes and 11 with dashes. The field allows input of 11 characters but the validation logic in the backend expects 10 characters without dashes. This could lead to confusion and potential validation bypass issues during backup code entry."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 13,
+    "body": "Accessibility issue with auto-focus\n\nThe TwoFactor component has a autoFocus prop that defaults to true, which can cause accessibility issues for users with certain disabilities. While this is not a direct security vulnerability, it can impact usability for users who rely on screen readers or keyboard navigation. The component should respect user preferences regarding autofocus behavior."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/disable.ts",
+    "line": 46,
+    "body": "Inefficient backup code deletion\n\nThe backup code verification process in the disable endpoint has a critical flaw where it deletes all backup codes instead of just the one used. This is a severe performance issue because it causes unnecessary database operations and increases latency. Instead of deleting only the used backup code, the system deletes all backup codes and then re-encrypts them, which is computationally expensive and impacts performance under concurrent load."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 13,
+    "body": "Accessibility issue with auto-focus\n\nThe TwoFactor component has a autoFocus prop that defaults to true, which can cause accessibility issues for users with certain disabilities. While this is not a direct security vulnerability, it can impact usability for users who rely on screen readers or keyboard navigation. The component should respect user preferences regarding autofocus behavior."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 18,
+    "body": "Inconsistent backup code validation\n\nThe backup code input field in the login form has a minimum length of 10 characters but a maximum length of 11 characters (including dash). This is inconsistent with the actual backup code format which is 10 characters without dashes and 11 with dashes. The field allows input of 11 characters but the validation logic in the backend expects 10 characters without dashes. This could lead to confusion and potential validation bypass issues during backup code entry."
+   },
+   {
+    "path": "apps/web/components/settings/EnableTwoFactorModal.tsx",
+    "line": 100,
+    "body": "Complex conditional rendering in modal\n\nThe EnableTwoFactorModal component has a complex conditional rendering structure that makes it difficult to follow the flow of execution. The component uses multiple WithStep components and conditional rendering that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": "apps/web/components/settings/DisableTwoFactorModal.tsx",
+    "line": 100,
+    "body": "Complex conditional rendering in modal\n\nThe DisableTwoFactorModal component has a complex conditional rendering structure that makes it difficult to follow the flow of execution. The component uses multiple conditional statements and state management that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": "apps/web/pages/auth/login.tsx",
+    "line": 104,
+    "body": "Complex conditional rendering in login page\n\nThe login page has complex conditional rendering logic for the TwoFactorFooter component that makes it difficult to follow the flow of execution. The component uses multiple conditional statements and state management that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": "apps/web/components/settings/TwoFactorAuthAPI.ts",
+    "line": 19,
+    "body": "The app isn't laid out to grow\n\nThe TwoFactorAuthAPI module exposes a direct API interface that couples the frontend components to specific backend endpoints. This tight coupling makes it difficult to change the backend implementation without affecting the frontend components. The API should be abstracted behind a service layer to provide better separation of concerns and make the system more maintainable."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 13,
+    "body": "Accessibility issue with auto-focus\n\nThe TwoFactor component has a autoFocus prop that defaults to true, which can cause accessibility issues for users with certain disabilities. While this is not a direct security vulnerability, it can impact usability for users who rely on screen readers or keyboard navigation. The component should respect user preferences regarding autofocus behavior."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 18,
+    "body": "Inconsistent backup code validation\n\nThe backup code input field in the login form has a minimum length of 10 characters but a maximum length of 11 characters (including dash). This is inconsistent with the actual backup code format which is 10 characters without dashes and 11 with dashes. The field allows input of 11 characters but the validation logic in the backend expects 10 characters without dashes. This could lead to confusion and potential validation bypass issues during backup code entry."
+   },
+   {
+    "path": "packages/prisma/schema.prisma",
+    "line": 205,
+    "body": "Backup codes field definition\n\nThe backupCodes field in the User model is defined as String? which means it can be null. However, when backup codes are generated, they should always be present. The field should be defined as String to ensure that backup codes are always stored and validated. This prevents potential issues where backup codes might be missing or incorrectly handled in the application logic."
+   },
+   {
+    "path": "packages/lib/test/builder.ts",
+    "line": 192,
+    "body": "Incomplete test data for backup codes\n\nThe buildUser function in the test builder sets backupCodes to null by default. This doesn't accurately represent the real-world scenario where backup codes should be generated and stored when 2FA is enabled. This can lead to incomplete testing of backup code functionality and potential bugs in the backup code handling logic."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/setup.ts",
+    "line": 65,
+    "body": "Weak backup code generation\n\nThe backup code generation process uses crypto.randomBytes(5) which produces 40 bits of entropy (5 bytes * 8 bits/byte = 40 bits). However, the backup codes are formatted as 10-character hexadecimal strings (5 characters before dash + 5 characters after dash = 10 characters). This means the actual entropy is only 40 bits, which is insufficient for strong security. Additionally, the backup codes are stored in plain text in the database without proper encryption, making them vulnerable to exposure if the database is compromised. The system should use a higher entropy source for generating backup codes."
+   },
+   {
+    "path": "apps/web/pages/api/auth/two-factor/totp/setup.ts",
+    "line": 65,
+    "body": "Weak backup code generation\n\nThe backup code generation process uses crypto.randomBytes(5) which produces 40 bits of entropy (5 bytes * 8 bits/byte = 40 bits). However, the backup codes are formatted as 10-character hexadecimal strings (5 characters before dash + 5 characters after dash = 10 characters). This means the actual entropy is only 40 bits, which is insufficient for strong security. Additionally, the backup codes are stored in plain text in the database without proper encryption, making them vulnerable to exposure if the database is compromised. The system should use a higher entropy source for generating backup codes."
+   },
+   {
+    "path": "apps/web/components/auth/BackupCode.tsx",
+    "line": 18,
+    "body": "Inconsistent backup code validation\n\nThe backup code input field in the login form has a minimum length of 10 characters but a maximum length of 11 characters (including dash). This is inconsistent with the actual backup code format which is 10 characters without dashes and 11 with dashes. The field allows input of 11 characters but the validation logic in the backend expects 10 characters without dashes. This could lead to confusion and potential validation bypass issues during backup code entry."
+   },
+   {
+    "path": "apps/web/components/auth/TwoFactor.tsx",
+    "line": 13,
+    "body": "Accessibility issue with auto-focus\n\nThe TwoFactor component has a autoFocus prop that defaults to true, which can cause accessibility issues for users with certain disabilities. While this is not a direct security vulnerability, it can impact usability for users who rely on screen readers or keyboard navigation. The component should respect user preferences regarding autofocus behavior."
+   },
+   {
+    "path": "apps/web/pages/auth/login.tsx",
+    "line": 104,
+    "body": "Complex conditional rendering in login page\n\nThe login page has complex conditional rendering logic for the TwoFactorFooter component that makes it difficult to follow the flow of execution. The component uses multiple conditional statements and state management that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": "apps/web/components/settings/EnableTwoFactorModal.tsx",
+    "line": 100,
+    "body": "Complex conditional rendering in modal\n\nThe EnableTwoFactorModal component has a complex conditional rendering structure that makes it difficult to follow the flow of execution. The component uses multiple WithStep components and conditional rendering that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": "apps/web/components/settings/DisableTwoFactorModal.tsx",
+    "line": 100,
+    "body": "Complex conditional rendering in modal\n\nThe DisableTwoFactorModal component has a complex conditional rendering structure that makes it difficult to follow the flow of execution. The component uses multiple conditional statements and state management that can be simplified for better readability and maintainability. This complexity increases the likelihood of bugs and makes future modifications more error-prone."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "The app doesn't keep proper records of what happens in production\n\nunstructured logging (38\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production"
+   }
+  ],
+  "meta": {
+   "files_changed": 16,
+   "scope": 44,
+   "seconds": 71,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 33,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 31,
+    "baseline_findings": 16,
+    "prompt_tokens": 68988,
+    "completion_tokens": 6133,
+    "total_tokens": 75121,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1": {
+  "tool": "grace",
+  "pr_url": "https://github.com/ai-code-review-evaluation/discourse-graphite/pull/1",
+  "review_comments": [
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 246,
+    "body": "Users can upload oversized images\n\nSimilar to the first issue, the JavaScript code hardcodes the maximum image size to 10MB instead of using the configured site setting. This bypasses the intended configuration and could allow users to upload images larger than the system is designed to handle, potentially leading to denial-of-service or storage exhaustion attacks. The change removes the ability to adjust this limit via the admin panel, making it a critical security issue."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 55,
+    "body": "Downloads can exceed limits\n\nThe controller uses a hardcoded 10 megabyte limit for downloading files from URLs instead of using the configured site setting. This bypasses the intended configuration and could allow users to download files larger than the system is designed to handle, potentially leading to denial-of-service or bandwidth exhaustion attacks. The change removes the ability to adjust this limit via the admin panel."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "CPU-intensive image processing\n\nThe controller implements a loop that attempts to downsize images repeatedly until they are under the maximum size. This loop can run up to 5 times, and if the image is very large, it could consume significant CPU resources and potentially lead to a denial-of-service attack. The loop lacks a timeout or maximum execution time, making it a high-risk operation."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "Slow image processing\n\nThe controller implements a loop that attempts to downsize images repeatedly until they are under the maximum size. This loop can run up to 5 times, and if the image is very large, it could consume significant CPU resources and potentially lead to a denial-of-service attack. The loop lacks a timeout or maximum execution time, making it a high-risk operation."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 142,
+    "body": "Slow image optimization\n\nThe optimized image processing code uses a complex series of operations including resizing, thumbnail creation, and optimization. These operations are performed synchronously in the request path, which can significantly slow down the upload process for large images. This could lead to timeouts or poor user experience during peak usage periods."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 142,
+    "body": "Complex image processing code\n\nThe optimized image processing code has a complex structure with multiple methods that call each other. The code also has a lot of repetition in the method signatures, which makes it harder to read and maintain. The code also has a lot of inline comments that explain the purpose of the code, which is helpful for understanding but could be improved by extracting some of the logic into smaller, more focused methods."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "Blocking image processing\n\nThe controller performs image optimization in the request path, which blocks the request thread and can lead to poor performance under concurrent load. This violates the principle of keeping the request path lightweight and offloading heavy operations to background jobs or queues."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 142,
+    "body": "Hard-to-maintain image processing methods\n\nThe optimized image processing code has a complex structure with multiple methods that call each other. The code also has a lot of repetition in the method signatures, which makes it harder to read and maintain. The code also has a lot of inline comments that explain the purpose of the code, which is helpful for understanding but could be improved by extracting some of the logic into smaller, more focused methods."
+   },
+   {
+    "path": "app/models/optimized_image.rb",
+    "line": 142,
+    "body": "Confusing image processing logic\n\nThe optimized image processing code has a complex structure with multiple methods that call each other. The code also has a lot of repetition in the method signatures, which makes it harder to read and maintain. The code also has a lot of inline comments that explain the purpose of the code, which is helpful for understanding but could be improved by extracting some of the logic into smaller, more focused methods."
+   },
+   {
+    "path": "app/assets/javascripts/discourse/lib/utilities.js",
+    "line": 246,
+    "body": "This part of the app resists being changed \u2014 admin access\n\nThe JavaScript code hardcodes the maximum image size to 10MB instead of using the configurable site setting. This bypasses the intended configuration and could allow users to upload images larger than the system is designed to handle, potentially leading to denial-of-service or storage exhaustion attacks. The change removes the ability to adjust this limit via the admin panel, making it a critical security issue."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 55,
+    "body": "This part of the app resists being changed \u2014 admin access\n\nThe controller uses a hardcoded 10 megabyte limit for downloading files from URLs instead of using the configured site setting. This bypasses the intended configuration and could allow users to download files larger than the system is designed to handle, potentially leading to denial-of-service or bandwidth exhaustion attacks. The change removes the ability to adjust this limit via the admin panel."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "Unclear image processing loop\n\nThe controller implements a loop that attempts to downsize images repeatedly until they are under the maximum size. This loop can run up to 5 times, and if the image is very large, it could consume significant CPU resources and potentially lead to a denial-of-service attack. The loop lacks a timeout or maximum execution time, making it a high-risk operation. The code is not immediately clear about the potential for resource exhaustion."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "Potentially dangerous image processing loop\n\nThe controller implements a loop that attempts to downsize images repeatedly until they are under the maximum size. This loop can run up to 5 times, and if the image is very large, it could consume significant CPU resources and potentially lead to a denial-of-service attack. The loop lacks a timeout or maximum execution time, making it a high-risk operation. The code is not immediately clear about the potential for resource exhaustion."
+   },
+   {
+    "path": "app/controllers/uploads_controller.rb",
+    "line": 63,
+    "body": "Unbounded image processing loop\n\nThe controller implements a loop that attempts to downsize images repeatedly until they are under the maximum size. This loop can run up to 5 times, and if the image is very large, it could consume significant CPU resources and potentially lead to a denial-of-service attack. The loop lacks a timeout or maximum execution time, making it a high-risk operation. The code is not immediately clear about the potential for resource exhaustion."
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "Releases are done by hand, with no automated checks\n\nno CI/CD pipeline \u2014 manual, non-reproducible deployment/validation"
+   },
+   {
+    "path": ".",
+    "line": null,
+    "body": "The app doesn't keep proper records of what happens in production\n\nunstructured logging (24\u00d7 console.*) with no logger or error tracking \u2014 no visibility in production"
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 43,
+   "seconds": 120,
+   "files_reviewed": 43,
+   "deep_read": 43,
+   "findings_before_scoping": 28,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 28,
+    "baseline_findings": 20,
+    "prompt_tokens": 180629,
+    "completion_tokens": 10940,
+    "total_tokens": 191569,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/grafana/grafana/pull/103633": {
+  "tool": "grace",
+  "pr_url": "https://github.com/grafana/grafana/pull/103633",
+  "review_comments": [
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "Attackers can block access to any resource\n\nThe system implements a caching mechanism for user permissions that can be bypassed by explicitly denying access via a new cache entry. An attacker with access to the service could craft a request that results in a denial cache entry being set, effectively preventing legitimate access to resources even if the user has proper permissions. This is a critical authorization bypass vulnerability because it allows an attacker to deny access to any resource by simply setting a cache entry, regardless of actual permissions."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "Database queries are inefficient\n\nThe system performs redundant database lookups for user permissions when a cache miss occurs. Specifically, the code calls getIdentityPermissions twice in the Check method - once for cached permissions and again for fresh permissions. This creates unnecessary load on the database and increases latency for authorization decisions. Additionally, the code does not properly handle the case where cached permissions are retrieved but the user lacks the required permissions, leading to redundant database queries."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "Authorization logic is hard to follow\n\nThe Check method in the Service struct has a complex control flow with multiple nested conditional statements and early returns. The method has high cyclomatic complexity due to numerous branches for handling different identity types, cache hits/misses, and permission checks. This makes the method difficult to understand, test, and maintain. The code also mixes authorization logic with metrics collection and logging, violating separation of concerns."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "Cache design is flawed\n\nThe service uses a global cache for all types of permissions, including both positive and negative permissions. This creates a potential for cache pollution where denial entries might interfere with legitimate access patterns. Additionally, the cache key generation for denial entries is inconsistent with regular permission cache keys, which could lead to cache misses and performance degradation."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "This part of the app resists being changed \u2014 who can do what\n\nThe code duplicates logic for retrieving user identifiers and permissions in multiple places. The GetUserIdentifiers method is called from multiple locations, and the permission retrieval logic is repeated in both the Check and List methods. This duplication makes the code harder to maintain and increases the risk of inconsistencies when changes are made to the permission retrieval logic."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "The app does heavy work at the wrong moment\n\nThe system uses singleflight for deduplicating concurrent requests but does not properly handle the case where the same request is made concurrently by multiple users. This can lead to unnecessary blocking and reduced throughput when multiple users request the same resource simultaneously. Additionally, the cache TTL values are hardcoded and not configurable, which limits the ability to tune performance for different environments."
+   },
+   {
+    "path": "pkg/services/authz/rbac/service.go",
+    "line": null,
+    "body": "Inconsistent error handling\n\nThe code uses a mix of error handling patterns, including returning errors directly and using error wrapping. Some functions return errors while others use panic or log-and-return patterns. This inconsistency makes the code harder to reason about and maintain. Additionally, some error messages are not descriptive enough to help with debugging."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 101,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 17,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 8,
+    "baseline_findings": 15,
+    "prompt_tokens": 87498,
+    "completion_tokens": 1825,
+    "total_tokens": 89323,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/keycloak/keycloak/pull/32918": {
+  "tool": "grace",
+  "pr_url": "https://github.com/keycloak/keycloak/pull/32918",
+  "review_comments": [
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Login requests slow down under load\n\nThe getForLogin method performs multiple database queries and cache operations in a tight loop without proper batching or caching strategies. When many concurrent requests occur, this can lead to severe performance degradation and potential timeouts. The method fetches IDPs by ID multiple times in a loop, which creates an N+1 query pattern. Additionally, it invalidates and rebuilds cache entries unnecessarily, causing cache thrashing under high load. This can result in the system becoming unresponsive during peak usage periods, affecting all users trying to log in or access identity providers."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Excessive cache invalidations hurt performance\n\nThe registerIDPLoginInvalidation methods invalidate caches for all FetchMode values whenever an IDP is updated, even when the update doesn't affect login eligibility. This causes unnecessary cache invalidations and rebuilds, especially when IDPs are frequently updated but remain in the same login eligibility state. Under concurrent load, this leads to excessive cache invalidation traffic and increased database pressure, degrading overall system performance."
+   },
+   {
+    "path": "server-spi/src/main/java/org/keycloak/models/IdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Identity providers can be accessed by unauthorized users\n\nThe getLoginPredicate method in IdentityProviderStorageProvider has a critical vulnerability in its organization ID check. It allows IDPs to be accessible for login if they have a null organization ID OR if the organization's BROKER_PUBLIC config is true. However, the code doesn't properly validate that the organization actually exists or that the IDP is correctly linked to it. This could allow unauthorized access to IDPs that shouldn't be available for login, potentially exposing sensitive authentication endpoints to attackers who manipulate the organization ID or config values."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Complex logic is hard to understand and maintain\n\nThe registerIDPLoginInvalidationOnUpdate method has a complex control flow with multiple early returns and nested conditions that make it difficult to follow. The method uses a series of if statements to check different combinations of login eligibility states, which creates a pyramid of doom structure. This makes it hard to understand the complete logic flow and increases the risk of logical errors when modifying the method."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Large numbers of IDPs slow down login processing\n\nThe getForLogin method repeatedly calls session.identityProviders().getById() in a loop for each cached IDP, creating a performance bottleneck under concurrent load. Each call to getById triggers a separate database query or cache lookup, which can become very expensive when processing large numbers of IDPs. This pattern is particularly problematic when the cache is cold or when there are many IDPs to process, as it leads to multiple round trips to the underlying storage system."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Cache efficiency decreases with new features\n\nThe cache key generation for login caches uses FetchMode enumeration values directly in the key string, which can lead to cache fragmentation and inefficient memory usage. When new FetchMode values are added or existing ones are modified, it can cause cache invalidation cascades and reduce cache hit rates. Additionally, the cache invalidation process in getForLogin method can cause cache thrashing when multiple concurrent requests try to rebuild the same cache entries simultaneously."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Code duplication makes maintenance harder\n\nThe code contains multiple duplicated cache invalidation patterns and similar logic blocks that could be consolidated into reusable methods. The registerIDPLoginInvalidation and registerIDPLoginInvalidationOnUpdate methods both contain logic for checking login eligibility and invalidating caches, but they're implemented separately with slight variations. This duplication increases maintenance burden and the likelihood of inconsistencies between the two methods."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Cache rebuilding can be inefficient with many entries\n\nThe getForLogin method has a potential performance issue when processing large numbers of cached IDPs. If the cache contains many entries and the session.identityProviders().getById() calls return null for some entries, the method will invalidate the entire cache and rebuild it. While this is a safety mechanism, it can cause performance degradation when the cache is large and frequently invalidated due to missing entries."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "This part of the app is easy to break by accident\n\nThe code contains some minor code smells such as unused imports and variables that could be cleaned up. There are also some comments that could be improved to better explain the purpose of certain sections of code. While these don't directly impact functionality, they contribute to code quality and maintainability."
+   },
+   {
+    "path": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/idp/InfinispanIdentityProviderStorageProvider.java",
+    "line": null,
+    "body": "Method names could be more descriptive\n\nThe method names and variable names in the registerIDPLoginInvalidation methods could be more descriptive to improve code readability. The term 'login caches' is used but could be more specific about what exactly is being cached. Better naming would help developers understand the purpose of these methods more quickly."
+   }
+  ],
+  "meta": {
+   "files_changed": 4,
+   "scope": 44,
+   "seconds": 94,
+   "files_reviewed": 44,
+   "deep_read": 44,
+   "findings_before_scoping": 21,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 15,
+    "baseline_findings": 20,
+    "prompt_tokens": 129951,
+    "completion_tokens": 3512,
+    "total_tokens": 133463,
+    "fell_back": false
+   }
+  }
+ },
+ "https://github.com/getsentry/sentry/pull/67876": {
+  "tool": "grace",
+  "pr_url": "https://github.com/getsentry/sentry/pull/67876",
+  "review_comments": [
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 129,
+    "body": "Something here isn't protected the way it should be \u2014 staying signed in\n\nThe error() function in GitHubIntegrationProvider constructs the document_origin by directly interpolating the organization URL without proper sanitization. This can lead to reflected XSS if the organization URL contains malicious JavaScript. The vulnerability is exploitable by an attacker who can control the organization URL, potentially leading to unauthorized actions or data theft. The impact is high as it allows for arbitrary code execution in the victim's browser context."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 394,
+    "body": "Something here isn't protected the way it should be \u2014 signing in\n\nThe OAuthLoginView class directly passes the installation_id from the request GET parameters to the pipeline without validating or sanitizing it. This creates a potential for injection attacks or manipulation of the installation flow. If an attacker can control the installation_id parameter, they could potentially bypass authentication checks or manipulate the installation process. The impact is critical as it could allow unauthorized access to GitHub installations."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 407,
+    "body": "Something here isn't protected the way it should be \u2014 who can do what\n\nThe GitHubInstallation class fetches installation_id from request.GET or pipeline state without proper validation. If an attacker can manipulate the installation_id parameter, they could potentially access installations they shouldn't have access to. This could lead to unauthorized access to repositories or other sensitive data. The vulnerability is exploitable if the installation_id is not properly validated against the user's permissions."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 440,
+    "body": "Missing validation of installation ownership in GitHub integration\n\nThe GitHubInstallation class checks if an installation exists by querying the database using the installation_id. However, it doesn't validate that the installation_id belongs to the current user or organization. This could allow an attacker to access installations they don't own by guessing or manipulating the installation_id parameter. The impact is high as it could lead to unauthorized access to repositories and sensitive data."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 452,
+    "body": "User impersonation in GitHub installation flow\n\nThe GitHubInstallation class fetches the integration from the database using the installation_id without checking if the authenticated user is the one who originally installed the app. This creates a critical security vulnerability where any user can potentially impersonate another user's GitHub installation. The impact is critical as it allows for unauthorized access to repositories and other sensitive data."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 394,
+    "body": "Deeply nested control flow in GitHub OAuth login\n\nThe OAuthLoginView class has deeply nested conditional statements and multiple return points, making the control flow difficult to follow. The method mixes authentication logic with redirection and error handling, creating a tangled flow that is hard to reason about. The impact is high as it makes the code hard to understand and maintain."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 420,
+    "body": "The app isn't laid out to grow \u2014 your database\n\nThe GitHubInstallation class uses a direct database query to check for pending deletions. This approach tightly couples the integration logic with the database, making it difficult to test and maintain. The impact is medium as it affects maintainability but not system stability."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 420,
+    "body": "Scattered logic in GitHub installation handling\n\nThe GitHubInstallation class has multiple conditional checks and database queries that make the code harder to read and understand. The logic for checking installation status and handling different scenarios is scattered throughout the method. This reduces code clarity and makes it harder to maintain. The impact is medium as it affects readability but not system stability."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 420,
+    "body": "Interleaved logic in GitHub installation handling\n\nThe GitHubInstallation class has a complex sequence of conditional checks and database queries that are hard to follow. The logic for handling different installation states (pending deletion, existing installation, etc.) is intertwined, making it difficult to understand the intended flow. The impact is medium as it affects code readability but not system stability."
+   },
+   {
+    "path": "src/sentry/integrations/github/integration.py",
+    "line": 420,
+    "body": "Tightly coupled database queries in GitHub installation\n\nThe GitHubInstallation class has multiple database queries and conditional checks that are tightly coupled. This creates technical debt by making the code harder to test and modify. The impact is medium as it affects maintainability but not system stability."
+   }
+  ],
+  "meta": {
+   "files_changed": 3,
+   "scope": 48,
+   "seconds": 132,
+   "files_reviewed": 48,
+   "deep_read": 48,
+   "findings_before_scoping": 23,
+   "llm": {
+    "attempted": true,
+    "model": "alibaba/qwen3-coder-30b-a3b",
+    "batches": 1,
+    "batches_failed": 0,
+    "llm_findings": 18,
+    "baseline_findings": 20,
+    "prompt_tokens": 135448,
+    "completion_tokens": 3457,
+    "total_tokens": 138905,
+    "fell_back": false
+   }
+  }
+ }
+}

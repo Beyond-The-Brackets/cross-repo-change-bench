@@ -1,0 +1,92 @@
+{
+  "producer": "osal",
+  "base": "53f7f6167052a94de4d2de96c62dd71a63601654",
+  "head": "367007601eeea66b54da02d7cbd31caeaccdb7af",
+  "symbols": [
+    {
+      "name": "OS_TaskRegister",
+      "status": "removed",
+      "kind": "function",
+      "headers": [
+        "src/os/inc/osapi-task.h"
+      ]
+    }
+  ],
+  "headers_changed": [
+    "src/os/inc/osapi-task.h",
+    "src/os/shared/inc/os-shared-task.h"
+  ],
+  "consumers": [
+    {
+      "repo": "CF",
+      "sha": "cbda7b9cad82e0d37cd0080e21f79b18eb571b17",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "fsw/unit_test/ut-assert/src/ut_osapi_stubs.c",
+          "symbols": [
+            "OS_TaskRegister"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            149
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    },
+    {
+      "repo": "cFE",
+      "sha": "98bc15851ebbca83b01947520232ca0cf67a30cf",
+      "own_copy": [],
+      "breaks": true,
+      "to_check": false,
+      "files": [
+        {
+          "path": "modules/es/fsw/src/cfe_es_api.c",
+          "symbols": [
+            "OS_TaskRegister"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            654,
+            1312
+          ],
+          "comment_only": false,
+          "breaks": true
+        },
+        {
+          "path": "modules/es/ut-coverage/es_UT.c",
+          "symbols": [
+            "OS_TaskRegister"
+          ],
+          "in_conditions_only": [],
+          "mentioned": [],
+          "lines": [
+            2204,
+            2241,
+            3986,
+            5294
+          ],
+          "comment_only": false,
+          "breaks": true
+        }
+      ],
+      "test_files": 1
+    }
+  ],
+  "unreadable": [],
+  "truncated": null,
+  "not_known": [
+    "C/C++ headers only: Ada specs, Java classes and files generated from a model (EDS, IDL) are not read",
+    "members of a struct or of a C++ class: a removed field keeps its type's name, so it is not seen",
+    "uses through a name built by a macro (##), a function pointer or a message on a software bus",
+    "whether a changed signature still fits each call: those files are listed to check, not as broken"
+  ]
+}

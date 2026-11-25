@@ -1,0 +1,82 @@
+{
+ "_rule": "Decided by hand on each free-text review, after reading it whole. warns_elsewhere: the review says that code depending on a public element it names (a function, a macro, a type) may break, even without naming where that code is and even when the reason it gives is not the real one. A generic remark about this repository's own code does not count. not_a_repository: a repository name used as an ordinary word (CS for checksum, HK for housekeeping). also_names: a repository the review names with another spelling (\"CFE\", \"Core Flight Executive\" for cFE), credited as named.",
+ "pr-agent": {
+  "C01": {
+   "warns_elsewhere": false,
+   "note": "the removed child-task registration is discussed inside cFE (task tracking); no word on applications that call CFE_ES_RegisterApp"
+  },
+  "C02": {
+   "warns_elsewhere": false,
+   "note": "whether osal's own tests still test the same failure"
+  },
+  "C03": {
+   "warns_elsewhere": false,
+   "note": "compatibility of the new topic-id macros with message-id formats, not with users of the removed MID_BASE macros"
+  },
+  "C04": {
+   "warns_elsewhere": false,
+   "note": "a documentation wording inside osal"
+  },
+  "C05": {
+   "warns_elsewhere": true,
+   "note": "'could break existing code that depends on the old function name'"
+  },
+  "C06": {
+   "warns_elsewhere": true,
+   "note": "'any code relying on these macros directly will need to be updated': the real breakage, without saying where"
+  },
+  "C07": {
+   "warns_elsewhere": false,
+   "note": "inconsistent error codes across osal's own tests"
+  },
+  "C08": {
+   "warns_elsewhere": true,
+   "note": "'compatibility issues if existing code relies on the old type names'"
+  },
+  "C09": {
+   "warns_elsewhere": true,
+   "note": "'could break existing code that relies on the old function name'"
+  },
+  "C10": {
+   "warns_elsewhere": true,
+   "note": "'a breaking change for any code that directly references this MID'"
+  }
+ },
+ "model-diff": {
+  "C01": {
+   "warns_elsewhere": true
+  },
+  "C02": {
+   "warns_elsewhere": true
+  },
+  "C03": {
+   "warns_elsewhere": true
+  },
+  "C04": {
+   "warns_elsewhere": true,
+   "note": "'any code outside osal that calls OS_TaskRegister will break'"
+  },
+  "C05": {
+   "warns_elsewhere": true
+  },
+  "C06": {
+   "warns_elsewhere": true
+  },
+  "C07": {
+   "warns_elsewhere": true
+  },
+  "C08": {
+   "warns_elsewhere": true
+  },
+  "C09": {
+   "warns_elsewhere": true,
+   "note": "names SBN only as an example of a component that calls CFE_SB_TransmitMsg; counted as a naming, as the rule says"
+  },
+  "C10": {
+   "warns_elsewhere": true
+  }
+ },
+ "model-diff+list": {
+  "_note": "every short name was checked in context: all are used as repository names, e.g. '**HK** (Housekeeping) - Files: ...'"
+ }
+}

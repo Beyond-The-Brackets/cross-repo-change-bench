@@ -1,0 +1,169 @@
+{
+ "tool": "model-diff",
+ "version": "prompt v1",
+ "model": "alibaba/qwen3-coder-30b-a3b",
+ "changes": {
+  "C01": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "CMakeLists.txt",
+    "cfe_error.h",
+    "cfe_es.h",
+    "modules/cfe_testrunner/src/cfe_testrunner_main.c",
+    "modules/es/fsw/src/cfe_es_backgroundtask.c",
+    "modules/es/fsw/src/cfe_es_task.c",
+    "modules/evs/fsw/src/cfe_evs_task.c",
+    "modules/sb/fsw/src/cfe_sb_task.c",
+    "modules/tbl/fsw/src/cfe_tbl_task.c",
+    "modules/time/fsw/src/cfe_time_task.c",
+    "modules/time/fsw/src/cfe_time_tone.c",
+    "ut_es_stubs.c",
+    "ut_osprintf_stubs.c"
+   ]
+  },
+  "C02": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "ut_assert/inc/utstubs.h",
+    "utstubs.h"
+   ]
+  },
+  "C03": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "_topicids.h",
+    "cfe_core_api_base_msgids.h",
+    "cfe_mission_cfg.h",
+    "cfe_msgids.h",
+    "cmake/arch_build.cmake",
+    "cmake/mission_build.cmake",
+    "evs_UT.c",
+    "global_topicids.h",
+    "modules/cfe_testcase/src/sb_subscription_test.c",
+    "msgids.h"
+   ]
+  },
+  "C04": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_app.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_cds.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_child.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_cmd.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_countdown.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_ee.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_event.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_file.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_hk.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_log.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_main.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_memmgr.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_mempool.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_msg.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_perf.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_reset.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_resource.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_sbr.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_shell.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_shellcmd.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_startup.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_state.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_syslog.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_task.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_task.h",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_tasktbl.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_time.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_timer.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_tlm.c",
+    "cfs/cfe/fsw/cfe-core/src/es/cfe_es_watchdog.c"
+   ]
+  },
+  "C05": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C06": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "CMakeLists.txt",
+    "cfe_psp.h",
+    "cfe_psp_configdata.c",
+    "cfe_psp_configdata.h",
+    "cfe_psp_module.c",
+    "cfe_psp_version.c",
+    "fsw/inc/cfe_psp.h",
+    "psp_version.h",
+    "unit-test-coverage/ut-stubs/src/cfe-configdata-stubs.c",
+    "ut-stubs/ut_psp_stubs.c"
+   ]
+  },
+  "C07": {
+   "answered": true,
+   "repos": [],
+   "files": []
+  },
+  "C08": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "_datatypes.h",
+    "_typedefs.h",
+    "ccsds_spacepacket_eds_typedefs.h",
+    "cfe_fs_eds_typedefs.h",
+    "cfe_hdr_eds_typedefs.h",
+    "cfe_mission_eds_interface_parameters.h",
+    "cfe_mission_eds_parameters.h",
+    "cfe_sb_eds_datatypes.h",
+    "cfe_sb_eds_typedefs.h",
+    "cfe_tbl_eds_typedefs.h"
+   ]
+  },
+  "C09": {
+   "answered": true,
+   "repos": [
+    "SBN"
+   ],
+   "files": [
+    "cfe_msg.h",
+    "cfe_msg_handlers.c",
+    "cfe_msg_stubs.c",
+    "cfe_sb_stubs.c",
+    "sb_UT.c",
+    "test_cfe_msg_init.c",
+    "test_cfe_msg_verify.c"
+   ]
+  },
+  "C10": {
+   "answered": true,
+   "repos": [],
+   "files": [
+    "ccsds.h",
+    "cfe_error.h",
+    "cfe_es.h",
+    "cfe_es_msg.h",
+    "cfe_es_shell.h",
+    "cfe_evs.h",
+    "cfe_evs_msg.h",
+    "cfe_fs.h",
+    "cfe_fs_decompress.h",
+    "cfe_mission_cfg.h",
+    "cfe_platform_cfg.h",
+    "cfe_sb.h",
+    "cpuX_msgids.h",
+    "cpuX_platform_cfg.h",
+    "mission_cfg.h",
+    "msgids.h",
+    "my_mission/cpu1_msgids.h",
+    "my_mission/cpu1_platform_cfg.h",
+    "platform_cfg.h",
+    "sample_mission_cfg.h"
+   ]
+  }
+ }
+}
