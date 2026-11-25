@@ -10,12 +10,13 @@ MODEL ?= alibaba/qwen3-coder-30b-a3b
 MAX_TOKENS ?= 100000
 CHANGES := $(shell $(PYTHON) -c "import json;print(' '.join(c['id'] for c in json.load(open('truth.json'))['changes']))")
 
-.PHONY: score setup truth snapshot grace pr-agent model all
+.PHONY: score setup truth snapshot grace pr-agent model debt all
 
 score:
 	$(PYTHON) bench.py score
 	TRACK=fields $(PYTHON) bench.py score
 	$(PYTHON) bench.py score --dir results/qwen2.5-coder-7b
+	$(PYTHON) tools/score_debt.py > /dev/null
 
 setup:
 	$(PYTHON) bench.py setup
@@ -39,4 +40,11 @@ model: setup
 	API_BASE=$(API_BASE) MODEL=$(MODEL) $(PYTHON) tools/model.py diff && $(PYTHON) bench.py answers model-diff
 	API_BASE=$(API_BASE) MODEL=$(MODEL) $(PYTHON) tools/model.py diff+list && $(PYTHON) bench.py answers model-diff+list
 
-all: grace pr-agent model score
+# Track 3 reruns every snapshot from scratch (about 10 minutes and $0.35 of model each).
+GRACE_ENGINE ?= ../../engine
+DEBT_MODEL ?= alibaba/qwen3.8-27b
+debt: setup
+	API_BASE=$(API_BASE) MODEL=$(DEBT_MODEL) uv run --project $(GRACE_ENGINE) python tools/debt_scan.py $(CHANGES) $(shell $(PYTHON) -c "import json;print(' '.join(c['id'] for c in json.load(open('truth-fields.json'))['changes']))")
+	$(PYTHON) tools/score_debt.py
+
+all: grace pr-agent model debt score

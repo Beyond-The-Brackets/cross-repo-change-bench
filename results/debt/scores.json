@@ -1,0 +1,303 @@
+{
+ "counts": {
+  "scan": 0,
+  "header": 5,
+  "name": 2
+ },
+ "changes": [
+  {
+   "change": "C01",
+   "producer": "cFE",
+   "subject": "Fix #1215, remove task registration calls",
+   "names": [
+    "CFE_ES_RegisterApp",
+    "CFE_ES_RegisterChildTask"
+   ],
+   "headers": [
+    "modules/core_api/fsw/inc/cfe_es.h"
+   ],
+   "scan": [],
+   "header": [
+    "modules/core_api/fsw/inc/cfe_es.h:373 CFE_ES_RunLoop",
+    "modules/core_api/fsw/inc/cfe_es.h:347 CFE_ES_ExitApp",
+    "modules/core_api/fsw/inc/cfe_es.h:61 CFE_ES_TEST_LONG_MASK"
+   ],
+   "name": [],
+   "interface_debts_in_producer": 76,
+   "headers_read": 15
+  },
+  {
+   "change": "C02",
+   "producer": "osal",
+   "subject": "fix #559 Refactoring UT_SetForceFail to UT_SetDefaultReturnValue",
+   "names": [
+    "UT_SetForceFail"
+   ],
+   "headers": [
+    "ut_assert/inc/utstubs.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C03",
+   "producer": "cFE",
+   "subject": "Fix #2473, document and use topicid numbers for cfe",
+   "names": [
+    "CFE_PLATFORM_CMD_MID_BASE",
+    "CFE_PLATFORM_TLM_MID_BASE"
+   ],
+   "headers": [
+    "modules/core_api/config/default_cfe_core_api_base_msgids.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 66,
+   "headers_read": 14
+  },
+  {
+   "change": "C04",
+   "producer": "osal",
+   "subject": "Fix #853, remove OS_TaskRegister",
+   "names": [
+    "OS_TaskRegister"
+   ],
+   "headers": [
+    "src/os/inc/osapi-task.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C05",
+   "producer": "osal",
+   "subject": "Fix #737, UT_Stub_CheckForceFail -> UT_Stub_CheckDefaultReturnValue",
+   "names": [
+    "UT_Stub_CheckForceFail"
+   ],
+   "headers": [
+    "ut_assert/inc/utstubs.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C06",
+   "producer": "PSP",
+   "subject": "Fix #280, remove psp configdata global object",
+   "names": [
+    "CFE_PSP_VERSION"
+   ],
+   "headers": [
+    "fsw/inc/cfe_psp.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C07",
+   "producer": "osal",
+   "subject": "Fix #262, Deprecates OS_FS_* defines that aren't unique to FS",
+   "names": [
+    "OS_FS_ERROR",
+    "OS_FS_ERR_INVALID_POINTER",
+    "OS_FS_SUCCESS"
+   ],
+   "headers": [
+    "src/os/inc/osapi-os-filesys.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C08",
+   "producer": "EdsLib",
+   "subject": "Fix #85, updates to struct/typedef names",
+   "names": [
+    "CFE_HDR_CommandHeader_Buffer_t",
+    "CFE_HDR_CommandHeader_PackedBuffer_t",
+    "CFE_HDR_CommandHeader_t",
+    "CFE_HDR_TelemetryHeader_PackedBuffer_t",
+    "CFE_SB_Telecommand_Interface_ID",
+    "CFE_SB_Telemetry_Interface_ID"
+   ],
+   "headers": [],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "C09",
+   "producer": "cFE",
+   "subject": "Fix #2467, message integrity API",
+   "names": [
+    "CFE_MSG_UpdateHeader"
+   ],
+   "headers": [
+    "modules/core_api/fsw/inc/cfe_msg.h"
+   ],
+   "scan": [],
+   "header": [
+    "modules/core_api/fsw/inc/cfe_msg.h:61 CFE_MSG_Init",
+    "modules/core_api/fsw/inc/cfe_msg.h:708 CFE_SB_MsgId_t",
+    "modules/core_api/fsw/inc/cfe_msg.h:656 CFE_TIME_SysTime_t"
+   ],
+   "name": [],
+   "interface_debts_in_producer": 74,
+   "headers_read": 15
+  },
+  {
+   "change": "C10",
+   "producer": "cFE",
+   "subject": "Fix #815, remove all deprecated code",
+   "names": [
+    "CFE_ES_APP_ERROR",
+    "CFE_ES_APP_RUN",
+    "CFE_ES_SHELL_TLM_MID",
+    "CFE_EVS_CRITICAL",
+    "CFE_EVS_DEBUG",
+    "CFE_EVS_ERROR",
+    "CFE_EVS_INFORMATION"
+   ],
+   "headers": [
+    "cmake/sample_defs/cpu1_msgids.h",
+    "fsw/cfe-core/src/inc/cfe_es.h",
+    "fsw/cfe-core/src/inc/cfe_evs.h"
+   ],
+   "scan": [],
+   "header": [
+    "fsw/cfe-core/src/inc/cfe_es.h:114 CFE_ES_PROCESSOR_RESET",
+    "fsw/cfe-core/src/inc/cfe_es.h:344 CFE_ES_STATIC_POOL_TYPE",
+    "fsw/cfe-core/src/inc/cfe_es.h:63 CFE_ES_MAX_MEMPOOL_BLOCK_SIZES"
+   ],
+   "name": [],
+   "interface_debts_in_producer": 75,
+   "headers_read": 15
+  },
+  {
+   "change": "F01",
+   "producer": "osal",
+   "subject": "Fix #429, update OS_time_t definition to 64-bit ticks",
+   "names": [
+    "OS_time_t",
+    "microsecs"
+   ],
+   "headers": [
+    "src/os/inc/osapi-clock.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 0,
+   "headers_read": 15
+  },
+  {
+   "change": "F02",
+   "producer": "cFE",
+   "subject": "Fix #1009, Alignment pattern - core updates",
+   "names": [
+    "BaseMsg",
+    "CFE_SB_CmdHdr_t",
+    "CFE_SB_TlmHdr_t"
+   ],
+   "headers": [
+    "fsw/cfe-core/src/inc/cfe_sb.h"
+   ],
+   "scan": [],
+   "header": [
+    "fsw/cfe-core/src/inc/cfe_sb.h:141 CFE_SB_CmdHdr_t.Cmd",
+    "fsw/cfe-core/src/inc/cfe_sb.h:147 CFE_SB_TlmHdr_t.Tlm",
+    "fsw/cfe-core/src/inc/cfe_sb.h:151 CFE_SB_CMD_HDR_SIZE"
+   ],
+   "name": [
+    {
+     "symbol": "CFE_SB_CmdHdr_t.Cmd",
+     "line": 141,
+     "quote": "CFE_MSG_CommandHeader_t Cmd;",
+     "why": "The union exposes the command header and base message as directly accessible members, so user code can depend on the current header layout and type-punning. If cFE changes CFE_MSG_CommandHeader_t fields, order, alignment, or the base message representation, users that read or cast Cmd/BaseMsg must change."
+    },
+    {
+     "symbol": "CFE_SB_TlmHdr_t.Tlm",
+     "line": 147,
+     "quote": "CFE_MSG_TelemetryHeader_t Tlm;",
+     "why": "The union exposes the telemetry header and base message as directly accessible members, tying user code to the current telemetry header layout. If cFE changes the telemetry header fields, size, or base message representation, users that access Tlm/BaseMsg must change."
+    }
+   ],
+   "interface_debts_in_producer": 72,
+   "headers_read": 15
+  },
+  {
+   "change": "F03",
+   "producer": "cFE",
+   "subject": "Fix #2514, change CFE_MSG_Message from union to struct",
+   "names": [
+    "Byte",
+    "CFE_MSG_Message"
+   ],
+   "headers": [
+    "modules/msg/option_inc/default_cfe_msg_hdr_pri.h",
+    "modules/msg/option_inc/default_cfe_msg_hdr_priext.h"
+   ],
+   "scan": [],
+   "header": [],
+   "name": [],
+   "interface_debts_in_producer": 71,
+   "headers_read": 15
+  },
+  {
+   "change": "F04",
+   "producer": "cFE",
+   "subject": "Fix #711, Update SB/CCSDS FSW for msg module",
+   "names": [
+    "CCSDS_CommandPacket_t",
+    "CCSDS_TelemetryPacket_t",
+    "CFE_SB_Msg_t",
+    "SpacePacket"
+   ],
+   "headers": [
+    "fsw/cfe-core/src/inc/ccsds.h",
+    "fsw/cfe-core/src/inc/cfe_sb.h"
+   ],
+   "scan": [],
+   "header": [
+    "fsw/cfe-core/src/inc/ccsds.h:164 CCSDS_SpacePacket_t.ApidQ",
+    "fsw/cfe-core/src/inc/ccsds.h:53 CCSDS_TIME_SIZE",
+    "fsw/cfe-core/src/inc/ccsds.h:88 CCSDS_PriHdr_t.StreamId"
+   ],
+   "name": [
+    {
+     "symbol": "CCSDS_CmdPkt_t",
+     "line": 211,
+     "quote": "typedef CCSDS_CommandPacket_t CCSDS_CmdPkt_t;",
+     "why": "The deprecated CFE 6.5 alias keeps an old name alive in the public contract; users may continue to use CCSDS_CmdPkt_t, so any future removal or semantic change forces coordinated migration across dependent repositories."
+    },
+    {
+     "symbol": "CFE_SB_Msg_t",
+     "line": 154,
+     "quote": "uint8 Byte[sizeof(CCSDS_PriHdr_t)]; /**< \\brief Allows byte-level access",
+     "why": "Users can index raw header bytes or rely on the primary header occupying exactly this array; any change to CCSDS_PriHdr_t size, field order, padding, or endianness silently breaks every app that parses or patches messages."
+    }
+   ],
+   "interface_debts_in_producer": 78,
+   "headers_read": 15
+  }
+ ]
+}
